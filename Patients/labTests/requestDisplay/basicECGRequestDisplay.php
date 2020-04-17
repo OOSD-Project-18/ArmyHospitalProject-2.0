@@ -54,12 +54,12 @@
             <label>Ward : </label>".$basicECGRequestObject->getProperty('ward')."<br><br>";
 
             for ($i=0; $i < count($basicECGRequestObject->getProperty('conditions')) ; $i++) {
-              echo "<div class='section'><span>*</span></div><b>".($basicECGRequestObject->getProperty('conditions'))[$i]."</b><br>";
+              echo "<div class='section'><span>*</span></div><b>".($basicECGRequestObject->getProperty('conditions'))[$i]."</b><br><br>";
             }
             echo "<br>";
             for ($i=0; $i < count($basicECGRequestObject->getProperty('leads')) ; $i++) {
               if ($basicECGRequestObject->getProperty('leads')[$i] != "") {
-                echo "<div class='section'><span>*</span></div><b>".($basicECGRequestObject->getProperty('leads'))[$i]."</b><br>";
+                echo "<div class='section'><span>*</span></div><b>".($basicECGRequestObject->getProperty('leads'))[$i]."</b><br><br>";
               }
             }
 

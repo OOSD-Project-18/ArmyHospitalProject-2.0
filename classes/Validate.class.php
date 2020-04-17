@@ -53,8 +53,8 @@ class Validate{
                                 }
                                 break;
                         case 'IDformat':
-                                if(!is_numeric(substr($value,0,8)) || !$value[9]==='V'){
-                                    $this->addError($rules['name']."must be a valid National ID number in format xxxxxxxxxV");
+                                if(!is_numeric(substr($value,0,8)) || !($value[9]=='V')){
+                                    $this->addError($rules['name']." must be a valid National ID number in format xxxxxxxxxV");
                                 }
                         break;
                     }

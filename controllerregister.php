@@ -21,7 +21,7 @@ if (Input::exists()) {
 
             ),
             'user_uid' => array(
-                'name' => 'User name',
+                'name' => 'ID Number',
                 'required' => true,
                 'min' => 10,
                 'max' => 10,

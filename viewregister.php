@@ -46,7 +46,7 @@ $error_msg = Input::get('error_msg');
                         <input type="text" name="user_last" id="user_last" class='form-control' value="<?php echo escape(Input::get('user_last')); ?>" autocomplete="off" placeholder="Last Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="user_uid" id="user_uid" class='form-control' value="<?php echo escape(Input::get('user_uid')); ?>" autocomplete="off" placeholder="ID Number" required>
+                        <input type="text" name="user_uid" id="user_uid" class='form-control' value="<?php echo escape(Input::get('user_uid')); ?>" autocomplete="off" placeholder="NIC Number to be used as Username" required>
                     </div>
                     <div class="form-group ">
                         <p> Select Category <p>

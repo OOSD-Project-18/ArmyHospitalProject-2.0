@@ -28,46 +28,19 @@ if (!$user->isLoggedIn()) {
 
     <body id='main'>
 
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light shadow ">
-                <a class="navbar-brand" href="viewhome.php">
-                    <img src="stylesheets/Army.png" width="45" height="35" class="d-inline-block align-top" alt="">
-                </a>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <?php if ($data->user_imgstatus) { 
-                                    $uid=$data->user_uid;
-                                    $imgSource='staffprofileimgs/profileimg'.$uid.'.jpg';?><!--only allow jpg-->
-                                    <!--profile pic-->
-                                    <img src=<?php echo $imgSource ?> width="25" height="25" class="d-inline-block align-top rounded-circle"alt="profile pic">
-                                <?php } else { ?>
-                                    <img src="stylesheets/defaultprofileimg.jpg" width="25" height="25" class="d-inline-block align-top rounded-circle" alt="options">
-                                <?php } ?>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="update.php">Edit profile </a>
-                                <a class="dropdown-item" href="updatepassword.php">Change Password</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="logout.php">Log out</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-        </header>
+        <?php include('_header.php');?>
 
         <main>
-            <?php include_once 'stylesheets/sidebar.html' ?>
+            <?php include('stylesheets/sidebar.html') ?>
             <div id="mySidebar" class="sidebar shadow text-center">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
                 <?php if ($data->user_imgstatus) { 
                     $uid=$data->user_uid;
                     $imgSource='staffprofileimgs/profileimg'.$uid.'.jpg';?>
                     
-                    <img src=<?php echo $imgSource ?> alt="poflile pic" width='250px' height="100px" class="img-fluid">
+                    <img src=<?php echo $imgSource ?> alt="poflile pic" width='250px' height="250px">
                 <?php } else { ?>
-                    <img src="stylesheets/defaultprofileimg.jpg" alt="profile img" width='250px' height="100px" class="img-fluid">
+                    <img src="stylesheets/defaultprofileimg.jpg" alt="profile img" width='250px' height="250px">
                 <?php } ?>
                 
                 <!--add profile img-->

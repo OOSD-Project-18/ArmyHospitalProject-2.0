@@ -23,7 +23,7 @@ if (!$user->isLoggedIn()) {
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <?php if ($data->user_imgstatus) {
                                 $uid = $data->user_uid;
-                                $imgSource = 'staffprofileimgs/profileimg' . $uid . '.jpg'; ?>
+                                $imgSource = 'staffprofileimgs/profileimg' . $uid . '.jpg'.'?rand=<?php echo rand();' ?>
                                 <!--only allow jpg-->
                                 <!--profile pic-->
                                 <img src=<?php echo $imgSource ?> width="25" height="25" class="d-inline-block align-top rounded-circle" alt="profile pic">

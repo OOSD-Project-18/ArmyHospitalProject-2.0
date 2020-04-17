@@ -36,7 +36,7 @@ if (!$user->isLoggedIn()) {
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
                 <?php if ($data->user_imgstatus) { 
                     $uid=$data->user_uid;
-                    $imgSource='staffprofileimgs/profileimg'.$uid.'.jpg';?>
+                    $imgSource='staffprofileimgs/profileimg'.$uid.'.jpg'.'?rand=<?php echo rand();' ?>
                     
                     <img src=<?php echo $imgSource ?> alt="poflile pic" width='250px' height="250px">
                 <?php } else { ?>

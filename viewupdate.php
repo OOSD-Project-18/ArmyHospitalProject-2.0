@@ -42,7 +42,7 @@ if (!$user->isLoggedIn()) {
 
                 <?php if ($user->data()->user_imgstatus) {
                     $uid = $user->data()->user_uid;
-                    $imgSource = 'staffprofileimgs/profileimg' . $uid . '.jpg'; ?>
+                    $imgSource = 'staffprofileimgs/profileimg' . $uid . '.jpg'.'?rand=<?php echo rand();' ?>
 
                     <img src=<?php echo $imgSource ?> alt="poflile pic" width='200px' height="200px" id="profile-img-tag">
                 <?php } else { ?>

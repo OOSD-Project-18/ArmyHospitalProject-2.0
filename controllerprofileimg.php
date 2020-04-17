@@ -24,6 +24,7 @@ if (!$user->isLoggedIn()) {
                 if ($fileSize <500000) {
                     $uid=$data->user_uid;
                     $fileNameNew ="profileimg$uid".".".$fileActualExt;
+                    try{unlink('staffprofileimgs/'.$fileNameNew);}catch(Exception $e){};
                     $fileDestination='staffprofileimgs/'.$fileNameNew;
                     move_uploaded_file($fileTmpname,$fileDestination);//move from temp location to final location
                     try{

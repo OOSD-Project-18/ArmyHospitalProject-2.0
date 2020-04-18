@@ -15,6 +15,6 @@
 
         <?php include('_header.php');
         ?>
-        <a href="viewhome.php">HOME</a>
+        <a href="viewhome.php"> go to HOME</a>
     </body>
     </html>

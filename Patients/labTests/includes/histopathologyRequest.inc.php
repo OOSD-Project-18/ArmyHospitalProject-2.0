@@ -9,7 +9,7 @@
   $first_name = $_SESSION['first_name'];
   $last_name = $_SESSION['last_name'];
   $unit = $_SESSION['unit'];
-  $age = $_SESSION['age'];
+  $age = $_POST['age'];
   $gender = $_SESSION['gender'];
   $telNo = $_POST['telNo'];
   $ward = $_POST['ward'];
@@ -32,7 +32,7 @@
   $repRoom = $_POST['repRoom'];
   $consMOName = $_SESSION['consMOName'];
   $consMOID = $_SESSION['consMOID'];
-  $familyName = $_SESSION['familyName'];
+  $familyName = $_POST['familyName'];
 
   $details = array($specimen, $clinicalHistory, $investigations, $radio, $proDiff, $prev, $reportNo, $chemo, $radiotherapy, $findings, $contactDoc, $contact, $date, $hisNo, $repRoom);
 

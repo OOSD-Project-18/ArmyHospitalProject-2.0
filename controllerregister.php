@@ -23,8 +23,7 @@ if (Input::exists()) {
             'user_uid' => array(
                 'name' => 'ID Number',
                 'required' => true,
-                'min' => 10,
-                'max' => 10,
+                'size' => 10,
                 'unique' => 'users',
                 'IDformat' => true,
             ),
@@ -43,7 +42,19 @@ if (Input::exists()) {
                 'name' => 'User Category',
                 'select' => 0
 
-            )
+            ),
+            'user_mobile' => array(
+                'name' => 'Mobile Number',
+                'required'=>true,
+                'size' => 10,
+
+            ),
+            'user_email' => array(
+                'name' => 'Email',
+                'required'=>true,
+                'email' => true,
+
+            ),
 
         ));
         if ($validation->passed()) {
@@ -59,6 +70,8 @@ if (Input::exists()) {
                     'user_joined' => date('Y-m-d H:i:s'),
                     'user_group' => Input::post('user_group'),
                     'user_imgstatus'=>0,
+                    'user_email' => Input::post('user_email'),
+                    'user_mobile' => Input::post('user_mobile'),
 
                 ));
                 Session::flash('home', 'You are now registered you can now log in');

@@ -91,11 +91,17 @@ if (!$user->isLoggedIn()) {
                     <label for='user_last'>Last Name</label>
                     <input type='text' name='user_last' value="<?php echo escape($user->data()->user_last); ?>" placeholder="Last Name" class="form-control" required>
                 </div>
+                <div class="form-group">
+                    <label for='user_email'>Email</label>
+                    <input type='email' name='user_email' value="<?php echo escape($user->data()->user_email); ?>" placeholder="Email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for='user_mobile'>Mobile Number</label>
+                    <input type='text' name='user_mobile' value="0<?php echo escape($user->data()->user_mobile); ?>" placeholder="Mobile" class="form-control" required>
+                </div>
                 <div class="text-right">
                     <input type="submit" value='Update' class="btn btn-primary">
-                </div>
-
-                <input type="hidden" name='token' value="<?php echo Token::generate(); ?>">
+                </div>  
             </form>
         </div>
 
@@ -124,7 +130,6 @@ if (!$user->isLoggedIn()) {
                 <div class="text-right">
                     <input type="submit" value='Change' class="btn btn-primary">
                 </div>
-                <input type="hidden" name='token' value="<?php echo Token::generate(); ?>">
             </form>
         </div>
 

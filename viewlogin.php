@@ -29,6 +29,8 @@ $error_msg=Input::get('error_msg');
             <div class="col-5" style='background-color: blue;'>
                 <h1 class='p-3' style="color: white">Log-in to System</h1>
                 <hr style="background-color: white">
+                <a href="viewregister.php" style="color: white">Register Now</a>
+                <br>
                 <?php if($error_msg) {?>
                     <div class="alert alert-danger" role="alert">
                         <?php echo($error_msg);?>

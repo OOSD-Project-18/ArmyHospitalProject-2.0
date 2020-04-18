@@ -46,6 +46,9 @@ if (!$user->isLoggedIn()) {
                 <!--add profile img-->
                 <p style="font-size: 25px;font-weight:bold;"><?php echo escape($data->user_first) . " " . escape($data->user_last); ?></p>
                 <p style="color: gray"><?php echo escape($data->user_uid); ?></p>
+                <p><?php echo escape($data->user_email);?></p>
+                <p>+94-<?php echo escape($data->user_mobile);?></p>
+            
 
 
             </div>

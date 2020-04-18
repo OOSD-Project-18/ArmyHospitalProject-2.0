@@ -40,42 +40,44 @@ $error_msg = Input::get('error_msg');
 
                     <hr>
                     <div class="form-group">
+                        <label for="user_first">First Name</label>
                         <input type="text" name="user_first" id="user_first" class='form-control' value="<?php echo escape(Input::get('user_first')); ?>" autocomplete="off" placeholder="First Name" required>
                     </div>
                     <div class="form-group">
+                        <label for="user_last">Last Name</label>
                         <input type="text" name="user_last" id="user_last" class='form-control' value="<?php echo escape(Input::get('user_last')); ?>" autocomplete="off" placeholder="Last Name" required>
                     </div>
-                    <div class="form-group">
-                        <input type="text" name="user_uid" id="user_uid" class='form-control' value="<?php echo escape(Input::get('user_uid')); ?>" autocomplete="off" placeholder="NIC Number to be used as Username" required>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="user_uid">National Identity Number</label>
+                            <input type="text" name="user_uid" id="user_uid" class='form-control' value="<?php echo escape(Input::get('user_uid')); ?>" autocomplete="off" placeholder="NIC Number" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="user_mobile">Mobile Number</label>
+                            <input type="text" name="user_mobile" id="user_mobile" class='form-control' value="<?php echo escape(Input::get('user_mobile')); ?>" autocomplete="off" placeholder="Mobile Number" required>
+                        </div>
                     </div>
+                    <div class="form-group">
+                        <label for="user_email">Email Address</label>
+                        <input type="email" name="user_email" id="user_email" class='form-control' value="<?php echo escape(Input::get('user_email')); ?>" autocomplete="off" placeholder="Email" required>
+                    </div>
+
                     <div class="form-group ">
-                        <p> Select Category <p>
-                                <div class="radio">
-                                    <label for="user_doctor">
-                                        <input type="radio" name="user_group" id="user_doctor" value=1 checked>
-                                        Doctor
-                                    </label>
-                                </div>
 
-                                <div class="radio">
-                                    <label for="user_doctor">
-                                        <input type="radio" name="user_group" id="user_doctor" value=2>
-                                        Nurse
-                                    </label>
-                                </div>
-
-                                <div class="radio">
-                                    <label for="user_doctor">
-                                        <input type="radio" name="user_group" id="user_doctor" value=3>
-                                        Admission Officer
-                                    </label>
-                                </div>
-
+                        <label for="user_group">Select Category</label>
+                        <select class="form-control" name='user_group' id='user_group' required>
+                            <option value="1">Doctor</option>
+                            <option value="2">Nurse</option>
+                            <option value="3">Admission Officer</option>
+                            <option value="4">Lab Staff</option>
+                        </select>
                     </div>
                     <div class="form-group">
+                        <label for="user_pwd">Password</label>
                         <input type="password" name="user_pwd" class='form-control' id="user_pwd" placeholder="Password" required>
                     </div>
                     <div class="form-group">
+                        <label for="user_pwd_again">Confirm Password</label>
                         <input type="password" name="user_pwd_again" class='form-control' id="user_pwd_again" placeholder="Confirm Password" required>
                     </div>
 

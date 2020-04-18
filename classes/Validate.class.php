@@ -57,6 +57,17 @@ class Validate{
                                     $this->addError($rules['name']." must be a valid National ID number in format xxxxxxxxxV");
                                 }
                         break;
+                        case 'size':
+                            if(strlen($value)!=$rule_value){
+                                $this->addError($rules['name']." must be {$rule_value} characters");
+                            }
+                        break;
+                        case 'email':
+                            if(!filter_var($value,FILTER_VALIDATE_EMAIL)){
+                                $this->addError($rules['name']." must be a valid one");
+                            }
+                        break;
+
                     }
                 }
 

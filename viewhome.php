@@ -70,6 +70,20 @@ if (!$user->isLoggedIn()) {
                 </div>
             </div>
 
+            <div class="container py-1 mt-3" style="width: 30%">
+                <div class="card p-3 text-center shadow-sm">
+                    <h3>Search Users</h3>
+                    <hr>
+
+                    <form action="functions/userSearchbar.php" method="post">
+                        <input type="text" id="search" placeholder="Enter UserID" name="search" class="form-control mr-sm-2" required>
+                        <br>
+                        <input type="submit" id="submit" name="submit" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Search ID">
+                    </form>
+
+                </div>
+            </div>
+
         </main>
 
     </body>

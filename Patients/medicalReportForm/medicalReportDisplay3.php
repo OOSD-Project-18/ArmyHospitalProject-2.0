@@ -43,7 +43,7 @@
             }
 
             echo "</table>";
-            echo "<br><br></div><label>Any other information you wish to give about your health : </label>".$results[0]['otherInfo']."<br><br>";
+            echo "<br><br></div><label>Any other information about his/her health : </label>".$results[0]['otherInfo']."<br><br>";
 
             $summary = $results[0]['summary'];
 

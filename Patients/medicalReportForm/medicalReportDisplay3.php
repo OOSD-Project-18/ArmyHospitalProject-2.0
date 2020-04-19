@@ -7,43 +7,57 @@
   <head>
     <meta charset="utf-8">
     <title>Medical Report</title>
+    <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../../css/medicalReport2.css">
   </head>
   <body>
-    <h2>Other Medical Treatments at Home or in a Nursing Home</h2>
-    <?php
-      $results = $_SESSION['results'];
+    <div class="medical-report">
+      <h1>Medical Report</h1><br><br>
+      <div class="section"><span>5</span>Other Medical Treatments at Home or in a Nursing Home</div>
+      <?php
+        $results = $_SESSION['results'];
 
-      $serializedOtherMedicalTreatments = $results[0]['serializedOtherMedicalTreatments'];
-      $otherMedicalTreatmentsObject = unserialize($serializedOtherMedicalTreatments);
+        $serializedOtherMedicalTreatments = $results[0]['serializedOtherMedicalTreatments'];
+        $otherMedicalTreatmentsObject = unserialize($serializedOtherMedicalTreatments);
 
-      $nature = $otherMedicalTreatmentsObject->getNature();
-      $nameAndAddress = $otherMedicalTreatmentsObject->getNameAndAddress();
-      $datePeriod = $otherMedicalTreatmentsObject->getDatePeriod();
+        $nature = $otherMedicalTreatmentsObject->getNature();
+        $nameAndAddress = $otherMedicalTreatmentsObject->getNameAndAddress();
+        $datePeriod = $otherMedicalTreatmentsObject->getDatePeriod();
+      ?>
 
-      echo "<table border='1'>";
+      <div class="inner-wrap">
+        <div class="table">
+          <?php
 
-      echo "<tr>
-          <th>Nature of Illness, Operation or Injury</th><th>Name and Address of Doctor or Nursing Home</th><th>Approx. Date and Period</th>
-        </tr>";
+            echo "<table>";
 
-      $rows = count($nature);
-      $index = 0;
-      while ($index < $rows){
-        echo "<tr><td>".$nature[$index]."</td><td>".$nameAndAddress[$index]."</td><td>".$dates[$index]."</td></tr>";
-        $index++;
-      }
+            echo "<tr>
+                <th>Nature of Illness, Operation or Injury</th><th>Name and Address of Doctor or Nursing Home</th><th>Approx. Date and Period</th>
+              </tr>";
 
-      echo "</table>";
-      echo "<br><b>Any other information the patient wishes to give about his/her Health : </b><br><br>".$results[0]['otherInfo']."<br>";
+            $rows = count($nature);
+            $index = 0;
+            while ($index < $rows){
+              echo "<tr><td>".$nature[$index]."</td><td>".$nameAndAddress[$index]."</td><td>".$datePeriod[$index]."</td></tr>";
+              $index++;
+            }
 
-      $summary = $results[0]['summary'];
+            echo "</table>";
+            echo "<br><br></div><label>Any other information you wish to give about your health : </label>".$results[0]['otherInfo']."<br><br>";
 
-      echo "<br><br><b>Medical Examiner's Summary of important points in 2 and 3 above with comments and additional information of significance : </b><br><br>
-            ".$summary."<br><br>";
-     ?>
+            $summary = $results[0]['summary'];
 
-     <form action="medicalReportDisplay5.php" method="post">
-       <button type="submit" name="next">Next</button>
-     </form>
+            echo "<br><br><label>Medical Examiner's Summary of important points in 3 and 4 above with comments and additional information of significance : </label>
+                  ".$summary."<br><br>";
+           ?>
+
+           <form action="medicalReportDisplay5.php" method="post">
+             <div class="button-section">
+               <button type="submit" name="next">Next</button>
+             </div>
+           </form>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

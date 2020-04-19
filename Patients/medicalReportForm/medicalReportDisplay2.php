@@ -6,44 +6,52 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Medical showMedicalReport</title>
+    <title>Medical Report</title>
+    <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../../css/medicalReport2.css">
   </head>
   <body>
-    <?php
-      echo "<h2>Treatments at a Hospital</h2>";
-      $results = $_SESSION['results'];
+    <div class="medical-report">
+      <h1>Medical Report</h1><br><br>
+      <div class="section"><span>4</span>Treatments at a Hospital</div>
+      <div class="inner-wrap">
+        <div class="table">
+          <?php
+            $results = $_SESSION['results'];
 
-      $serializedHospitalTreatments = $results[0]['serializedHospitalTreatments'];
+            $serializedHospitalTreatments = $results[0]['serializedHospitalTreatments'];
 
-      $hospitalTreatmentsObject = unserialize($serializedHospitalTreatments);
+            $hospitalTreatmentsObject = unserialize($serializedHospitalTreatments);
 
-      $nature = $hospitalTreatmentsObject->getNature();
-      $hospital = $hospitalTreatmentsObject->getHospital();
-      $inout = $hospitalTreatmentsObject->getInout();
-      $dates = $hospitalTreatmentsObject->getDates();
+            $nature = $hospitalTreatmentsObject->getNature();
+            $hospital = $hospitalTreatmentsObject->getHospital();
+            $inout = $hospitalTreatmentsObject->getInout();
+            $dates = $hospitalTreatmentsObject->getDates();
 
-      $numOfRows = count($nature);
+            $numOfRows = count($nature);
 
-      echo "<table border='1'>";
+            echo "<table>";
 
-      echo "<tr>
-        <th>Nature of Illness, Operation or Injury</th><th>Name of Hospital</th><th>In or Out Patient</th><th>Approx.Dates and Period</th>
-      </tr>";
+            echo "<tr>
+              <th>Nature of Illness, Operation or Injury</th><th>Name of Hospital</th><th>In or Out Patient</th><th>Approx.Dates and Period</th>
+            </tr>";
 
-      $index = 0;
-      while ($index < $numOfRows){
-        echo "<tr><td>".$nature[$index]."</td><td>".$hospital[$index]."</td><td>".$inout[$index]."</td><td>".$dates[$index]."</td></tr>";
-        $index++;
-      }
+            $index = 0;
+            while ($index < $numOfRows){
+              echo "<tr><td>".$nature[$index]."</td><td>".$hospital[$index]."</td><td>".$inout[$index]."</td><td>".$dates[$index]."</td></tr>";
+              $index++;
+            }
 
+            echo "</table>";
+           ?>
+        </div>
+      </div>
 
-
-      echo "</table>";
-
-     ?>
-
-     <form action="medicalReportDisplay3.php" method="post">
-       <button type="submit" name="next">Next</button>
-     </form>
+      <form action="medicalReportDisplay3.php" method="post">
+        <div class="button-section">
+          <button type="submit" name="next">Next</button>
+        </div>
+      </form>
+    </div>
   </body>
 </html>

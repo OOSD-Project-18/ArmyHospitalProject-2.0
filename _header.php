@@ -32,6 +32,7 @@ if (!$user->isLoggedIn()) {
                             <?php } ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="viewhome.php"><b>HOME</b></a>
                             <a class="dropdown-item" href="viewupdate.php">Edit profile </a>
                             <a class="dropdown-item" href="viewProfile.php">View profile </a>
                             <a class="dropdown-item" href="viewupdate.php">Change Password</a>

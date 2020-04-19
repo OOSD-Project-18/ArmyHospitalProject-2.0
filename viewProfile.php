@@ -12,7 +12,11 @@ if (!$user->isLoggedIn()) {
         Redirect::to(404);
     } else {
         $userNew = new User($user_uid);
-        $data = $userNew->data();
+        if (!$userNew->exists()) {
+            Redirect::to(404);
+        }else{
+            $data1 = $userNew->data();
+        }
        
         
         
@@ -36,36 +40,8 @@ if (!$user->isLoggedIn()) {
     <body id='main'>
 
          
-        <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow border-bottom border-primary ">
-            <a class="navbar-brand" href="viewhome.php">
-                <img src="stylesheets/Army.png" width="45" height="35" class="d-inline-block align-top" alt="">
-            </a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <?php if ($data->user_imgstatus) {
-                                $uid = $data->user_uid;
-                                $imgSource = 'staffprofileimgs/profileimg' . $uid . '.jpg'.'?rand=<?php echo rand();' ?>
-                                <!--only allow jpg-->
-                                <!--profile pic-->
-                                <img src=<?php echo $imgSource ?> width="25" height="25" class="d-inline-block align-top rounded-circle" alt="profile pic">
-                            <?php } else { ?>
-                                <img src="stylesheets/defaultprofileimg.jpg" width="25" height="25" class="d-inline-block align-top rounded-circle" alt="options">
-                            <?php } ?>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="viewhome.php"> HOME</a>
-                            <a class="dropdown-item" href="viewupdate.php">Edit profile </a>
-                            <a class="dropdown-item" href="viewupdate.php">Change Password</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="controllerlogout.php">Log out</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-    </header>
+    <?php include('_header.php');?>
+    
     
 
     <div class="container">
@@ -73,8 +49,8 @@ if (!$user->isLoggedIn()) {
                 <div class="row">
                     <div class="col-md-4">
                         <div>
-                        <?php if ($data->user_imgstatus) { 
-                            $uid=$data->user_uid;
+                        <?php if ($data1->user_imgstatus) { 
+                            $uid=$data1->user_uid;
                             $imgSource='staffprofileimgs/profileimg'.$uid.'.jpg'.'?rand=<?php echo rand();' ?>
                             
                             <img src=<?php echo $imgSource ?> alt="poflile pic" width='250px' height="250px">
@@ -87,12 +63,12 @@ if (!$user->isLoggedIn()) {
                         <div >
                                     <h5>
                                     <?php
-                                        echo($data->user_first." ".$data->user_last);
+                                        echo($data1->user_first." ".$data1->user_last);
                                     ?>    
                                     </h5>
                                     <h6>
                                     <?php
-                                        echo("User group Number: ".$data->user_group);
+                                        echo("User group Number: ".$data1->user_group);
                                     ?> 
                                     </h6>
                                     
@@ -120,7 +96,7 @@ if (!$user->isLoggedIn()) {
                                                 <label>User Id</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?php echo($data->user_uid);?></p>
+                                                <p><?php echo($data1->user_uid);?></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -128,7 +104,7 @@ if (!$user->isLoggedIn()) {
                                                 <label>Name</label>
                                             </div>
                                             <div class="col-md-6">
-                                            <p><?php echo($data->user_first." ". $data->user_last);?></p>
+                                            <p><?php echo($data1->user_first." ". $data1->user_last);?></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -136,7 +112,7 @@ if (!$user->isLoggedIn()) {
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><p><?php echo($data->user_email);?></p></p>
+                                                <p><p><?php echo($data1->user_email);?></p></p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -144,7 +120,7 @@ if (!$user->isLoggedIn()) {
                                                 <label>Phone</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><p><?php echo($data->user_mobile);?></p></p>
+                                                <p><p><?php echo($data1->user_mobile);?></p></p>
                                             </div>
                                         </div>
                                         
@@ -155,7 +131,7 @@ if (!$user->isLoggedIn()) {
                                                 <label>Date of Joining</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p><?php echo($data->user_joined);?></p>
+                                                <p><?php echo($data1->user_joined);?></p>
                                             </div>
                                         </div>
                                         

@@ -8,9 +8,10 @@
   <head>
     <meta charset="utf-8">
     <title>Medical Report</title>
+    <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../../css/medicalReport.css">
   </head>
   <body>
-    <h1>Medical Report</h1>
     <?php
       $nic = "982753195v"; // should get this from a session SplObjectStorage
 
@@ -20,64 +21,89 @@
       $force_id = $results[0]['force_id'];
       $date = $results[0]['date'];
 
-      echo "<h4>Service No : ".$force_id."</h4>";
-      echo "<h4>NIC : ".$nic."</h4>";
-      echo "<h4>Date of Submission: ".$date."</h4>";
-
-      echo "<h2>Personal History</h2>";
-
       $serializedPersonalHistory = $results[0]['serializedPersonalHistory'];
       $personalHistoryObject = unserialize($serializedPersonalHistory);
       $illnessDetails = $personalHistoryObject->getIllnessDetails();
 
-      echo '<table border="1">
-        <tr>
-          <th>Illness</th> <th>Yes/No</th><th>If "Yes", at what age?</th>
-        </tr>
-        <tr> <td>Bronchitis</td><td>'.$illnessDetails['bronchitis'][0].'</td><td>'.$illnessDetails['bronchitis'][1].'</td></tr>
-        <tr> <td>Asthma</td><td>'.$illnessDetails['asthma'][0].'</td><td>'.$illnessDetails['asthma'][1].'</td></tr>
-        <tr> <td>Tuberculosis</td><td>'.$illnessDetails['tb'][0].'</td><td>'.$illnessDetails['tb'][1].'</td></tr>
-        <tr> <td>Fits</td><td>'.$illnessDetails['fits'][0].'</td><td>'.$illnessDetails['fits'][1].'</td></tr>
-        <tr> <td>Gastric Disorders</td><td>'.$illnessDetails['gastric'][0].'</td><td>'.$illnessDetails['gastric'][1].'</td></tr>
-        <tr> <td>Rheumatism</td><td>'.$illnessDetails['rheumatism'][0].'</td><td>'.$illnessDetails['rheumatism'][1].'</td></tr>
-        <tr> <td>Nervous Breakdown</td><td>'.$illnessDetails['nervous'][0].'</td><td>'.$illnessDetails['nervous'][1].'</td></tr>
-        <tr> <td>Mental Illness</td><td>'.$illnessDetails['mental'][0].'</td><td>'.$illnessDetails['mental'][1].'</td></tr>
-        <tr> <td>Filariasis</td><td>'.$illnessDetails['filariasis'][0].'</td><td>'.$illnessDetails['filariasis'][1].'</td></tr>
-        <tr> <td>Any Other Illness</td><td>'.$illnessDetails['other'][0].'</td><td>'.$illnessDetails['other'][1].'</td></tr>
-      </table><br>';
+    ?>
 
-      if ($illnessDetails['other'][2] != ''){
-        echo "<b>Other Illness :</b> ".$illnessDetails['other'][2]."<br><br>";
-      }
+    <div class="medical-report">
+      <h1>Medical Report</h1><br><br>
+      <div class="section"><span>1</span>Service No and NIC</div>
+      <div class="inner-wrap">
+        <label>Service No : </label> <?php echo $force_id; ?><br><br>
+        <label>NIC: </label> <?php echo $nic; ?><br><br>
+      </div>
 
-      $data = $personalHistoryObject->getData();
+      <div class="section"><span>2</span>Date</div>
+      <div class="inner-wrap">
+        <?php echo $date; ?><br><br>
+      </div>
 
-      foreach ($data as $singleData) {
-        switch ($singleData) {
-          case 'ears':
-            echo "(*) Have had a discharge or running from ears.<br>";
-            break;
-          case 'xray':
-            $xrayData = $personalHistoryObject->getReasonForXray();
-            echo "(*) Have been X-Rayed his/her chest. Reason : ".$xrayData."<br>";
-            break;
-          case 'discharged':
-            echo "(*) Have been discharged as medically unfit from any bramch of the services.<br>";
-            break;
-          case 'rejected':
-          echo "(*) Have been rejected as medically unfit from any branch of the services.<br>";
-            break;
-          case 'disabilitypension':
-            echo "(*) Have been or is in receipt of a disability pension.<br>";
-            break;
-        }
-      }
+      <div class="section"><span>3</span>Personal History</div>
+      <div class="inner-wrap">
+        <div class="table">
+          <table>
+            <tr>
+              <th>Illness</th> <th>Yes/No</th><th>If "Yes", at what age?</th>
+            </tr>
+            <tr> <td>Bronchitis</td><td><?php echo $illnessDetails['bronchitis'][0]; ?></td><td><?php echo $illnessDetails['bronchitis'][1]; ?></td></tr>
+          <tr> <td>Asthma</td><td><?php echo $illnessDetails['asthma'][0]; ?></td><td><?php echo $illnessDetails['asthma'][1]; ?></td></tr>
+            <tr> <td>Tuberculosis</td><td><?php echo $illnessDetails['tb'][0]; ?></td><td><?php echo $illnessDetails['tb'][1]; ?></td></tr>
+            <tr> <td>Fits</td><td><?php echo $illnessDetails['fits'][0]; ?></td><td><?php echo $illnessDetails['fits'][1]; ?></td></tr>
+            <tr> <td>Gastric Disorders</td><td><?php echo $illnessDetails['gastric'][0]; ?></td><td><?php echo $illnessDetails['gastric'][1]; ?></td></tr>
+            <tr> <td>Rheumatism</td><td> <?php echo $illnessDetails['rheumatism'][0]; ?></td><td><?php echo $illnessDetails['rheumatism'][1]; ?></td></tr>
+            <tr> <td>Nervous Breakdown</td><td><?php echo $illnessDetails['nervous'][0]; ?></td><td><?php echo $illnessDetails['nervous'][1]; ?></td></tr>
+            <tr> <td>Mental Illness</td><td> <?php echo $illnessDetails['mental'][0]; ?></td><td><?php echo $illnessDetails['mental'][1]; ?></td></tr>
+            <tr> <td>Filariasis</td><td><?php echo $illnessDetails['filariasis'][0]; ?></td><td><?php echo $illnessDetails['filariasis'][1]; ?></td></tr>
+            <tr> <td>Any Other Illness</td><td><?php echo $illnessDetails['other'][0]; ?></td><td><?php echo $illnessDetails['other'][1]; ?></td></tr>
+          </table><br><br>
+        </div>
 
-      $_SESSION['results'] = $results;
-     ?>
+        <?php
+
+          if ($illnessDetails['other'][2] != ''){
+            echo "<label>Other Illness :</label>".$illnessDetails['other'][2]."<br><br>";
+          }
+        ?>
+        <br><br>
+
+        <?php
+
+          $data = $personalHistoryObject->getData();
+
+          foreach ($data as $singleData) {
+            switch ($singleData) {
+              case 'ears':
+                echo "<div class='section'><span>*</span></div> Have had a discharge or running from ears.<br><br>";
+                break;
+              case 'xray':
+                $xrayData = $personalHistoryObject->getReasonForXray();
+                echo "<div class='section'><span>*</span></div> Have been X-Rayed his/her chest. Reason : ".$xrayData."<br><br>";
+                break;
+              case 'discharged':
+                echo "<div class='section'><span>*</span></div> Have been discharged as medically unfit from any bramch of the services.<br><br>";
+                break;
+              case 'rejected':
+              echo "<div class='section'><span>*</span></div> Have been rejected as medically unfit from any branch of the services.<br><br>";
+                break;
+              case 'disabilitypension':
+                echo "<div class='section'><span>*</span></div> Have been or is in receipt of a disability pension.<br><br>";
+                break;
+            }
+          }
+
+          $_SESSION['results'] = $results;
+       ?>
+      </div>
+
+      <br>
 
      <form action="medicalReportDisplay2.php" method="post">
-       <br><button type="submit" name="next">Next</button>
+       <br>
+       <div class="button-section">
+         <button type="submit" name="next">Next</button>
+       </div>
      </form>
   </body>
 </html>

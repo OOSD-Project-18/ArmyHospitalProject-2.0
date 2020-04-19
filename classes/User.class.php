@@ -104,6 +104,12 @@ class User{
         Session::delete($this->_sessionName);
         Cookie::delete($this->_cookieName);
     }
+    public function removeUser(){
+        $this->_db->delete('users_session',array('user_id','=',$this->data()->id));
+        Session::delete($this->_sessionName);
+        Cookie::delete($this->_cookieName);
+        $this->_db->delete('users',array('user_uid','=',$this->data()->user_uid));
+    }
     public function data(){
         return $this->_data;
     }

@@ -42,7 +42,7 @@ if (!$user->isLoggedIn()) {
 
                 <?php if ($user->data()->user_imgstatus) {
                     $uid = $user->data()->user_uid;
-                    $imgSource = 'staffprofileimgs/profileimg' . $uid . '.jpg'.'?rand=<?php echo rand();' ?>
+                    $imgSource = 'staffprofileimgs/profileimg' . $uid . '.jpg' . '?rand=<?php echo rand();' ?>
 
                     <img src=<?php echo $imgSource ?> alt="poflile pic" width='200px' height="200px" id="profile-img-tag">
                 <?php } else { ?>
@@ -101,7 +101,7 @@ if (!$user->isLoggedIn()) {
                 </div>
                 <div class="text-right">
                     <input type="submit" value='Update' class="btn btn-primary">
-                </div>  
+                </div>
             </form>
         </div>
 
@@ -132,6 +132,42 @@ if (!$user->isLoggedIn()) {
                 </div>
             </form>
         </div>
+
+        <div class="container py-1 mt-3">
+            <div class="card p-3 text-center" style="color:maroon">
+                <h3>Delete My Account</h3>
+                <p>Once you have deleted your account there is no way of recovering..</p>
+                <div>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+                        Delete My Account
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete account</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    All the data will be lost and no recovery possible
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <a class="btn btn-danger" href="controllerdelete.php" role="button">Delete Account</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
 
 
 

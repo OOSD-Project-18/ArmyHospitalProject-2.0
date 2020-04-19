@@ -37,14 +37,14 @@ if (!$user->isLoggedIn()) {
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head>
 
-    <body id='main'>
+    <body id='main' style="width=75%">
 
          
     <?php include('_header.php');?>
     
     
 
-    <div class="container">
+    <div class="container" style="margin-top:3%;">
             <form method="post">
                 <div class="row">
                     <div class="col-md-4">
@@ -59,19 +59,33 @@ if (!$user->isLoggedIn()) {
                         <?php } ?>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" style="padding:5%;">
                         <div >
                                     <h5>
                                     <?php
                                         echo($data1->user_first." ".$data1->user_last);
-                                    ?>    
-                                    </h5>
+                                    ?> 
+                                    </h5>   
+                                    <br>
                                     <h6>
                                     <?php
-                                        echo("User group Number: ".$data1->user_group);
+                                        $group_num=$data1->user_group;
+                                        if($group_num==1){
+                                            echo("User group : Doctor");
+                                        }
+                                        if($group_num==2){
+                                            echo("User group : Nurse");
+                                        }
+                                        if($group_num==3){
+                                            echo("User group : Admission Officer");
+                                        }
+                                        if($group_num==4){
+                                            echo("User group : Lab staff");
+                                        }
+                                           
                                     ?> 
                                     </h6>
-                                    
+                </div>                    
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profile Details</a>
@@ -83,44 +97,44 @@ if (!$user->isLoggedIn()) {
                         </div>
                     </div>
                     
-                </div>
+                
                 <div class="row">
                     <div class="col-md-4">
                         
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8" style="padding:5%;">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>User Id</label>
+                                                <p>User Id</p>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 text-primary">
                                                 <p><?php echo($data1->user_uid);?></p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Name</label>
+                                                <p>Name</p>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 text-primary">
                                             <p><?php echo($data1->user_first." ". $data1->user_last);?></p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Email</label>
+                                                <p>Email</p>
                                             </div>
-                                            <div class="col-md-6">
-                                                <p><p><?php echo($data1->user_email);?></p></p>
+                                            <div class="col-md-6 text-primary">
+                                                <p><?php echo($data1->user_email);?></p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Phone</label>
+                                                <p>Phone</p>
                                             </div>
-                                            <div class="col-md-6">
-                                                <p><p><?php echo($data1->user_mobile);?></p></p>
+                                            <div class="col-md-6 text-primary">
+                                                <p><?php echo($data1->user_mobile);?></p>
                                             </div>
                                         </div>
                                         
@@ -128,9 +142,9 @@ if (!$user->isLoggedIn()) {
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Date of Joining</label>
+                                                <p>Date of Joining</p>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 text-primary">
                                                 <p><?php echo($data1->user_joined);?></p>
                                             </div>
                                         </div>

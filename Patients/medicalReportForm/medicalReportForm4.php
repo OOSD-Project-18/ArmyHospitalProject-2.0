@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medical Report</title>
     <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="../../css/medicalReport2.css">
+    <link rel="stylesheet" href="../css/medicalReport2.css">
 </head>
 <body>
   <div class="medical-report">

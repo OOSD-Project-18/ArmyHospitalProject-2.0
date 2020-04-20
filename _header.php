@@ -10,6 +10,7 @@ if (!$user->isLoggedIn()) {
         Redirect::to(404);
     } else {
         $data = $user->data();
+        $_SESSION['user_uid']=$data->user_uid;
     }
 ?>
     <header>

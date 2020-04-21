@@ -11,7 +11,6 @@ if (!$user->isLoggedIn()) {
         Redirect::to(404);
     } else {
         $data = $user->data();
-        $_SESSION['user_uid']=$data->user_uid;
     }
 ?>
     <!DOCTYPE html>
@@ -76,8 +75,8 @@ if (!$user->isLoggedIn()) {
                     <h3>Search Users</h3>
                     <hr>
 
-                    <form action="functions/userSearchbar.php" method="post">
-                        <input type="text" id="search" placeholder="Enter UserID" name="search" class="form-control mr-sm-2" required>
+                    <form action="viewProfile.php" method="post">
+                        <input type="text" id="searched_id" placeholder="Enter UserID" name="searched_id" class="form-control mr-sm-2" required>
                         <br>
                         <input type="submit" id="submit" name="submit" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Search ID">
                     </form>

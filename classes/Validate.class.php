@@ -6,7 +6,7 @@ class Validate{
     private $_db=null;
 
     public function __construct(){
-        $this->_db=Dbh::getInstance();
+        $this->_db=Db::getInstance();
         
     }
 

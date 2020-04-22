@@ -1,6 +1,6 @@
 <?php
 
-class Dbh{
+class Db{
     private static $_instance=null; //to connect only once to the database
     private $_pdo;
     private $_query;    //hold the last query exceuted
@@ -23,7 +23,7 @@ class Dbh{
     }
     public static function getInstance(){//to connect to database only once
         if(!isset(self::$_instance)){
-            self::$_instance=new Dbh();
+            self::$_instance=new Db();
             
         }
         return self::$_instance;

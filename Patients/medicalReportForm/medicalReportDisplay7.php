@@ -8,9 +8,10 @@
   <head>
     <meta charset="utf-8">
     <title>Medical Report</title>
+    <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../css/medicalReport.css">
   </head>
   <body>
-    <h2>Upper Limbs and Locomotor System</h2>
     <?php
       $results = $_SESSION['results'];
 
@@ -25,25 +26,40 @@
       $l = $upperLimbsLocomotionObject->getL();
       $effectLocomotion = $upperLimbsLocomotionObject->getEffectLocomotion();
 
-      echo '<h3>Upper Limbs (finger, hands, wrists, elbows, shoulder girdles, cervical and dorsal vertebrae) : </h3>
-      '.$upperLimbs.'<br><br><br>
-      <table border="1">
-      <tr><th> U </th> </tr>
-      <tr><td>'.$u.'</td></tr>
-      </table><br>
-      <b> Effect on P. if any :</b>'.$effectUpperLimbs.'<br><br>
-
-      <h3>Locomotion (Hahax valgus/rigidus, flat feet, joints, pelvis, lumbar and sacral vertebrae, coccys, varicose veins) : </h3>
-      '.$locomotion.'<br><br><br>
-      <table border="1">
-      <tr><th> L </th> </tr>
-      <tr><td>'.$l.'</td></tr>
-      </table><br>
-      <b> Effect on P. if any :</b>'.$effectLocomotion.'<br><br>';
      ?>
 
-     <form action="medicalReportDisplay8.php" method="post">
-       <button type="submit" name="next">Next</button>
-     </form>
+     <div class="medical-report">
+       <h1>Medical Report</h1><br>
+
+       <form action="medicalReportDisplay8.php" method="post">
+         <div class="section"><span>8</span>Upper Limbs and Locomotor System</div><br>
+
+         <div class="inner-wrap">
+           <label>Upper Limbs (finger, hands, wrists, elbows, shoulder girdles, cervical and dorsal vertebrae) : </label>
+           <?php echo $upperLimbs; ?><br><br>
+           <table class='table'>
+           <tr><th> U </th> </tr>
+           <tr><td> <?php echo $u; ?></td></tr>
+           </table><br>
+            <label>Effect on P. if any : </label> <?php echo $effectUpperLimbs; ?><br><br>
+
+           <label>Locomotion (Hahax valgus/rigidus, flat feet, joints, pelvis, lumbar and sacral vertebrae, coccys, varicose veins) : </label>
+           <?php echo $locomotion; ?><br><br>
+           <table class='table'>
+           <tr><th> L </th> </tr>
+           <tr><td> <?php echo $l; ?></td></tr>
+           </table><br>
+           <label> Effect on P. if any : </label><?php echo $effectLocomotion; ?><br>
+
+           <br><br>
+
+           <div class="button-section">
+             <button type="submit" name="next">Next</button>
+           </div>
+
+         </div>
+       </form>
+     </div>
+
   </body>
 </html>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_dzfeoISiEequ5-JCu-GZrg" name="ArmyHospital">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_d0xRAISiEequ5-JCu-GZrg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Nv7e8ISjEequ5-JCu-GZrg" name="Doctor">
+    <generalization xmi:type="uml:Generalization" xmi:id="_J4VlgISnEequ5-JCu-GZrg" general="_7iMmYISmEequ5-JCu-GZrg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_k6ikYISjEequ5-JCu-GZrg" name="Nurse">
+    <generalization xmi:type="uml:Generalization" xmi:id="_JGhuEISnEequ5-JCu-GZrg" general="_7iMmYISmEequ5-JCu-GZrg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_tRY6kISjEequ5-JCu-GZrg" name="Patient">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_UfY5MISmEequ5-JCu-GZrg" name="labtestreport" type="_jJRloISkEequ5-JCu-GZrg" association="_UekZ0ISmEequ5-JCu-GZrg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ufm7oISmEequ5-JCu-GZrg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Ufm7oYSmEequ5-JCu-GZrg" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_igQy8oSmEequ5-JCu-GZrg" name="labtestrequest" type="_Tf-8kISkEequ5-JCu-GZrg" association="_igQL4ISmEequ5-JCu-GZrg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_igQy84SmEequ5-JCu-GZrg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_igRaAISmEequ5-JCu-GZrg" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_kry2YoSmEequ5-JCu-GZrg" name="medicalreport" type="_MuAScISkEequ5-JCu-GZrg" association="_kryPUISmEequ5-JCu-GZrg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_wcjPAISjEequ5-JCu-GZrg" name="LabStaff">
+    <generalization xmi:type="uml:Generalization" xmi:id="_GRL4oISnEequ5-JCu-GZrg" general="_7iMmYISmEequ5-JCu-GZrg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_yKuBAISjEequ5-JCu-GZrg" name="AdmissionOfficer">
+    <generalization xmi:type="uml:Generalization" xmi:id="_HWJ8oISnEequ5-JCu-GZrg" general="_7iMmYISmEequ5-JCu-GZrg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_MuAScISkEequ5-JCu-GZrg" name="MedicalReport"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_Tf-8kISkEequ5-JCu-GZrg" name="LabTestRequest"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_jJRloISkEequ5-JCu-GZrg" name="LabTestReport"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_39fbcISkEequ5-JCu-GZrg" name="Patient model">
+    <generalization xmi:type="uml:Generalization" xmi:id="_pFrLQISnEequ5-JCu-GZrg" general="_RQVt0ISnEequ5-JCu-GZrg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_6lHlAISkEequ5-JCu-GZrg" name="Patient View">
+    <generalization xmi:type="uml:Generalization" xmi:id="_i_osAISlEequ5-JCu-GZrg" general="_39fbcISkEequ5-JCu-GZrg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_7ejucISkEequ5-JCu-GZrg" name="Patient Controller">
+    <generalization xmi:type="uml:Generalization" xmi:id="_hI5M0ISlEequ5-JCu-GZrg" general="_39fbcISkEequ5-JCu-GZrg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_pS9EMISlEequ5-JCu-GZrg" client="_tRY6kISjEequ5-JCu-GZrg" supplier="_39fbcISkEequ5-JCu-GZrg"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_UekZ0ISmEequ5-JCu-GZrg" memberEnd="_UfY5MISmEequ5-JCu-GZrg _Ufm7ooSmEequ5-JCu-GZrg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_UfXrEISmEequ5-JCu-GZrg" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_UfXrEYSmEequ5-JCu-GZrg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Ufm7ooSmEequ5-JCu-GZrg" name="patient" type="_tRY6kISjEequ5-JCu-GZrg" association="_UekZ0ISmEequ5-JCu-GZrg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_igQL4ISmEequ5-JCu-GZrg" memberEnd="_igQy8oSmEequ5-JCu-GZrg _igRaAYSmEequ5-JCu-GZrg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_igQy8ISmEequ5-JCu-GZrg" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_igQy8YSmEequ5-JCu-GZrg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_igRaAYSmEequ5-JCu-GZrg" name="patient" type="_tRY6kISjEequ5-JCu-GZrg" association="_igQL4ISmEequ5-JCu-GZrg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_kryPUISmEequ5-JCu-GZrg" memberEnd="_kry2YoSmEequ5-JCu-GZrg _krzdcoSmEequ5-JCu-GZrg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kry2YISmEequ5-JCu-GZrg" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kry2YYSmEequ5-JCu-GZrg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_krzdcoSmEequ5-JCu-GZrg" name="patient" type="_tRY6kISjEequ5-JCu-GZrg" association="_kryPUISmEequ5-JCu-GZrg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_7iMmYISmEequ5-JCu-GZrg" name="User"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_RQVt0ISnEequ5-JCu-GZrg" name="DataBase"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_htiDkISoEequ5-JCu-GZrg" name="User model">
+    <generalization xmi:type="uml:Generalization" xmi:id="_5m0M4ISoEequ5-JCu-GZrg" general="_RQVt0ISnEequ5-JCu-GZrg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_jECjgISoEequ5-JCu-GZrg" name="User Controller">
+    <generalization xmi:type="uml:Generalization" xmi:id="_0VgrUISoEequ5-JCu-GZrg" general="_htiDkISoEequ5-JCu-GZrg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_kG8K8ISoEequ5-JCu-GZrg" name="User View">
+    <generalization xmi:type="uml:Generalization" xmi:id="_t8WJ0ISoEequ5-JCu-GZrg" general="_htiDkISoEequ5-JCu-GZrg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_J4uVIISpEequ5-JCu-GZrg" client="_7iMmYISmEequ5-JCu-GZrg" supplier="_htiDkISoEequ5-JCu-GZrg"/>
+</uml:Model>

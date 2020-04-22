@@ -26,7 +26,7 @@
 
      <div class="medical-report">
        <h1>Medical Report</h1>
-       <form action="includes/form5.inc.php" method="post">
+       <form action="medicalReportDisplay6.php" method="post">
          <div class="section"><span>6</span>Eyes</div>
          <div class="inner-wrap">
            <table class='table'>

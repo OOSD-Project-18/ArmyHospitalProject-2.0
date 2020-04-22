@@ -10,9 +10,10 @@
   <head>
     <meta charset="utf-8">
     <title>Medical Report</title>
+    <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../css/medicalReport.css">
   </head>
   <body>
-    <h2>Physical Capacity</h2>
     <?php
       $results = $_SESSION['results'];
 
@@ -45,106 +46,121 @@
       $centralNerveSys = $physicalCapacityObject->getProperty('centralNerveSys');
       $abdomen =$physicalCapacityObject->getProperty('abdomen');
       $abnormalities = $physicalCapacityObject->getProperty('abnormalities');
-      $gender = $physicalCapacityObject->getProperty('gender');
-
-      echo '<h3>(a) Identification</h3>
-      <b>Color of eyes : </b>'.$eyesColor.'<br>
-      <b>Color of Hair : </b>'.$hairColor.'<br>
-      <b>Complexion : </b>'.$complextion.'<br><br>';
-
-      echo "<b>Height(Inches) : </b>".$height."
-      <br><b>Weight(lbs) : </b>".$weight."<br><br>
-
-      <b>Scars, tattoo marks, &c., state site: </b>".$scars."<br><br>";
-
-      echo '<h3>(b) Urine Examination</h3>
-      <b>Appearance : </b>'.$urAppearance.'<br>
-      <b>Albumen : </b>'.$urAlbumen.'<br>
-      <b>Sugar : </b>'.$urSugar.'<br>
-      <b>Special Gravity : </b>'.$urSpGravity.'<br><br>';
-
-      echo "<h3>(c) Physique</h3>".$physique."<br><br>
-
-      <h3>(d) Genito-urinary and perineum</h3>
-      <p><b>(Hydrocele, varicocele, undescended test is haemorrhoids, evidence of previous V.D.)</b></p>
-      ".$guap."<br><br>
-
-      <h3>(e) Skin</h3>".$skin."<br><br>
-
-      <h3>(f) Endocrine conditions</h3>".$eConditions."<br><br>";
-
-      echo '<h3>(g) Cardio Vascular System</h3>
-      <b>Heart Size : </b>'.$heartSize.'<br>';
-
-      echo "<b>Sounds : </b>".$sounds."<br>
-      <b>Arterial Walls : </b>".$arterialWalls."<br><br>";
-
-      echo "<table border='1'>
-        <tr>
-          <th>Pules Rate</th><th>E.TT. (if carried out) B.P. (if taken)</th>
-        </tr>
-        <tr>
-          <td>".$pulseRate."</td><td>".$bp."</td>
-        </tr>
-      </table>
-      <h3>(h) Respiratory System</h3>".$respSystemInfo."<br>
-     <p><b>Chest Measurements (to nearest 1/2 inch)</b></p>";
-
-     echo ' <b>Full Expiration(Inches) : </b>'.$fullExpChest.'<br>
-     <b>Range of Expansion(Inches) : </b>'.$rangeOfExp.'<br><br>';
-
-     echo "<h3>(i) Central Nervous System</h3>
-     <p><b>(Reflexes, tromors)</b></p>
-     ".$centralNerveSys."<br>
-
-     <h3>(j) Abdomen</h3>
-     <p><b>(Hernia, muscle tone and organs)</b></p>
-     ".$abdomen."<br>
-
-     <h3>(k) Any Abnormalities or Conditions Affecting Physical Papacity</h3>
-     <p><b>(not already noted)</b></p>
-     ".$abnormalities."<br><br>";
-
-     if ($physicalCapacityObject instanceof PhysicalCapacityFemale) {
-       $gender = 'Female';
-
-       echo '<b>Gender : </b>'.$gender.'<br><br>';
-
-       $womenInfo = $physicalCapacityObject->getPropertyF('womenInfo');
-       $lmpDate = $physicalCapacityObject->getPropertyF('lmpDate');
-       $maritalState = $physicalCapacityObject->getPropertyF('maritalState');
-
-       echo "<h3>(l) Women</h3>
-       <p><b>(Breasts, menstrual history, vaginal dischargbe, prolapse)</b></p>
-       ".$womenInfo."<br><br>
-       <b>L.M.P.(date) : </b>".$lmpDate."<br><br>";
-
-       if ($maritalState == 'yes') {
-         echo "<b>Marital State : </b>Married<br><br>";
-
-         $numChildren = $physicalCapacityObject->getPropertyFM('numChildren');
-         $numPregs = $physicalCapacityObject->getPropertyFM('numPregs');
-         $dateLastConf = $physicalCapacityObject->getPropertyFM('dateLastConf');
-
-         echo '<b>No. of Children : </b>'.$numChildren.'<br>
-         <b>No. of Pregnancies : </b>'.$numPregs.'<br>
-         <b>Date of Last Confinement : </b>'.$dateLastConf.'<br><br><br>';
-
-       }else {
-         echo "<b>Marital State : <b>Not Married<br><br><br>";
-       }
-
-     }else{
-       $gender = 'Male';
-
-       echo '<b>Gender : </b>'.$gender.'<br><br><br>';
-
-     }
 
      ?>
 
-     <form action="medicalReportDisplay9.php" method="post">
-       <button type="submit" name="next">Next</button>
-     </form>
+     <div class="medical-report">
+       <h1>Medical Report</h1><br>
+       <form action="medicalReportDisplay9.php" method="post">
+         <div class="section"><span>9</span>Physical Capacity</div><br>
+         <div class="inner-wrap">
+           <div class="section"><span>a</span><p><b>Identification</b></p></div><br>
+           <label>Color of eyes : </label> <?php echo $eyesColor; ?><br><br>
+           <label>Color of Hair :</label> <?php echo $hairColor; ?><br><br>
+           <label>Complexion :</label> <?php echo $complextion; ?><br><br>
+
+           <label>Height(Inches) :</label> <?php echo $height; ?><br><br>
+           <label>Weight(lbs) :</label> <?php echo $weight; ?><br><br>
+
+           <label>Scars, tattoo marks, &c., state site:</label> <?php echo $scars; ?><br><br>
+
+           <div class="section"><span>b</span><p><b>Urine Examination</b> </p></div><br>
+           <label>Appearance :</label><?php echo $urAppearance; ?><br><br>
+           <label>Albumen :</label> <?php echo $urAlbumen; ?><br><br>
+           <label>Sugar :</label><?php echo $urSugar; ?><br><br>
+           <label>Special Gravity :</label><?php echo $urSpGravity; ?><br><br>
+
+           <div class="section"><span>c</span><p><b>Physique</b></p></div><br>
+           <?php echo $physique; ?><br><br>
+
+           <div class="section"><span>d</span><p><b>Genito-urinary and perineum</b></p> </div>
+           <label>(Hydrocele, varicocele, undescended test is haemorrhoids, evidence of previous V.D.)</label>
+           <?php echo $guap; ?><br><br>
+
+           <div class="section"><span>e</span><p><b>Skin</b> </p> </div><br> <?php echo $skin; ?><br><br>
+
+           <div class="section"><span>f</span><p><b>Endocrine conditions</b> </p> </div><br><?php echo $eConditions; ?><br><br>
+
+           <div class="section"><span>g</span><p><b>Cardio Vascular System</b> </p> </div><br>
+           <label>Heart Size :</label><?php echo $heartSize; ?><br><br>
+           <label>Sounds :</label><?php echo $sounds; ?><br><br>
+           <label>Arterial Walls :</label><?php echo $arterialWalls; ?><br><br>
+
+           <table class='table'>
+             <tr>
+               <th>Pules Rate</th><th>E.TT. (if carried out) B.P. (if taken)</th>
+             </tr>
+             <tr>
+               <td><?php echo $pulseRate; ?></td><td><?php echo $bp; ?></td>
+             </tr>
+           </table><br><br>
+
+           <div class="section"><span>h</span><p><b>Respiratory System</b> </p> </div><br><?php echo $respSystemInfo; ?><br>
+           <br><label><b>Chest Measurements (to nearest 1/2 inch)</b></label>
+           <label>Full Expiration(Inches) :</label><?php echo $fullExpChest; ?><br><br>
+           <label>Range of Expansion(Inches) :</label> <?php echo $rangeOfExp; ?><br><br>
+
+           <div class="section"><span>i</span><p><b>Central Nervous System</b> </p> </div>
+           <label>(Reflexes, tromors)</label>
+           <?php echo $centralNerveSys; ?><br>
+
+           <div class="section"><span>j</span><p><b>Abdomen</b> </p> </div>
+           <label>(Hernia, muscle tone and organs)</label>
+           <?php echo $abdomen; ?><br><br>
+
+           <div class="section"><span>k</span><p><b>Any Abnormalities or Conditions Affecting Physical Papacity</b> </p> </div>
+           <label>(not already noted)</label>
+           <?php echo $abnormalities; ?><br><br>
+
+           <?php
+             if ($physicalCapacityObject instanceof PhysicalCapacityFemale) {
+               $gender = 'Female';
+
+               echo "<label>Gender :</label>
+               ".$gender."<br><br>";
+
+               $womenInfo = $physicalCapacityObject->getPropertyF('womenInfo');
+               $lmpDate = $physicalCapacityObject->getPropertyF('lmpDate');
+               $maritalState = $physicalCapacityObject->getPropertyF('maritalState');
+
+               echo " <div class='section'><span>l</span><p><b>Women</b> </p> </div>
+                <label>(Breasts, menstrual history, vaginal dischargbe, prolapse)</label>
+                ".$womenInfo."<br><br>
+                <label>L.M.P.(date) :</label>".$lmpDate."<br><br>";
+
+               if ($maritalState == 'yes') {
+                 echo "<label>Marital State :</label>Married<br><br>";
+
+                 $numChildren = $physicalCapacityObject->getPropertyFM('numChildren');
+                 $numPregs = $physicalCapacityObject->getPropertyFM('numPregs');
+                 $dateLastConf = $physicalCapacityObject->getPropertyFM('dateLastConf');
+
+                 echo '<label>No. of Children :</label>'.$numChildren.'<br><br>
+                 <label>No. of Pregnancies :</label>'.$numPregs.'<br><br>
+                 <label>Date of Last Confinement :</label>'.$dateLastConf.'<br><br>';
+
+               }else {
+                 echo "<label>Marital State :</label>Not Married<br><br><br>";
+               }
+
+             }else{
+               $gender = 'Male';
+
+               echo "<label>Gender :</label>
+               ".$gender."<br><br>";
+
+             }
+
+           ?>
+
+           <div class="button-section">
+             <button type="submit" name="next">Next</button>
+           </div>
+
+         </div>
+
+       </form>
+     </div>
+
   </body>
 </html>

@@ -8,9 +8,10 @@
   <head>
     <meta charset="utf-8">
     <title>Medical Report</title>
+    <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../css/medicalReport.css">
   </head>
   <body>
-    <h4>Each Examiner will initial here and indicate any specialist examinations or other investigations considered necessary before a final #### assessment is given</h4>
     <?php
       $results = $_SESSION['results'];
 
@@ -27,15 +28,24 @@
       $initials3 = $form10Object->getInitials3();
       $initials4 = $form10Object->getInitials4();
 
-      echo '<p>(*) No. 1 <b>'.$one.'</b> Initials of examiner <b>'.$initials1.'</b></p>
-      <p>(*) No. 2 <b>'.$two.'</b> Initials of examiner <b>'.$initials2.'</b></p>
-      <p>(*) No. 3 <b>'.$three.'</b> Initials of examiner <b>'.$initials3.'</b></p>
-      <p>(*) No. 4 <b>'.$four.'</b> Initials of examiner <b>'.$initials4.'</b></p>';
-
      ?>
 
-     <form action="medicalReportDisplay11.php" method="post">
-       <button type="submit" name="next">Next</button>
-     </form>
+     <div class="medical-report">
+       <h1>Medical Report</h1><br>
+       <form action="medicalReportDisplay11.php" method="post">
+         <div class="section"><span>11</span>Each Examiner will initial here and indicate any specialist examinations or other investigations considered necessary before a final #### assessment is given</div><br>
+         <div class="inner-wrap">
+           <br><br><div class="section"><span>1</span></div><?php echo $one; ?><br><br><label> Initials of examiner </label><?php echo $initials1; ?><br><br>
+           <br><div class="section"><span>2</span></div><?php echo $two; ?><br><br><label> Initials of examiner </label><?php echo $initials2; ?><br><br>
+           <br><div class="section"><span>3</span></div><?php echo $three; ?><br><br><label> Initials of examiner </label><?php echo $initials3; ?><br><br>
+           <br><div class="section"><span>4</span></div><?php echo $four; ?><br><br><label> Initials of examiner </label><?php echo $initials4; ?><br><br>
+         </div>
+
+         <div class="button-section">
+           <button type="submit" name="next">Next</button>
+         </div>
+       </form>
+     </div>
+
   </body>
 </html>

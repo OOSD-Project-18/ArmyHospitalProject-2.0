@@ -2,8 +2,11 @@
 include_once "includes/class-autoload.inc.php";
 require_once 'includes/initFromPatients.php';
 //session_start(); This is done by above file
+$user=new User();
+if(!$user->isLoggedIn()){
+    Redirect::to('../index.php');
+}
 $nic = $_SESSION['nic'];
-//$_SESSION['nic'] = $nic;
 $patientView = new PatientView();
 $results = $patientView->showPatientInfo($nic);
 $_SESSION['patientType'] = $results['type'];
@@ -32,170 +35,166 @@ $photoLocation = $photoresults[0]['photo'];
         <?php include('css/slider.html') ?>
         <div id="mySidebar" class="sidebar shadow text-center">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-            <h2>
-                Patient Informtion
-            </h2>
-            <?php
-
-            echo "<div class='photo'>";
-            if (!empty($photoLocation)) {
-                echo "<img src=" . $photoLocation . " alt='Profile pic' width='250' height='200'>";
-            } else {
-                echo "<img src=profilePics/default.jpg alt='Profile pic width='250' height='200''><br>";
-            }
-            echo "</div>"; ?>
-            <a href="uploadPhoto.php">Upload profile picture</a>
-            <?php if (!empty($results[0])) {
-                if ($results['type'] == 'force') {
-                    $force_id = $results[0]['force_id'];
-                    $force = $results[0]['force'];
-                    $first_name = $results[0]['first_name'];
-                    $last_name = $results[0]['last_name'];
-                    $regiment = $results[0]['regiment'];
-                    $rank = $results[0]['rank'];
-                    $email = $results[0]['email'];
-                    $dob = $results[0]['date_of_birth'];
-                    $height = $results[0]['height'];
-                    $weight = $results[0]['weight'];
-                    $address = $results[0]['address'];
-                    $mobile = $results[0]['mobile'];
-
-                    echo "<p>NIC: " . $nic . "</p>";
-                    echo "<p>Force ID: " . $force_id . "</p>";
-                    echo "<p>Force: " . $force . "</p>";
-                    echo "<p>First Name: " . $first_name . "</p>";
-                    echo "<p>Last Name: " . $last_name . "</p>";
-                    echo "<p>Date of Birth: " . $dob . "</p>";
-                    echo "<p>Regiment: " . $regiment . "</p>";
-                    echo "<p>Rank: " . $rank . "</p>";
-                    echo "<p>Height: " . $height . "</p>";
-                    echo "<p>Weight: " . $weight . "</p>";
-                    echo "<p>Email: " . $email . "</p>";
-                    echo "<p>Address: " . $address . "</p>";
-                    echo "<p>Mobile: " . $mobile . "</p><br>";
-                } else if ($results['type'] == 'family') {
-                    $force_id = $results[0]['force_id'];
-                    $force = $results[0]['force'];
-                    $first_name = $results[0]['first_name'];
-                    $last_name = $results[0]['last_name'];
-                    $relation = $results[0]['relation'];
-                    $email = $results[0]['email'];
-                    $dob = $results[0]['date_of_birth'];
-                    $height = $results[0]['height'];
-                    $weight = $results[0]['weight'];
-                    $address = $results[0]['address'];
-                    $mobile = $results[0]['mobile'];
-
-                    echo "<p>NIC: " . $nic . "</p>";
-                    echo "<p>Force ID of family member: " . $force_id . "</p>";
-                    echo "<p>Force of family member: " . $force . "</p>";
-                    echo "<p>Relation to family member: " . $relation . "</p>";
-                    echo "<p>First Name: " . $first_name . "</p>";
-                    echo "<p>Last Name: " . $last_name . "</p>";
-                    echo "<p>Date of Birth: " . $dob . "</p>";
-                    echo "<p>Height: " . $height . "</p>";
-                    echo "<p>Weight: " . $weight . "</p>";
-                    echo "<p>Email: " . $email . "</p>";
-                    echo "<p>Address: " . $address . "</p>";
-                    echo "<p>Mobile: " . $mobile . "</p><br>";
-                }
-            } else {
-                echo 'Unregistered patient';
-            }
-            ?>
-
-
+            <a class="btn btn-light" href="patientProfile.php" role="button">Profile</a>
+            <a class="btn btn-light" href="addDetails.php" role="button">Edit Current Visit</a>
+            <a class="btn btn-light" href="oldVisits.php" role="button">View Visit History</a>
+            <a class="btn btn-light" href="medicalReportForm/medicalReportDisplay1.php" role="button">Medical Report</a>
+            <a class="btn btn-light" href="drugIssueRequest.php" role="button">Issue Prescription</a>
+            <a class="btn btn-light" href="viewPrescription.php" role="button">Prescriptions</a>
+            <a class="btn btn-light" href="dischargeForm.php" role="button">Discharge Form</a>
+            <a class="btn btn-light" href="changeDoctor.php" role="button">Change Doctor</a>
         </div>
         <div>
             <button class="openbtn" onclick="openNav()">☰</button>
         </div>
 
+        <div class="container py-4">
+            <div class="card p-3">
+                <div class="text-center">
+                    <h2 class="text-cnter">
+                        Patient Information
+                    </h2>
+                </div>
+                <hr>
+                <?php
+
+                echo "<div class='text-center'>";
+                if (!empty($photoLocation)) {
+                    echo "<img src=" . $photoLocation . " alt='Profile pic' width='250' height='200'>";
+                } else {
+                    echo "<img src=profilePics/default.jpg alt='Profile pic width='250' height='200''><br>";
+                }
+                echo "</div>"; ?>
+                <a href="uploadPhoto.php">Upload profile picture</a>
+                <?php if (!empty($results[0])) {
+                    if ($results['type'] == 'force') {
+                        $force_id = $results[0]['force_id'];
+                        $force = $results[0]['force'];
+                        $first_name = $results[0]['first_name'];
+                        $last_name = $results[0]['last_name'];
+                        $regiment = $results[0]['regiment'];
+                        $rank = $results[0]['rank'];
+                        $email = $results[0]['email'];
+                        $dob = $results[0]['date_of_birth'];
+                        $height = $results[0]['height'];
+                        $weight = $results[0]['weight'];
+                        $address = $results[0]['address'];
+                        $mobile = $results[0]['mobile'];
+
+                        echo "<p>NIC: " . $nic . "</p>";
+                        echo "<p>Force ID: " . $force_id . "</p>";
+                        echo "<p>Force: " . $force . "</p>";
+                        echo "<p>First Name: " . $first_name . "</p>";
+                        echo "<p>Last Name: " . $last_name . "</p>";
+                        echo "<p>Date of Birth: " . $dob . "</p>";
+                        echo "<p>Regiment: " . $regiment . "</p>";
+                        echo "<p>Rank: " . $rank . "</p>";
+                        echo "<p>Height: " . $height . "</p>";
+                        echo "<p>Weight: " . $weight . "</p>";
+                        echo "<p>Email: " . $email . "</p>";
+                        echo "<p>Address: " . $address . "</p>";
+                        echo "<p>Mobile: " . $mobile . "</p><br>";
+                    } else if ($results['type'] == 'family') {
+                        $force_id = $results[0]['force_id'];
+                        $force = $results[0]['force'];
+                        $first_name = $results[0]['first_name'];
+                        $last_name = $results[0]['last_name'];
+                        $relation = $results[0]['relation'];
+                        $email = $results[0]['email'];
+                        $dob = $results[0]['date_of_birth'];
+                        $height = $results[0]['height'];
+                        $weight = $results[0]['weight'];
+                        $address = $results[0]['address'];
+                        $mobile = $results[0]['mobile'];
+
+                        echo "<p>NIC: " . $nic . "</p>";
+                        echo "<p>Force ID of family member: " . $force_id . "</p>";
+                        echo "<p>Force of family member: " . $force . "</p>";
+                        echo "<p>Relation to family member: " . $relation . "</p>";
+                        echo "<p>First Name: " . $first_name . "</p>";
+                        echo "<p>Last Name: " . $last_name . "</p>";
+                        echo "<p>Date of Birth: " . $dob . "</p>";
+                        echo "<p>Height: " . $height . "</p>";
+                        echo "<p>Weight: " . $weight . "</p>";
+                        echo "<p>Email: " . $email . "</p>";
+                        echo "<p>Address: " . $address . "</p>";
+                        echo "<p>Mobile: " . $mobile . "</p><br>";
+                    }
+                } else {
+                    echo 'Unregistered patient';
+                }
+                ?>
 
 
 
+            </div>
 
+        </div>
 
-
-
-
-
-        <div class="visits">
-
-            <?php
-            //Should add coloumns for prescriptions, medical reports when the forms are made
-            $visitInfo = $patientView->showCurrentVisit($nic);
-            if (!empty($visitInfo)) {
-                $doa = $visitInfo[0]['doa'];
-                $_SESSION['doa'] = $doa;
-                $reason = $visitInfo[0]['reason'];
-                $history = $visitInfo[0]['history'];
-                $cm = $visitInfo[0]['cm'];
-                $doctor = $visitInfo[0]['doctor'];
-                $ward = $visitInfo[0]['ward'];
-                $discharged = $visitInfo[0]['Discharged'];
-                $detailsObj = unserialize($visitInfo[0]['details']);
-                $details = $detailsObj->getDetails(); ?>
-                <div class="container py-1">
-                    <div class="card p-3">
-                        <h2>Latest Visit</h2>
-                        <table class="table table-stripped text-center">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">Date of Admission</th>
-                                    <th scope="col">Reason for Admission</th>
-                                    <th>Medical history</th>
-                                    <th>Current Medications</th>
-                                    <th>Doctor</th>
-                                    <th>Ward</th>
-                                    <th>Details by the Doctor</th>
-                                    <th>Discharged</th>
-                                </tr>
-
-                                </tr>
-                            </thead>
+        <?php
+        //Should add coloumns for prescriptions, medical reports when the forms are made
+        $visitInfo = $patientView->showCurrentVisit($nic);
+        if (!empty($visitInfo)) {
+            $doa = $visitInfo[0]['doa'];
+            $_SESSION['doa'] = $doa;
+            $reason = $visitInfo[0]['reason'];
+            $history = $visitInfo[0]['history'];
+            $cm = $visitInfo[0]['cm'];
+            $doctor = $visitInfo[0]['doctor'];
+            $ward = $visitInfo[0]['ward'];
+            $discharged = $visitInfo[0]['Discharged'];
+            $detailsObj = unserialize($visitInfo[0]['details']);
+            $details = $detailsObj->getDetails(); ?>
+            <div class="container py-1">
+                <div class="card p-3 text-center">
+                    <h2>Latest Visit</h2>
+                    <table class="table  text-center table-bordered">
+                        <thead class="thead">
                             <tr>
-                                <td><?php echo ($doa) ?></td>
-                                <td><?php echo ($reason) ?></td>
-                                <td><?php echo ($history) ?></td>
-                                <td><?php echo ($cm) ?></td>
-                                <td><?php echo ($doctor) ?></td>
-                                <td><?php echo ($ward) ?></td>
-                                <td><?php echo ($details) ?></td>
-                                <td><?php echo ($discharged) ?></td>
+                                <th scope="col">Date of Admission</th>
+                                <th scope="col">Reason for Admission</th>
+                                <th>Medical history</th>
+                                <th>Current Medications</th>
+                                <th>Doctor</th>
+                                <th>Ward</th>
+                                <th>Details by the Doctor</th>
+                                <th>Discharged</th>
                             </tr>
 
-                        </table>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td><?php echo ($doa) ?></td>
+                            <td><?php echo ($reason) ?></td>
+                            <td><?php echo ($history) ?></td>
+                            <td><?php echo ($cm) ?></td>
+                            <td><?php echo ($doctor) ?></td>
+                            <td><?php echo ($ward) ?></td>
+                            <td><?php echo ($details) ?></td>
+                            <td><?php echo ($discharged) ?></td>
+                        </tr>
+
+                    </table>
 
 
-                    </div>
                 </div>
+            </div>
 
-            <?php } else {
-                echo "No Visits";
-            }
-            ?>
-            <a href="addDetails.php">Add details to current visit</a><br>
-
-            <a href="oldVisits.php">View visit History</a>
-
-        </div>
-
-        <div class='navigation'>
-
-            <a href="medicalReportForm/medicalReportDisplay1.php"> Medical Report</a><br>
-            <a href="drugIssueRequest.php">Issue Prescription</a><br>
-            <a href="viewPrescription.php">Prescriptions</a><br>
-            <a href="dischargeForm.php">Discharge Form</a><br>
-            <a href="changeDoctor.php">Change Doctor</a><br>
-
-            <!-- Add links to prescription history, lab report history, issue drug request, discharge form -->
-
-
-        </div>
-
-
-
-
+        <?php } else {
+            echo "No Visits";
+        }
+        ?> </div>
+        <br>
+        <div class="conatiner py-1 text-center">
+            <a class="btn btn-outline-primary" href="addDetails.php" role="button">Add details to current visit</a>
+            <a class="btn btn-outline-primary" href="oldVisits.php" role="button">View visit History</a>
+            <a class="btn btn-outline-primary" href="medicalReportForm/medicalReportDisplay1.php" role="button">Medical Report</a>
+            <a class="btn btn-outline-primary" href="drugIssueRequest.php" role="button">Issue Prescription</a>
+            <a class="btn btn-outline-primary" href="viewPrescription.php" role="button">Prescriptions</a>
+            <a class="btn btn-outline-primary" href="dischargeForm.php" role="button">Discharge Form</a>
+            <a class="btn btn-outline-primary" href="changeDoctor.php" role="button">Change Doctor</a>
+            <!-- Add links to prescription history, lab report history, issue drug request, discharge form -->      </div>
+        <br><br><br>
     </main>
 </body>
 

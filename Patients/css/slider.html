@@ -1,79 +1,61 @@
-
 <style>
     body {
-      font-family: "Lato", sans-serif;
+        font-family: "Lato", sans-serif;
     }
-    
+
     .sidebar {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      background-color:white;
-      overflow-x: hidden;
-      transition: 0.5s;
-      padding-top: 60px;
+        height: 100%;
+        width: 250px;
+        position: fixed;
+        z-index: 1;
+        top: 64px;
+        left: 0;
+        background-color: #f2f2f2;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 20px;
     }
-    
+
     .sidebar a {
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      font-size: 25px;
-      color:black;
-      display: block;
-      transition: 0.3s;
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: black;
+        display: block;
+        transition: 0.3s;
     }
-    
+
     .sidebar a:hover {
-      color:gray;
+        color: gray;
     }
-    
-    .sidebar .closebtn {
-      position: absolute;
-      top: 0;
-      right: 25px;
-      font-size: 36px;
-      margin-left: 50px;
-    }
-    
-    .openbtn {
-      font-size: 20px;
-      cursor: pointer;
-      background-color:#347deb;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-    }
-    
-    .openbtn:hover {
-      background-color:blue;
-    }
-    
+
+
+
+
+
     #main {
-      transition: margin-left .5s;
-      
+        margin-left: 250px;
     }
-    
+
     /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
     @media screen and (max-height: 450px) {
-      .sidebar {padding-top: 15px;}
-      .sidebar a {font-size: 18px;}
+        .sidebar {
+            padding-top: 15px;
+        }
+
+        .sidebar a {
+            font-size: 18px;
+        }
     }
-    </style>
-    
-    
-    
-    <script>
-    function openNav() {
-      document.getElementById("mySidebar").style.width = "250px";
-      document.getElementById("main").style.marginLeft = "250px";
+</style>
+<script>
+    window.onscroll = function () { myFunction() };
+    function myFunction() {
+        if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+            document.getElementById("mySidebar").style.top = "0";
+        } else {
+            document.getElementById("mySidebar").style.top = "64px";
+        }
+
     }
-    
-    function closeNav() {
-      document.getElementById("mySidebar").style.width = "0";
-      document.getElementById("main").style.marginLeft= "0";
-    }
-    </script>
-    
+</script>

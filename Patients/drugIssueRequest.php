@@ -1,9 +1,12 @@
 <?php
+include_once "includes/class-autoload.inc.php";
+
 require_once('includes/initFromPatients.php');
 $user = new User();
 if (!$user->isLoggedIn()) {
     Redirect::to('../index.php');
 }
+
 ?>
 
 <!DOCTYPE html>

@@ -23,8 +23,8 @@ if (!$user->isLoggedIn()) {
     <main  id="main">
         <?php include_once('_sideNav.php') ?>
         <div class="container py-4">
-      
-  
+
+
 
       <form action="includes/dischargeForm.inc.php" method="post" class="card p-3">
         <div class="text-center">

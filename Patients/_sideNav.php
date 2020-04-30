@@ -1,3 +1,11 @@
+<?php
+include_once "includes/class-autoload.inc.php";
+
+$nic = $_SESSION['nic'];
+$results = $_SESSION['info'];
+$patientType = $results['type'];
+$photoLocation = $_SESSION['photoLocation'];
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

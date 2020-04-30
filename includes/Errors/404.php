@@ -22,7 +22,7 @@
                         <h1 class="display-1 d-block">404 Error</h1>
                         <h3><i class="fa fa-exclamation-triangle text-danger"></i>Oops! This page Could Not Be Found!</h3>
                         <p class="error-details ">Sorry the page you are looking for does not exist.</p>
-                        <i class="fa fa-home" aria-hidden="true"></i><a href="index.php" class="btn-link">Go to homepage</a>
+                        <i class="fa fa-home" aria-hidden="true"></i><a href="../../index.php" class="btn-link">Go to homepage</a>
 
                 </div>
     </div>

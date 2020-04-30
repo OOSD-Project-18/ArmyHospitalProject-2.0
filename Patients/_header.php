@@ -6,16 +6,17 @@ if (!$user->isLoggedIn()) {
 } else {
 
     if (!$user->exists()) {
-        Redirect::to(404);
+        Redirect::to('../includes/Errors/404.php');
     } else {
         $data = $user->data();
     }
 ?>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow border-bottom border-primary ">
-            <a class="navbar-brand" href="../viewhome.php">
+            <a class="navbar-brand" href="../views/home.php">
                 <img src="../stylesheets/Army.png" width="45" height="35" class="d-inline-block align-top" alt="">
             </a>
+            <p class="pt-1" style="letter-spacing:2;font-weight:bold;font-size:20px">SRI LANKA ARMY HOSPITAL</p>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">
@@ -31,12 +32,12 @@ if (!$user->isLoggedIn()) {
                             <?php } ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="../viewhome.php"><b>HOME</b></a>
-                            <a class="dropdown-item" href="../viewupdate.php">Edit profile </a>
-                            <a class="dropdown-item" href="../viewProfile.php">View profile </a>
-                            <a class="dropdown-item" href="../viewupdate.php">Change Password</a>
+                            <a class="dropdown-item" href="../views/home.php"><b>HOME</b></a>
+                            <a class="dropdown-item" href="../views/update.php">Edit profile </a>
+                            <a class="dropdown-item" href="../views/profile.php">View profile </a>
+                            <a class="dropdown-item" href="../views/update.php">Change Password</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="../controllerlogout.php">Log out</a>
+                            <a class="dropdown-item" href="../handlers/logout.php">Log out</a>
                         </div>
                     </li>
                 </ul>

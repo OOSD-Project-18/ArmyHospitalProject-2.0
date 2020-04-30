@@ -1,5 +1,5 @@
 <?php
-require_once 'core/init.php';
+require_once '../core/initfromhandlers.php';
 
 
 if (Input::exists()) {
@@ -16,16 +16,16 @@ if (Input::exists()) {
         $remember = (Input::get('user_remember') === 'on') ? true : false;
         $login = $user->login(Input::post('user_uid'), Input::post('user_pwd'), $remember);
         if ($login) {
-            Redirect::to('index.php');
+            Redirect::to('../index.php');
         } else {
-            Redirect::to('viewlogin.php','Sorry Login Failed.ID Number or Password Invalid.');
+            Redirect::to('../views/login.php','Sorry Login Failed.ID Number or Password Invalid.');
         }
     } else {
-        Redirect::to('viewlogin.php','Both the ID Number and Password are required.');
+        Redirect::to('../views/login.php','Both the ID Number and Password are required.');
         
     }
 }else{
-    Redirect::to('viewlogin.php');
+    Redirect::to('../views/login.php');
 }
 
 

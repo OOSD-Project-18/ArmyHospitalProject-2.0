@@ -1,13 +1,13 @@
 <?php
-require_once 'core/init.php';
+require_once '../core/initfromviews.php';
 $user = new User();
 
 if (!$user->isLoggedIn()) {
-    Redirect::to('index.php');
+    Redirect::to('../index.php');
 } else {
 
     if (!$user->exists()) {
-        Redirect::to(404);
+        Redirect::to('../includes/Errors/404.php');
     } else {
         $data = $user->data();
     }
@@ -30,16 +30,16 @@ if (!$user->isLoggedIn()) {
         <?php include('_header.php');?>
 
         <main>
-            <?php include('stylesheets/sidebar.html') ?>
+            <?php include('../stylesheets/sidebar.html') ?>
             <div id="mySidebar" class="sidebar shadow text-center">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
                 <?php if ($data->user_imgstatus) { 
                     $uid=$data->user_uid;
-                    $imgSource='staffprofileimgs/profileimg'.$uid.'.jpg'.'?rand=<?php echo rand();' ?>
+                    $imgSource='../staffprofileimgs/profileimg'.$uid.'.jpg'.'?rand=<?php echo rand();' ?>
                     
                     <img src=<?php echo $imgSource ?> alt="poflile pic" width='250px' height="250px">
                 <?php } else { ?>
-                    <img src="stylesheets/defaultprofileimg.jpg" alt="profile img" width='250px' height="250px">
+                    <img src="../stylesheets/defaultprofileimg.jpg" alt="profile img" width='250px' height="250px">
                 <?php } ?>
                 
                 <!--add profile img-->
@@ -60,7 +60,7 @@ if (!$user->isLoggedIn()) {
                     <h3>Search Patient</h3>
                     <hr>
 
-                    <form action="functions/searchbar.php" method="post">
+                    <form action="../functions/searchbar.php" method="post">
                         <input type="text" id="search" placeholder="Enter Patient's NIC Number" name="search" class="form-control mr-sm-2" required>
                         <br>
                         <input type="submit" id="submit" name="submit" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Search ID">
@@ -74,7 +74,7 @@ if (!$user->isLoggedIn()) {
                     <h3>Search Users</h3>
                     <hr>
 
-                    <form action="viewProfile.php" method="post">
+                    <form action="profile.php" method="post">
                         <input type="text" id="searched_id" placeholder="Enter UserID" name="searched_id" class="form-control mr-sm-2" required>
                         <br>
                         <input type="submit" id="submit" name="submit" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Search ID">

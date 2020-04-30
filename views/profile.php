@@ -1,14 +1,13 @@
 <?php
-
-require_once 'core/init.php';
+require_once '../core/initfromviews.php';
 
 $user = new User();
 
 if (!$user->isLoggedIn()) {
-    Redirect::to('index.php');
+    Redirect::to('../index.php');
 } else {
     if (!$user->exists()) {
-        Redirect::to(404);
+        Redirect::to('../includes/Errors/404.php');
     } else {
         if (Input::get('searched_id')!=null) {
             $user_uid = Input::get('searched_id');
@@ -18,7 +17,7 @@ if (!$user->isLoggedIn()) {
 
         $userNew = new User($user_uid);
         if (!$userNew->exists()) {
-            Redirect::to(404);
+            Redirect::to('../includes/Errors/404.php');
         } else {
             $data1 = $userNew->data();
         }
@@ -53,11 +52,11 @@ if (!$user->isLoggedIn()) {
                     <div>
                         <?php if ($data1->user_imgstatus) {
                             $uid = $data1->user_uid;
-                            $imgSource = 'staffprofileimgs/profileimg' . $uid . '.jpg' . '?rand=<?php echo rand();' ?>
+                            $imgSource = '../staffprofileimgs/profileimg' . $uid . '.jpg' . '?rand=<?php echo rand();' ?>
 
                             <img src=<?php echo $imgSource ?> alt="poflile pic" width='250px' height="250px">
                         <?php } else { ?>
-                            <img src="stylesheets/defaultprofileimg.jpg" alt="profile img" width='250px' height="250px">
+                            <img src="../stylesheets/defaultprofileimg.jpg" alt="profile img" width='250px' height="250px">
                         <?php } ?>
                     </div>
                 </div>

@@ -1,9 +1,9 @@
 <?php
-require_once 'core/init.php';
+require_once '../core/initfromhandlers.php';
 $user = new User();
 
 if (!$user->isLoggedIn()) {
-    Redirect::to('index.php');
+    Redirect::to('../index.php');
 }
 if (Input::existsPost()) {//if postexists
 
@@ -51,9 +51,9 @@ if (Input::existsPost()) {//if postexists
                 'user_mobile' => Input::post('user_mobile'),
             ));
             Session::flash('home', 'Information updated successfully');
-            Redirect::to('viewhome.php');
+            Redirect::to('../views/home.php');
         } catch (Exception $e) {
-            Redirect::to('viewupdate.php', 'database connection error');
+            Redirect::to('../views/update.php', 'database connection error');
         }
     } else {
         $errors = '';
@@ -62,8 +62,8 @@ if (Input::existsPost()) {//if postexists
             echo ($errors);
         }
 
-        Redirect::towithdata('viewupdate.php', 'error_msg=' . $errors . '&user_first=' . Input::post('user_first') . '&user_last=' . Input::post('user_last') . '&user_uid=' . Input::post('user_uid'));
+        Redirect::towithdata('../views/update.php', 'error_msg=' . $errors . '&user_first=' . Input::post('user_first') . '&user_last=' . Input::post('user_last') . '&user_uid=' . Input::post('user_uid'));
     }
 } else {
-    Redirect::to('viewupdate.php');
+    Redirect::to('../views/update.php');
 }

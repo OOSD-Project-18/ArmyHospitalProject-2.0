@@ -1,11 +1,11 @@
 <?php
-require_once 'core/init.php';
+require_once '../core/initfromviews.php';
 $error_msg = Input::get('error_msg');
 $error_msg_pwd = Input::get('error_msg_pwd');
 $user = new User();
 
 if (!$user->isLoggedIn()) {
-    Redirect::to('index.php');
+    Redirect::to('../index.php');
 }
 ?>
 <!DOCTYPE html>
@@ -27,7 +27,7 @@ if (!$user->isLoggedIn()) {
     <main>
         <div class="container py-4">
 
-            <form action="controllerprofileimg.php" method="post" enctype="multipart/form-data" class="card p-3 border border-primary">
+            <form action="../handlers/profileimg.php" method="post" enctype="multipart/form-data" class="card p-3 border border-primary">
                 <h2 class="text-center">Change Profile Picture</h2>
                 <hr>
                 <div class="custom-file">
@@ -42,11 +42,11 @@ if (!$user->isLoggedIn()) {
 
                 <?php if ($user->data()->user_imgstatus) {
                     $uid = $user->data()->user_uid;
-                    $imgSource = 'staffprofileimgs/profileimg' . $uid . '.jpg' . '?rand=<?php echo rand();' ?>
+                    $imgSource = '../staffprofileimgs/profileimg' . $uid . '.jpg' . '?rand=<?php echo rand();' ?>
 
                     <img src=<?php echo $imgSource ?> alt="poflile pic" width='200px' height="200px" id="profile-img-tag">
                 <?php } else { ?>
-                    <img src="stylesheets/defaultprofileimg.jpg" alt="profile img" width='200px' height="200px" id="profile-img-tag">
+                    <img src="../stylesheets/defaultprofileimg.jpg" alt="profile img" width='200px' height="200px" id="profile-img-tag">
                 <?php } ?>
             </form>
         </div>
@@ -75,7 +75,7 @@ if (!$user->isLoggedIn()) {
         </script>
         <div class='container py-4 mt-3'>
 
-            <form action="controllerupdate.php" method="POSt" class="card p-3 border border-primary">
+            <form action="../handlers/update.php" method="post" class="card p-3 border border-primary">
                 <h2 class="text-center">Edit Information</h2>
                 <hr>
                 <?php if ($error_msg) { ?>
@@ -107,7 +107,7 @@ if (!$user->isLoggedIn()) {
 
         <div class='container py-4 mt-3'>
 
-            <form action="" method="POSt" class="card p-3 border border-primary">
+            <form action="../handlers/updatepassword.php" method="POST" class="card p-3 border border-primary">
                 <h2 class="text-center">Change Password</h2>
                 <hr>
                 <?php if ($error_msg_pwd) { ?>
@@ -157,7 +157,7 @@ if (!$user->isLoggedIn()) {
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <a class="btn btn-danger" href="controllerdelete.php" role="button">Delete Account</a>
+                                    <a class="btn btn-danger" href="../handlers/delete.php" role="button">Delete Account</a>
                                 </div>
                             </div>
                         </div>

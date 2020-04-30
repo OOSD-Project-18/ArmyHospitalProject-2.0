@@ -111,8 +111,9 @@
           $ward = $result['ward'];
           $dischargeDate = $result['discharge_date'];
           $dischargeSummary = $result['discharge_summary'];
-          $detailsObj = unserialize($visitInfo[0]['details']);
-          $details = $detailsObj->getDetails();
+          $detailsObj = unserialize($result['details']);
+          if (!empty($detailsObj)) {$details = $detailsObj->getDetails();}
+          else {$details = null;}
           echo "<tr>
             <td>$doa</td><td>$reason</td><td>$history</td><td>$cm</td><td>$doctor</td><td>$ward</td><td>$details</td><td>$dischargeDate</td><td>$dischargeSummary</td>
           </tr>";

@@ -35,8 +35,9 @@ $photoLocation = $photoresults[0]['photo'];
 <body>
     <?php include('_header.php') ?>
     <main  id=main>
-        <?php include('_sideNav.php') ?>
-
+  <?php
+        include('_sideNav.php');
+        ?>
 
         <div class="container py-4">
             <div class="card p-3">
@@ -50,9 +51,9 @@ $photoLocation = $photoresults[0]['photo'];
 
                 echo "<div class='text-center'>";
                 if (!empty($photoLocation)) {
-                    echo "<img src=" . $photoLocation . " alt='Profile pic' width='250' height='200'>";
+                    echo "<img src=" . $photoLocation . " alt='Profile pic' width='250px' height='250px'>";
                 } else {
-                    echo "<img src=profilePics/default.jpg alt='Profile pic width='250' height='200''><br>";
+                    echo "<img src=profilePics/default.jpg alt='Profile pic width='250px' height='250px''><br>";
                 }
                 echo "</div>"; ?>
                 <a href="uploadPhoto.php">Upload profile picture</a>

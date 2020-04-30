@@ -1,9 +1,9 @@
 <?php
-require_once('core/init.php');
+require_once '../core/initfromhandlers.php';
 $user=new User();
 
 if (!$user->isLoggedIn()) {
-    Redirect::to('index.php');
+    Redirect::to('../index.php');
 }else{
     $data=$user->data();
     if(Input::exists()){
@@ -24,17 +24,17 @@ if (!$user->isLoggedIn()) {
                 if ($fileSize <500000) {
                     $uid=$data->user_uid;
                     $fileNameNew ="profileimg$uid".".".$fileActualExt;
-                    try{unlink('staffprofileimgs/'.$fileNameNew);}catch(Exception $e){};
-                    $fileDestination='staffprofileimgs/'.$fileNameNew;
+                    try{unlink('../staffprofileimgs/'.$fileNameNew);}catch(Exception $e){};
+                    $fileDestination='../staffprofileimgs/'.$fileNameNew;
                     move_uploaded_file($fileTmpname,$fileDestination);//move from temp location to final location
                     try{
                         $user->update(array(
                             'user_imgstatus'=>1,
                         ));
                         Session::flash('home','Image updated successfully');
-                        Redirect::to('viewhome.php');
+                        Redirect::to('../views/home.php');
                     }catch(Exception $e){
-                        Redirect::to('update.php');//change name later
+                        Redirect::to('../views/update.php');//change name later
                     }
                 }else{
                     echo 'File too large';//change these to redirects with errors

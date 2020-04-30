@@ -1,13 +1,13 @@
 <?php
-require_once 'core/init.php';
+require_once '../core/initfromhandlers.php';
 
 $user=new User();
 
 if(!$user->isLoggedIn()){
-    Redirect::to('index.php');
+    Redirect::to('../index.php');
 }
-if(Input::exists()){
-    if(Token::check(Input::get('token'))){
+if(Input::existsPost()){
+    
         $validate=new Validate();
         $validation=$validate->check($_POST,array(
             'user_pwd'=>array(
@@ -36,14 +36,14 @@ if(Input::exists()){
         ));
         if($validation->passed()){
             if(!Hash::verify(Input::get('user_pwd'),$user->data()->user_pwd)){
-                Redirect::towithdata('viewupdate.php','error_msg_pwd='.'The current password is wrong.Please try again');
+                Redirect::towithdata('../views/update.php','error_msg_pwd='.'The current password is wrong.Please try again');
             }else{
                 $user->update(array(
                     'user_pwd'=>Hash::make(Input::get('user_pwd_new'))
 
                 ));
                 Session::flash('home','Password changed successfully');
-                Redirect::to('viewhome.php');
+                Redirect::to('../views/home.php');
 
             }
 
@@ -57,11 +57,11 @@ if(Input::exists()){
                 echo($errors);
             }
             
-            Redirect::towithdata('viewupdate.php','error_msg_pwd='.$errors);
+            Redirect::towithdata('../views/update.php','error_msg_pwd='.$errors);
         }
-    }
+    
 }else{
-    Redirect::to('viewhome.php');
+    Redirect::to('../views/home.php');
 }
 
 

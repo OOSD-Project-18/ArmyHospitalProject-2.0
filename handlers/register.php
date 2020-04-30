@@ -1,5 +1,5 @@
 <?php
-require_once 'core/init.php';
+require_once '../core/initfromhandlers.php';
 
 if (Input::exists()) {
     if (Token::check(Input::post('token'))) {
@@ -75,9 +75,9 @@ if (Input::exists()) {
 
                 ));
                 Session::flash('home', 'You are now registered you can now log in');
-                Redirect::to('index.php');
+                Redirect::to('../index.php');
             } catch (Exception $e) {
-                Redirect::to('viewregister.php','database error');
+                Redirect::to('../views/register.php','database error');
             }
         } else {
             $errors= '';
@@ -86,9 +86,9 @@ if (Input::exists()) {
                 echo($errors);
             }
             
-            Redirect::towithdata('viewregister.php','error_msg='.$errors.'&user_first='.Input::post('user_first').'&user_last='.Input::post('user_last').'&user_uid='.Input::post('user_uid'));
+            Redirect::towithdata('../views/register.php','error_msg='.$errors.'&user_first='.Input::post('user_first').'&user_last='.Input::post('user_last').'&user_uid='.Input::post('user_uid'));
         }
     }
 }else{
-    Redirect::to('viewregister.php');
+    Redirect::to('../views/register.php');
 }

@@ -8,4 +8,5 @@
     <a href="viewPrescription.php">Prescriptions</a>
     <a href="dischargeForm.php">Discharge Form</a>
     <a href="changeDoctor.php">Change Doctor</a>
+    <a href="labtests.php">Lab Tests</a>
 </div>

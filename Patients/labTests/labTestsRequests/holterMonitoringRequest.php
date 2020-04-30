@@ -1,12 +1,17 @@
 <?php
   session_start();
   include_once "../../includes/class-autoload.inc.php";
+  include_once "../../classes/patientview.class.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Holter Monitoring Request</title>
+    <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../../css/labTestRequests.css">
+
   </head>
   <body>
     <h1>CARDIAC INVESTIGATION UNIT</h1>

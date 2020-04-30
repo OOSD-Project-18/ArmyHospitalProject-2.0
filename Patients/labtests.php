@@ -46,6 +46,14 @@ if (!$user->isLoggedIn()) {
           <a class='card-link' href="labTests/requestDisplay/immunoassayRequestDisplay.php">Immunoassay</a>
           <a class='card-link' href="labTests/requestDisplay/xRayRequestDisplay.php">X-Ray</a>
         </div>
+      <div class="card p-3 text-center">
+        <h4>Upload Lab Test Report</h4>
+        
+
+      </div>
+
+
+
       </div>
 
 

@@ -9,6 +9,9 @@ if(!$user->isLoggedIn()){
 $nic = $_SESSION['nic'];
 $patientView = new PatientView();
 $results = $patientView->showPatientInfo($nic);
+if(empty($results[0]['NIC'])){
+  Redirect::to('patientNotFound.php');
+}
 $_SESSION['patientType'] = $results['type'];
 $patientType = $results['type'];
 $photoresults = $patientView->showProfilePic($nic, $patientType);

@@ -1,6 +1,13 @@
 <?php
+  //include_once "includes/class-autoload.inc.php";
+  //session_start();
   include_once "includes/class-autoload.inc.php";
-  session_start();
+
+  require_once('includes/initFromPatients.php');
+  $user = new User();
+  if (!$user->isLoggedIn()) {
+      Redirect::to('../index.php');
+  }
 
  ?>
 
@@ -9,7 +16,7 @@
    <head>
      <meta charset="utf-8">
      <title>Visit History</title>
-     <link rel="stylesheet" href="css/oldVisits.css">
+     <!--link rel="stylesheet" href="css/oldVisits.css"-->
      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -17,12 +24,18 @@
 
    </head>
    <body>
-     <section class="page">
+    <?php include_once('_header.php') ?>
+      <main  id="main">
+          <?php include_once('_sideNav.php') ?>
+          <div class="container py-4">
+   
+   
+     <!--section class="page">
 
      <section class="info">
 
        <h2 id='white'>Patient Information</h2>
-       <?php
+       <?php/*
          $nic = "123703702V";//$_SESSION['nic'];
          $_SESSION['nic'] = $nic;
          $patientView = new PatientView();
@@ -85,15 +98,19 @@
          }
        }
        else{ echo 'Unregistered patient';}
-       ?>
-     </section>
-     <section class='content'>
+      */ ?>
+     </section-->
+     <form class="card p-3">
+        <div class="text-center">
+        <h2>Visit History</h2>
+        </div>
+        <hr>
 
-    <h2>Visit History</h2>
-     <table class='content-table' border='1'>
-       <thead>
+    
+     <table class='table table-hover table-bordered border border-primary' >
+       <thead class="table-primary">
 
-       <tr> <th>Date of Admission</th><th>Reason for admission</th><th>Medical History</th><th>Current medications</th><th>Doctor</th><th>Ward</th><th>Details by the Doctor</th><th>Date of Discharge</th><th>Summary upon Discharge</th></tr>
+       <tr> <th scope="col">Date of Admission</th><th scope="col">Reason for admission</th><th>Medical History</th><th scope="col">Current medications</th><th scope="col">Doctor</th><th scope="col">Ward</th><th scope="col">Details by the Doctor</th><th scope="col">Date of Discharge</th><th scope="col">Summary upon Discharge</th></tr>
       </thead>
       <tbody>
 
@@ -124,8 +141,10 @@
 
      </table>
      <a href="patientProfile.php"><button type='button'> Back </button></a>
- </section>
-</section>
+ <!--/section>
+</section-->
+</form>
+</main>
 
    </body>
  </html>

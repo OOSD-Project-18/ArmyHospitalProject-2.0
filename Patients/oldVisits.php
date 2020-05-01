@@ -140,7 +140,7 @@
       </tbody>
 
      </table>
-     <a href="patientProfile.php"><button type='button'> Back </button></a>
+     <!--a href="patientProfile.php"><button type='button'> Back </button></a-->
  <!--/section>
 </section-->
 </form>

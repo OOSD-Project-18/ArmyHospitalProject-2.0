@@ -47,8 +47,33 @@ if (!$user->isLoggedIn()) {
           <a class='card-link' href="labTests/requestDisplay/xRayRequestDisplay.php">X-Ray</a>
         </div>
       <div class="card p-3 text-center">
-        <h4>Upload Lab Test Report</h4>
-        
+        <h4 class='card-title'>Upload Lab Test Report</h4>
+        <hr>
+        <form action="includes/uploadLabReport.inc.php" method="post" enctype="multipart/form-data">
+           <div class="form-group">
+            <input class="form-control" type="date" name="date">
+          </div>
+
+          <div class="custom-file">
+            <input type="file" name="image" class="custom-file-input" id="customFile">
+            <label class="custom-file-label text-left" for="customFile">Choose file</label>
+          </div>
+          <br><br>
+          <select class="custom-select" name="testType">
+              <option selected>Select Lab Test</option>
+              <option value="ABP">ABP Monitoring</option>
+              <option value="ECG">Basic ECG</option>
+              <option value="general">General Lab Test</option>
+              <option value="histopathology">Histopathology</option>
+              <option value="holterMonitoring">Holter Monitoring</option>
+              <option value="immunoassay">Immunoassay</option>
+              <option value="xRay">X-Ray</option>
+          </select>
+          <br><br>
+          <button class="btn btn-primary" type="submit" name="upload">Upload</button>
+        </form>
+
+
 
       </div>
 

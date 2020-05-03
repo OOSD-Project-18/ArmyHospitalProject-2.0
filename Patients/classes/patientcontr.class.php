@@ -70,4 +70,7 @@ class PatientContr extends PatientModel{
     $this->setProfilePic($nic, $type, $photoLocation);
   }
 
+  public function uploadReport($nic, $date, $testType, $image_base64){
+    $this->insertReport($nic, $date, $testType, $image_base64);
+  }
 }

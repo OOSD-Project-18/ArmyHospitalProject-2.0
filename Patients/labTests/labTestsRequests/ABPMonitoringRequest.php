@@ -47,7 +47,7 @@
         <div class="section"><span>2</span>Personal Info</div>
         <div class="inner-wrap">
           <?php
-            echo "<label>Service No : </label>".$patientInfo['force_id']."<br><br><label>NIC : </label>".$patientInfo['nic']."<br><br><label>Rank : </label>".$patientInfo['rank']."
+            echo "<label>Service No : </label>".$patientInfo['force_id']."<br><br><label>NIC : </label>".$patientInfo['NIC']."<br><br><label>Rank : </label>".$patientInfo['rank']."
             <br><br><label>Name : </label>".$patientInfo['first_name']." ".$patientInfo['last_name']."
             <br><br><label>Unit : </label>".$patientInfo['regiment']."<br><br>";
           ?>

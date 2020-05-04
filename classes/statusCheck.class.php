@@ -2,7 +2,7 @@
 class statusCheck{
     public static function check($status){
         if (!isset($_GET[$status])) {
-            exit();
+            // exit();
         }else{
             $statusCheck = $_GET[$status];
             if ($statusCheck == "empty") {

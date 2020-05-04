@@ -74,16 +74,16 @@ if (!$user->isLoggedIn()) {
           <button class="btn btn-primary" type="submit" name="upload">Upload</button>
         </form>
         <br>
+
         <?php
         statusCheck::check("status");
          ?>
-
       </div>
 
 
 
       </div>
-
+      <a href="labreports.php">More</a>
 
 
 

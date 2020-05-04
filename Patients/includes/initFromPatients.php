@@ -3,7 +3,7 @@ session_start();
 
 $GLOBALS['config']=array(
     'mysql'=>array(
-        'host'=>'remotemysql.com', 
+        'host'=>'remotemysql.com',
         'username'=>'OXy65Ny57j',
         'password'=>'eYArF8fOJw',
         'dbName'=>'OXy65Ny57j'
@@ -18,7 +18,7 @@ $GLOBALS['config']=array(
     )
 );
 
- 
+
 spl_autoload_register('headerLoader');
 function headerLoader($className){
     $className=($className);

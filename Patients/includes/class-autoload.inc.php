@@ -2,7 +2,7 @@
   spl_autoload_register('myAutoLoader');
   function myAutoLoader($className){
     $url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-    if(strpos($url, 'includes') !== false || strpos($url, 'medicalReportDisplay') !== false ){
+    if(strpos($url, 'includes') !== false || strpos($url, 'medicalReportDisplay') !== false || strpos($url, 'labTests') !== false ){
         $path = "../classes/";
     }
     else if(strpos($url, 'medicalReportForm') !== false){

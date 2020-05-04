@@ -48,5 +48,10 @@
       return $results;
     }
 
+    public function showReportImage($id){
+      $results = $this->getReportImage($id);
+      return $results;
+    }
+
   }
  ?>

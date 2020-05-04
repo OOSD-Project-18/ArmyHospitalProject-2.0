@@ -291,4 +291,15 @@ class PatientModel extends Dbh{
     $stmt = $this->connect()->prepare($sql);
     $stmt->execute([$nic, $day, $testType, $image_base64]);
   }
+
+  protected function getReportImage($id){
+    $sql = "SELECT day, image from lab_reports WHERE id=?;";
+    $stmt = $this->connect()->prepare($sql);
+    $stmt->execute([$id]);
+    $result = $stmt->fetchAll();
+    return $result;
+
+  }
+
+
 }

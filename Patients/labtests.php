@@ -83,7 +83,12 @@ if (!$user->isLoggedIn()) {
 
 
       </div>
-      <a href="labreports.php">More</a>
+      <br><br><br>
+      <div class="card p-3 text-center mx-auto" style="width: 50% ">
+        <a class="btn btn-primary btn-lg" href="labreports.php">Lab Reports</a>
+
+
+      </div>
 
 
 

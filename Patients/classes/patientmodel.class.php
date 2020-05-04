@@ -298,8 +298,16 @@ class PatientModel extends Dbh{
     $stmt->execute([$id]);
     $result = $stmt->fetchAll();
     return $result;
-
   }
+  protected function getAllLabReports($nic){
+    $sql = "SELECT * from lab_reports WHERE nic=?;";
+    $stmt = $this->connect()->prepare($sql);
+    $stmt->execute([$nic]);
+    $result = $stmt->fetchAll();
+    return $result;
+  }
+
+
 
 
 }

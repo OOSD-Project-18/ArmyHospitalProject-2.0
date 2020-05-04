@@ -53,5 +53,9 @@
       return $results;
     }
 
+    public function showAllLabReports($nic){
+      $results = $this->getAllLabReports($nic);
+      return $results;
+    }
   }
  ?>

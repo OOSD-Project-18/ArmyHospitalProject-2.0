@@ -16,7 +16,6 @@ class statusCheck{
               exit();
             }elseif($statusCheck == "success"){
               echo "<p class='success'>Successful!</p>";
-              exit();
             }elseif($statusCheck == "size"){
               echo "<p style = 'color: white;' class='error'>File size is too big.</p>";
             }elseif($statusCheck == "type"){

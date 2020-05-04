@@ -21,11 +21,28 @@ $GLOBALS['config']=array(
 
 spl_autoload_register('headerLoader');
 function headerLoader($className){
+    $url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    if(strpos($url, 'includes') !== false || strpos($url, 'medicalReportDisplay') !== false) {
+        $path = "../../classes/";
+    }
+    else if(strpos($url, 'medicalReportForm') !== false || strpos($url, 'labTests') !== false){
+        $path = "../../../classes/";
+    }
+
+    else {$path="../classes/";}
     $className=($className);
-    $path="../classes/";
+
     $ext=".class.php";
     $fullPath=$path.$className.$ext;
     require_once $fullPath;
 }
 
-require_once '../functions/sanitize.php';
+$url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+if(strpos($url, 'includes') !== false || strpos($url, 'medicalReportDisplay') !== false ){
+    require_once '../../functions/sanitize.php';
+}else if (strpos($url, 'labTests') !== false){
+  require_once '../../../functions/sanitize.php';
+}
+else{
+  require_once '../functions/sanitize.php';
+}

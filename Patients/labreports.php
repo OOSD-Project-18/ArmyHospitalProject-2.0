@@ -33,6 +33,7 @@ $reports = $patientView->showAllLabReports($nic);
             <h4>X-Ray</h4>
             <hr>
             <?php
+            $date = null;
             foreach ($reports as $report) {
               if ($report['testType'] == "xRay"){
                 $date = $report['day'];
@@ -40,6 +41,8 @@ $reports = $patientView->showAllLabReports($nic);
                 echo "<a href='reportImage.php?id=".$id."'>".$date."</a><br>";
               }
             }
+
+            if (!isset($date)) {echo "No records found";}
             ?>
         </div>
 
@@ -48,6 +51,7 @@ $reports = $patientView->showAllLabReports($nic);
             <h4>Basic ECG</h4>
             <hr>
             <?php
+            $date = null;
             foreach ($reports as $report) {
               if ($report['testType'] == "ECG"){
                 $date = $report['day'];
@@ -55,6 +59,7 @@ $reports = $patientView->showAllLabReports($nic);
                 echo "<a href='reportImage.php?id=".$id."'>".$date."</a><br>";
               }
             }
+            if (!isset($date)) {echo "No records found";}
             ?>
         </div>
 
@@ -62,6 +67,7 @@ $reports = $patientView->showAllLabReports($nic);
             <h4>General Lab Test</h4>
             <hr>
             <?php
+            $date = null;
             foreach ($reports as $report) {
               if ($report['testType'] == "general"){
                 $date = $report['day'];
@@ -69,6 +75,8 @@ $reports = $patientView->showAllLabReports($nic);
                 echo "<a href='reportImage.php?id=".$id."'>".$date."</a><br>";
               }
             }
+            if (!isset($date)) {echo "No records found";}
+
             ?>
         </div>
       </div>
@@ -80,6 +88,7 @@ $reports = $patientView->showAllLabReports($nic);
             <h4>Histopathology</h4>
             <hr>
             <?php
+            $date = null;
             foreach ($reports as $report) {
               if ($report['testType'] == "histopathology"){
                 $date = $report['day'];
@@ -87,6 +96,7 @@ $reports = $patientView->showAllLabReports($nic);
                 echo "<a href='reportImage.php?id=".$id."'>".$date."</a><br>";
               }
             }
+            if (!isset($date)) {echo "No records found";}
             ?>
         </div>
 
@@ -95,6 +105,7 @@ $reports = $patientView->showAllLabReports($nic);
             <h4>Holter Monitoring</h4>
             <hr>
             <?php
+            $date = null;
             foreach ($reports as $report) {
               if ($report['testType'] == "holterMonitoring"){
                 $date = $report['day'];
@@ -102,6 +113,7 @@ $reports = $patientView->showAllLabReports($nic);
                 echo "<a href='reportImage.php?id=".$id."'>".$date."</a><br>";
               }
             }
+            if (!isset($date)) {echo "No records found";}
             ?>
         </div>
 
@@ -109,6 +121,7 @@ $reports = $patientView->showAllLabReports($nic);
             <h4>Immunoassay</h4>
             <hr>
             <?php
+            $date = null;
             foreach ($reports as $report) {
               if ($report['testType'] == "immunoassay"){
                 $date = $report['day'];
@@ -116,6 +129,7 @@ $reports = $patientView->showAllLabReports($nic);
                 echo "<a href='reportImage.php?id=".$id."'>".$date."</a><br>";
               }
             }
+            if (!isset($date)) {echo "No records found";}
             ?>
         </div>
 
@@ -124,6 +138,7 @@ $reports = $patientView->showAllLabReports($nic);
             <h4>ABP Monitoring</h4>
             <hr>
             <?php
+            $date = null;
             foreach ($reports as $report) {
               if ($report['testType'] == "ABP"){
                 $date = $report['day'];
@@ -131,6 +146,7 @@ $reports = $patientView->showAllLabReports($nic);
                 echo "<a href='reportImage.php?id=".$id."'>".$date."</a><br>";
               }
             }
+            if (!isset($date)) {echo "No records found";}
             ?>
         </div>
 

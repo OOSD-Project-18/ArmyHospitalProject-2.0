@@ -285,12 +285,10 @@ class PatientModel extends Dbh{
     return $results;
   }
 
-  protected function insertReport($nic, $date, $testType, $image_base64){
+  protected function insertReport($nic, $day, $testType, $image_base64){
     $sql = "INSERT INTO lab_reports(nic, day, testType, image) VALUES (?,?,?,?);";
-    print_r($nic);
-    print_r($testType);
-    print_r($image_base64);
+    $daa = strval($day);
     $stmt = $this->connect()->prepare($sql);
-    $stmt->execute([$nic, $date, $testType, $image_base64]);
+    $stmt->execute([$nic, $day, $testType, $image_base64]);
   }
 }

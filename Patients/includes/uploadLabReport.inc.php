@@ -1,10 +1,11 @@
 <?php
 include 'class-autoload.inc.php';
+echo $_POST['testType'];
 if (isset($_POST['upload'])){
-  if(isset($_POST['date']) && isset($_FILES['image']) && isset($_POST['testType'])){
+  if(isset($_POST['day']) && isset($_FILES['image']) && $_POST['testType'] !== "Select Lab Test"){
     session_start();
     $nic = $_SESSION['nic'];
-    $date = $_POST['date'];
+    $day = $_POST['day'];
     $testType = $_POST['testType'];
 
     $file = $_FILES['image'];
@@ -20,17 +21,17 @@ if (isset($_POST['upload'])){
     if (in_array($fileExtension, $allowed)){
       if ($error === 0){
         if ($fileSize < 1000000){
-          $image_base64 = base64_encode(file_get_contents($tempLocation));
+          $image_base64 = base64_encode(file_get_contents(addslashes($tempLocation)));
           $patient = new PatientContr();
-          $patient->uploadReport($nic, $date, $testType, $image_base64);
-
+          $patient->uploadReport($nic, $day, $testType, $image_base64);
+          Redirect::to("../labtests.php?status=success");
         }
 
       }
 }
-  }
 }
-
+}
+Redirect::to("../labtests.php?status=error");
 
 
  ?>

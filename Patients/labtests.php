@@ -1,5 +1,6 @@
 <?php
 require_once('includes/initFromPatients.php');
+
 $user = new User();
 if (!$user->isLoggedIn()) {
     Redirect::to('../index.php');
@@ -51,7 +52,7 @@ if (!$user->isLoggedIn()) {
         <hr>
         <form action="includes/uploadLabReport.inc.php" method="post" enctype="multipart/form-data">
            <div class="form-group">
-            <input class="form-control" type="date" name="date">
+            <input class="form-control" type="date" name="day">
           </div>
 
           <div class="custom-file">
@@ -72,8 +73,10 @@ if (!$user->isLoggedIn()) {
           <br><br>
           <button class="btn btn-primary" type="submit" name="upload">Upload</button>
         </form>
-
-
+        <br>
+        <?php
+        statusCheck::check("status");
+         ?>
 
       </div>
 

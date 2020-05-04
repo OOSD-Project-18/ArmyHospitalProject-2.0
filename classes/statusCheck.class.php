@@ -15,7 +15,7 @@ class statusCheck{
               echo "<p style = 'color: white;' class='error'>You used invalid e-mail.</p>";
               exit();
             }elseif($statusCheck == "success"){
-              echo "<p style = 'color: white;' class='success'>Successful!</p>";
+              echo "<p class='success'>Successful!</p>";
               exit();
             }elseif($statusCheck == "size"){
               echo "<p style = 'color: white;' class='error'>File size is too big.</p>";
@@ -24,7 +24,7 @@ class statusCheck{
             }elseif($statusCheck == "generic"){
               echo "<p style = 'color: white;' class='error'>The file could not be uploaded.</p>";
             }elseif($statusCheck == "error"){
-              echo "<p style = 'color: white;' class='error'>The file could not be uploaded.</p>";
+              echo "<p class='error'>The file could not be uploaded.</p>";
             }
       }
     }

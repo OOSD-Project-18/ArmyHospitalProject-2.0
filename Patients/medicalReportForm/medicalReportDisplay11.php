@@ -15,7 +15,7 @@
     <meta charset="utf-8">
     <title>Medical Report</title>
     <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="../css/medicalReport2.css">
+    <link rel="stylesheet" href="../css/medicalReport.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -48,6 +48,7 @@
        <div class="inner-wrap">
          <form action="medicalReportDisplay11.php" method="post">
              <?php echo $sraroi; ?><br><br><br>
+             <div style="overflow-x:scroll;">
              <table class='table' border="1">
                <tr>
                  <th> </th><th>Vision without glasses</th><th>Sph.</th><th>Cyl.</th><th>Axis standard notation</th><th>Vision with glasses</th>
@@ -58,6 +59,7 @@
                <tr>
                  <td>L</td><td><?php echo $left[0]; ?></td><td><?php echo $left[1]; ?></td><td><?php echo $left[2]; ?></td><td><?php echo $left[3]; ?></td><td><?php echo $left[4]; ?></td>
              </table><br>
+</div>
              <br><label>Date : </label><?php echo $dateOfReport; ?><br><br>
 
              <div class="section"><span>a</span><p><b>Initial PULHEEMS Assessment</b></p></div><br>

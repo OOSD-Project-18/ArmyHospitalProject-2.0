@@ -38,7 +38,7 @@ function headerLoader($className){
 }
 
 $url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-if(strpos($url, 'includes') !== false || strpos($url, 'medicalReportDisplay') !== false ){
+if(strpos($url, 'includes') !== false || strpos($url, 'medicalReportDisplay') !== false || strpos($url, 'medicalReportForm') !== false){
     require_once '../../functions/sanitize.php';
 }else if (strpos($url, 'labTests') !== false){
   require_once '../../../functions/sanitize.php';

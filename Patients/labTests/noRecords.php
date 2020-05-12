@@ -18,12 +18,6 @@
       <h1><?php echo $h1; ?></h1>
       <h2><?php echo $h2; ?></h2>
       <h2>No Records to Display</h2>
-      
-      <form action="../labtests.php" method="post">
-        <div class="button-section">
-          <button type="button" name="back">Back</button>
-        </div>
-      </form>
 
     </div>
 

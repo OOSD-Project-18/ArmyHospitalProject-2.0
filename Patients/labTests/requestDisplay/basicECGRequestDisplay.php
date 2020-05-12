@@ -28,8 +28,6 @@
         <?php include('../_sideNav.lab.php') ?>
     <div class="container py-4">
     <div class="form-style">
-      <h1>CARDIAC INVESTIGATION UNIT</h1>
-      <h2>Basic ECG Request</h2>
       <?php
         $nic = '982753295V';  // this should be given by a session object
         $patientViewObject = new PatientView();
@@ -37,7 +35,14 @@
         $results = $patientViewObject->showLabTestsRequests($nic);
 
         $serializedBasicECGRequest= $results[0]['serializedBasicECGRequest'];
-
+    
+        if (empty($serializedBasicECGRequest)) {
+          header("Location: ../noRecords.php");
+        }
+      ?>
+      <h1>CARDIAC INVESTIGATION UNIT</h1>
+      <h2>Basic ECG Request</h2>
+      <?php
         $basicECGRequestObject = unserialize($serializedBasicECGRequest);
 
         echo '<div class="section"><span>1</span>Date</div>

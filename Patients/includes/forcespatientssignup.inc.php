@@ -19,7 +19,7 @@
         if (empty($force) || empty($first) || empty($last) || empty($nic) || empty($force_id) || empty($gender) || empty($regiment) || empty($rank) || empty($email) || empty($dob) || empty($height) || empty($weight) || empty($address) || empty($mobile)) {
           header("Location: ../forcespatientsignup.php?signup=empty");
         } else {
-          if(!preg_match("/^[a-zA-Z]*$/", $force) || !preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last) || !preg_match("/^[a-zA-Z]*$/", $regiment) || !preg_match("/^[a-zA-Z]*$/", $rank)){
+          if(!preg_match("/^[a-zA-Z]*$/", $force) || !preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last)){
             header("Location: ../forcespatientsignup.php?signup=char");
           }else{
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {

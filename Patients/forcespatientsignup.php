@@ -83,7 +83,7 @@ if(!$user->isLoggedIn()){
         <input type="text" name="nic" class="form-control" placeholder="NIC"><br>
       </div>
   <div class="col">
-        <input type="text" name="dob" class="form-control" placeholder="Date of Birth"><br>
+        <input type="date" name="dob" class="form-control" placeholder="Date of Birth"><br>
       </div>
 </div>
 

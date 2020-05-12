@@ -9,7 +9,6 @@ class PatientModel extends Dbh{
   }
 
   protected function setFamilyPatient($force_id, $force, $relation, $first, $last, $nic, $gender, $email, $dob, $height, $weight, $address, $mobile){
-    echo 1;
     $sql = "INSERT INTO family_patients VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
     $stmt = $this->connect()->prepare($sql);
     $stmt->execute([$force_id, $force, $relation, $first, $last, $nic, $gender, $email, $dob, $height, $weight, $address, $mobile, "NULL"]);

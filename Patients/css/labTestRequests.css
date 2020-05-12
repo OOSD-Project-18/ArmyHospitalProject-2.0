@@ -103,8 +103,9 @@
 	color: #fff;
 	margin-top: -3px;
 }
-.form-style input[type="button"],
-.form-style input[type="submit"]{
+.medical-report input[type="button"],
+.medical-report input[type="submit"],
+.medical-report button{
 	background: #2A88AD;
 	padding: 8px 20px 8px 20px;
 	border-radius: 5px;
@@ -119,8 +120,9 @@
 	border: 1px solid #257C9E;
 	font-size: 15px;
 }
-.form-style input[type="button"]:hover,
-.form-style input[type="submit"]:hover{
+.medical-report input[type="button"]:hover,
+.medical-report input[type="submit"]:hover,
+.medical-report button:hover{
 	background: #2A6881;
 	-moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
 	-webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);

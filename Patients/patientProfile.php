@@ -174,7 +174,12 @@ $_SESSION['photoLocation'] = $photoLocation;
             </div>
 
         <?php } else {
-            echo "No Visits";
+
+            echo '<div class="container py-1">
+                <div class="card p-3 text-center">
+                <h2> No Visits </h2>
+                </div>
+                </div>';
         }
         ?> </div>
         <br>

@@ -23,6 +23,20 @@
 
   </head>
   <body>
+  <?php
+      $nic = '982753295V';  // this should be given by a session object
+      $patientViewObject = new PatientView();
+
+      $results = $patientViewObject->showLabTestsRequests($nic);
+
+      $serializedHolterMonitoringRequest = $results[0]['serializedHolterMonitoringRequest'];
+    
+      if (empty($serializedBasicECGRequest)) {
+        $_SESSION['h1'] = "CARDIAC INVESTIGATION UNIT";
+        $_SESSION['h2'] = "Holter Monitoring Request";
+        header("Location: ../noRecords.php");
+      }
+   ?>
   <?php include('../_header.lab.php') ?>
     <main  id=main>
         <?php include('../_sideNav.lab.php') ?>
@@ -31,12 +45,6 @@
     <h1>CARDIAC INVESTIGATION UNIT</h1>
     <h2>Holter Monitoring Request</h2>
     <?php
-      $nic = '982753295V';  // this should be given by a session object
-      $patientViewObject = new PatientView();
-
-      $results = $patientViewObject->showLabTestsRequests($nic);
-
-      $serializedHolterMonitoringRequest = $results[0]['serializedHolterMonitoringRequest'];
 
       $holterMonitoringRequestObject = unserialize($serializedHolterMonitoringRequest);
 

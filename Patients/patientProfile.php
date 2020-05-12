@@ -194,7 +194,7 @@ $_SESSION['photoLocation'] = $photoLocation;
             <a class="btn btn-outline-primary" href="labtests.php" role="button">Lab Tests</a>
 
              Add links to prescription history, lab report history, issue drug request, discharge form     </div>
-        <br><br><br> -->
+        <br><br> -->
     </main>
 </body>
 

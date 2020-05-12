@@ -23,12 +23,7 @@
 
   </head>
   <body>
-  <?php include('../_header.lab.php') ?>
-    <main  id=main>
-        <?php include('../_sideNav.lab.php') ?>
-    <div class="container py-4">
-    <div class="form-style">
-      <?php
+    <?php
         $nic = '982753295V';  // this should be given by a session object
         $patientViewObject = new PatientView();
 
@@ -40,6 +35,11 @@
           header("Location: ../noRecords.php");
         }
       ?>
+  <?php include('../_header.lab.php') ?>
+    <main  id=main>
+        <?php include('../_sideNav.lab.php') ?>
+    <div class="container py-4">
+    <div class="form-style">
       <h1>CARDIAC INVESTIGATION UNIT</h1>
       <h2>Basic ECG Request</h2>
       <?php

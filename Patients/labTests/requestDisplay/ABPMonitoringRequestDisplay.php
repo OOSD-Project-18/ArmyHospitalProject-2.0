@@ -26,6 +26,22 @@
 
   </head>
   <body>
+    <?php
+      $nic = '982753295V';  // this should be given by a session object
+      $patientViewObject = new PatientView();
+
+      $results = $patientViewObject->showLabTestsRequests($nic);
+
+      $serializedABPMonitoringRequest = $results[0]['serializedABPMonitoringRequest'];
+   
+      if (empty($serializedBasicECGRequest)) {
+        $_SESSION['h1'] = "CARDIAC INVESTIGATION UNIT";
+        $_SESSION['h2'] = "ABP Monitoring Request";
+        header("Location: ../noRecords.php");
+      }
+
+      $ABPMonitoringRequestObject = unserialize($serializedABPMonitoringRequest);
+    ?>
   <?php include('../_header.lab.php') ?>
     <main  id=main>
         <?php include('../_sideNav.lab.php') ?>
@@ -33,16 +49,6 @@
     <div class="form-style">
       <h1>CARDIAC INVESTIGATION UNIT</h1>
       <h2>ABP Monitoring Request</h2>
-      <?php
-        $nic = '982753295V';  // this should be given by a session object
-        $patientViewObject = new PatientView();
-
-        $results = $patientViewObject->showLabTestsRequests($nic);
-
-        $serializedABPMonitoringRequest = $results[0]['serializedABPMonitoringRequest'];
-
-        $ABPMonitoringRequestObject = unserialize($serializedABPMonitoringRequest);
-      ?>
 
       <div class="section"><span>1</span>Date</div>
       <div class="inner-wrap">

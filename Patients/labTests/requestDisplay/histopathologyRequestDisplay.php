@@ -33,7 +33,7 @@
 
         $serializedHistopathologyRequest = $results[0]['serializedHistopathologyRequest'];
     
-        if (empty($serializedBasicECGRequest)) {
+        if (empty($serializedHistopathologyRequest)) {
           $_SESSION['h1'] = "DEPARTMENT OF HISTOPATHOLOGY";
           $_SESSION['h2'] = "Request Form for Histopathology / FNAC";
           header("Location: ../noRecords.php");

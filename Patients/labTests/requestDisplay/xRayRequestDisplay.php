@@ -23,6 +23,23 @@
 
   </head>
   <body>
+    <?php
+        $nic = '982753295V';  // this should be given by a session object
+        $patientViewObject = new PatientView();
+
+        $results = $patientViewObject->showLabTestsRequests($nic);
+
+        $serializedXRayRequest = $results[0]['serializedXRayRequest'];
+    
+        if (empty($serializedBasicECGRequest)) {
+          $_SESSION['h1'] = "Army Hospital";
+          $_SESSION['h2'] = "X Ray Request";
+          header("Location: ../noRecords.php");
+        }
+
+        $xRayRequestObject = unserialize($serializedXRayRequest);
+
+      ?>
   <?php include('../_header.lab.php') ?>
     <main  id=main>
         <?php include('../_sideNav.lab.php') ?>
@@ -30,17 +47,6 @@
     <div class="form-style">
       <h1>Army Hospital</h1>
       <h2>X Ray Request</h2>
-      <?php
-        $nic = '982753295V';  // this should be given by a session object
-        $patientViewObject = new PatientView();
-
-        $results = $patientViewObject->showLabTestsRequests($nic);
-
-        $serializedXRayRequest = $results[0]['serializedXRayRequest'];
-
-        $xRayRequestObject = unserialize($serializedXRayRequest);
-
-      ?>
 
       <div class="section"><span>1</span>Date</div>
       <div class="inner-wrap">

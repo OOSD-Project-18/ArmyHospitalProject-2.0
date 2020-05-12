@@ -23,6 +23,25 @@
 
   </head>
   <body>
+     <?php
+        $nic = '982753295V';  // this should be given by a session object
+        $patientViewObject = new PatientView();
+
+        $results = $patientViewObject->showLabTestsRequests($nic);
+
+        $serializedImmunoassayRequest = $results[0]['serializedImmunoassayRequest'];
+    
+        if (empty($serializedBasicECGRequest)) {
+          $_SESSION['h1'] = "Army Hospital";
+          $_SESSION['h2'] = "Immunoassay Request";
+          header("Location: ../noRecords.php");
+        }
+
+        $immunoassayRequestObject = unserialize($serializedImmunoassayRequest);
+
+        $details= $immunoassayRequestObject->getProperty('details');
+
+     ?>
   <?php include('../_header.lab.php') ?>
     <main  id=main>
         <?php include('../_sideNav.lab.php') ?>
@@ -31,19 +50,6 @@
     <div class="form-style">
       <h1>Army Hospital</h1>
       <h2>Immunoassay Request</h2>
-      <?php
-        $nic = '982753295V';  // this should be given by a session object
-        $patientViewObject = new PatientView();
-
-        $results = $patientViewObject->showLabTestsRequests($nic);
-
-        $serializedImmunoassayRequest = $results[0]['serializedImmunoassayRequest'];
-
-        $immunoassayRequestObject = unserialize($serializedImmunoassayRequest);
-
-        $details= $immunoassayRequestObject->getProperty('details');
-
-      ?>
 
       <div class="section"><span>1</span>Date and Lab No</div>
       <div class="inner-wrap">

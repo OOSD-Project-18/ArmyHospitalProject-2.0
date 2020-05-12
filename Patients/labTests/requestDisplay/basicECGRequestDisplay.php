@@ -32,6 +32,8 @@
         $serializedBasicECGRequest= $results[0]['serializedBasicECGRequest'];
     
         if (empty($serializedBasicECGRequest)) {
+          $_SESSION['h1'] = "CARDIAC INVESTIGATION UNIT";
+          $_SESSION['h2'] = "Basic ECG Request";
           header("Location: ../noRecords.php");
         }
       ?>

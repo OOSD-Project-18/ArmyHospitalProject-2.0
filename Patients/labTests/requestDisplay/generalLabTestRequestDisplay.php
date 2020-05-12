@@ -23,6 +23,22 @@
 
   </head>
   <body>
+     <?php
+        $nic = '982753295V';  // this should be given by a session object
+        $patientViewObject = new PatientView();
+
+        $results = $patientViewObject->showLabTestsRequests($nic);
+
+        $serializedGeneralLabTestRequest = $results[0]['serializedGeneralLabTestRequest'];
+        
+        if (empty($serializedBasicECGRequest)) {
+            $_SESSION['h1'] = "ARMY HOSPITAL";
+            $_SESSION['h2'] = "Request for Laboratory Examination";
+            header("Location: ../noRecords.php");
+        }
+
+        $generalLabTestRequestObject = unserialize($serializedGeneralLabTestRequest);
+     ?>
   <?php include('../_header.lab.php') ?>
     <main  id=main>
         <?php include('../_sideNav.lab.php') ?>
@@ -30,16 +46,6 @@
     <div class="form-style">
       <h1>ARMY HOSPITAL</h1>
       <h2>Request for Laboratory Examination</h2>
-      <?php
-        $nic = '982753295V';  // this should be given by a session object
-        $patientViewObject = new PatientView();
-
-        $results = $patientViewObject->showLabTestsRequests($nic);
-
-        $serializedGeneralLabTestRequest = $results[0]['serializedGeneralLabTestRequest'];
-
-        $generalLabTestRequestObject = unserialize($serializedGeneralLabTestRequest);
-      ?>
 
       <label>LABY. REPORT No. : </label><?php echo $generalLabTestRequestObject->getProperty('labyReportNo'); ?><br><br>
       <label>SENDER'S No. : </label><?php echo $generalLabTestRequestObject->getProperty('sendersNo'); ?><br><br>

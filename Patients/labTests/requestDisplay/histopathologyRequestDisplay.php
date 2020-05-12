@@ -24,6 +24,27 @@
 
   </head>
   <body>
+  
+    <?php
+        $nic = '982753295V';  // this should be given by a session object
+        $patientViewObject = new PatientView();
+
+        $results = $patientViewObject->showLabTestsRequests($nic);
+
+        $serializedHistopathologyRequest = $results[0]['serializedHistopathologyRequest'];
+    
+        if (empty($serializedBasicECGRequest)) {
+          $_SESSION['h1'] = "DEPARTMENT OF HISTOPATHOLOGY";
+          $_SESSION['h2'] = "Request Form for Histopathology / FNAC";
+          header("Location: ../noRecords.php");
+        }
+
+        $histopathologyRequestObject = unserialize($serializedHistopathologyRequest);
+
+        $details = $histopathologyRequestObject->getProperty('details');
+
+      ?>
+    
   <?php include('../_header.lab.php') ?>
     <main  id=main>
         <?php include('../_sideNav.lab.php') ?>
@@ -31,19 +52,6 @@
     <div class="form-style">
       <h1>DEPARTMENT OF HISTOPATHOLOGY</h1>
       <h2>Request Form for Histopathology / FNAC</h2>
-      <?php
-        $nic = '982753295V';  // this should be given by a session object
-        $patientViewObject = new PatientView();
-
-        $results = $patientViewObject->showLabTestsRequests($nic);
-
-        $serializedHistopathologyRequest = $results[0]['serializedHistopathologyRequest'];
-
-        $histopathologyRequestObject = unserialize($serializedHistopathologyRequest);
-
-        $details = $histopathologyRequestObject->getProperty('details');
-
-      ?>
 
       <div class="section"><span>1</span>Date</div>
       <div class="inner-wrap">

@@ -31,7 +31,7 @@
 
       $serializedHolterMonitoringRequest = $results[0]['serializedHolterMonitoringRequest'];
     
-      if (empty($serializedBasicECGRequest)) {
+      if (empty($serializedHolterMonitoringRequest)) {
         $_SESSION['h1'] = "CARDIAC INVESTIGATION UNIT";
         $_SESSION['h2'] = "Holter Monitoring Request";
         header("Location: ../noRecords.php");

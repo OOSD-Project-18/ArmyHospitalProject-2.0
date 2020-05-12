@@ -34,7 +34,7 @@
 
       $serializedABPMonitoringRequest = $results[0]['serializedABPMonitoringRequest'];
    
-      if (empty($serializedBasicECGRequest)) {
+      if (empty($serializedABPMonitoringRequest)) {
         $_SESSION['h1'] = "CARDIAC INVESTIGATION UNIT";
         $_SESSION['h2'] = "ABP Monitoring Request";
         header("Location: ../noRecords.php");

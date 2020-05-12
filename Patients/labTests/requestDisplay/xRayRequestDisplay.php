@@ -31,7 +31,7 @@
 
         $serializedXRayRequest = $results[0]['serializedXRayRequest'];
     
-        if (empty($serializedBasicECGRequest)) {
+        if (empty($serializedXRayRequest)) {
           $_SESSION['h1'] = "Army Hospital";
           $_SESSION['h2'] = "X Ray Request";
           header("Location: ../noRecords.php");

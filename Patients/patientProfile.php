@@ -183,7 +183,7 @@ $_SESSION['photoLocation'] = $photoLocation;
         }
         ?> </div>
         <br>
-        <div class="container py-1 text-center">
+        <!-- <div class="container py-1 text-center">
             <a class="btn btn-outline-primary" href="addDetails.php" role="button">Add details to current visit</a>
             <a class="btn btn-outline-primary" href="oldVisits.php" role="button">View visit History</a>
             <a class="btn btn-outline-primary" href="medicalReportForm/medicalReportDisplay1.php" role="button">Medical Report</a>
@@ -193,8 +193,8 @@ $_SESSION['photoLocation'] = $photoLocation;
             <a class="btn btn-outline-primary" href="changeDoctor.php" role="button">Change Doctor</a>
             <a class="btn btn-outline-primary" href="labtests.php" role="button">Lab Tests</a>
 
-            <!-- Add links to prescription history, lab report history, issue drug request, discharge form -->      </div>
-        <br><br><br>
+             Add links to prescription history, lab report history, issue drug request, discharge form     </div>
+        <br><br><br> -->
     </main>
 </body>
 

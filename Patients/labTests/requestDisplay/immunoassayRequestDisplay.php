@@ -31,7 +31,7 @@
 
         $serializedImmunoassayRequest = $results[0]['serializedImmunoassayRequest'];
     
-        if (empty($serializedBasicECGRequest)) {
+        if (empty($serializedImmunoassayRequest)) {
           $_SESSION['h1'] = "Army Hospital";
           $_SESSION['h2'] = "Immunoassay Request";
           header("Location: ../noRecords.php");

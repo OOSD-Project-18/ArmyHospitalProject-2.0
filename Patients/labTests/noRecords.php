@@ -11,8 +11,12 @@
   </head>
   <body>
     <div class="form-style">
-      <h1>CARDIAC INVESTIGATION UNIT</h1>
-      <h2>Basic ECG Request</h2>
+      <?php
+        $h1 = $_SESSION['h1'];
+        $h2 = $_SESSION['h2'];
+      ?>
+      <h1><?php echo $h1; ?></h1>
+      <h2><?php echo $h2; ?></h2>
       <h2>No Records to Display</h2>
 
     </div>

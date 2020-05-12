@@ -31,7 +31,7 @@
 
         $serializedGeneralLabTestRequest = $results[0]['serializedGeneralLabTestRequest'];
         
-        if (empty($serializedBasicECGRequest)) {
+        if (empty($serializedGeneralLabTestRequest)) {
             $_SESSION['h1'] = "ARMY HOSPITAL";
             $_SESSION['h2'] = "Request for Laboratory Examination";
             header("Location: ../noRecords.php");

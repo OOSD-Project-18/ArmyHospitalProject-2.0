@@ -7,7 +7,7 @@ if (isset($_POST['submit'])){
     $input=$_POST['search'];
 
     $_SESSION['nic']=$input;
-    Redirect::to("../Patients/patientProfile.php");
+    Redirect::to("../views/patientProfile.php");
     
 }
 ?>

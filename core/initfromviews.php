@@ -19,8 +19,8 @@ $GLOBALS['config']=array(
 );
 
  
-spl_autoload_register('myAutoLoader');
-function myAutoLoader($className){
+spl_autoload_register('my_AutoLoader');
+function my_AutoLoader($className){
     $className=($className);
     $path="../classes/";
     $ext=".class.php";

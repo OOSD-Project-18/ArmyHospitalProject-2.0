@@ -5,6 +5,7 @@ $nic = $_SESSION['nic'];
 $results = $_SESSION['info'];
 $patientType = $results['type'];
 $photoLocation = '../'.$_SESSION['photoLocation'];//to get out from views added ../
+
 ?>
 
 

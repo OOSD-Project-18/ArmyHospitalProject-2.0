@@ -34,7 +34,7 @@ $photoLocation = "../../" . $photoLocation;
                 if (!empty($photoLocation)) {
                     echo "<img src=" . $photoLocation . " alt='Profile pic' width='250px' height='250px'>";
                 } else {
-                    echo "<img src=profilePics/default.jpg alt='Profile pic width='250px' height='250px''><br>";
+                    echo "<img src=../../profilePics/default.jpg alt='Profile pic width='250px' height='250px''><br>";
                 }
                 echo "<br><br></div>"; ?>
 

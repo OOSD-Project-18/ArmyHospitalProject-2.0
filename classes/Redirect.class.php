@@ -1,64 +1,27 @@
 <?php
 
-class Redirect{
-    public static function to($location=null,$error=null){
-        if($location && !$error){
-            if(is_numeric($location)){
-                switch($location){
-                    case 404:
-                        header('HTTP/1.0.404 Not Found');
-                        include 'includes/Errors/404.php';
-                        exit();
-                    break;
-                }
+class Redirect
+{
+    public static function to($location = null, $error = null)
+    {
+        if ($location && !$error) {
 
-                
-            }
-            header('Location:'.$location);
+            header('Location:' . $location);
             exit();
-        }else if($location && $error){
-            if(is_numeric($location)){
-                switch($location){
-                    case 404:
-                        header('HTTP/1.0.404 Not Found');
-                        include 'includes/Errors/404.php';
-                        exit();
-                    break;
-                }
+        } else if ($location && $error) {
 
-                
-            }
-            header('Location:'.$location.'?error_msg='.$error);
+            header('Location:' . $location . '?error_msg=' . $error);
         }
     }
-    public static function towithdata($location=null,$data=null){
-        if($location && !$data){
-            if(is_numeric($location)){
-                switch($location){
-                    case 404:
-                        header('HTTP/1.0.404 Not Found');
-                        include 'includes/Errors/404.php';
-                        exit();
-                    break;
-                }
+    public static function towithdata($location = null, $data = null)
+    {
+        if ($location && !$data) {
 
-                
-            }
-            header('Location:'.$location);
+            header('Location:' . $location);
             exit();
-        }else if($location && $data){
-            if(is_numeric($location)){
-                switch($location){
-                    case 404:
-                        header('HTTP/1.0.404 Not Found');
-                        include 'includes/Errors/404.php';
-                        exit();
-                    break;
-                }
+        } else if ($location && $data) {
 
-                
-            }
-            header('Location:'.$location.'?'.$data);
+            header('Location:' . $location . '?' . $data);
         }
     }
 }

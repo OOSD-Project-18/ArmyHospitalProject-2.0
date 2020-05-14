@@ -1,5 +1,6 @@
 <?php
 require_once '../core/initfromviews.php';
+$patientError = Input::get('patientError');
 $user = new User();
 
 if (!$user->isLoggedIn()) {
@@ -27,27 +28,25 @@ if (!$user->isLoggedIn()) {
 
     <body id='main'>
 
-        <?php include('_header.php');?>
+        <?php include('_header.php'); ?>
 
         <main>
             <?php include('../stylesheets/sidebar.html') ?>
             <div id="mySidebar" class="sidebar shadow text-center">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-                <?php if ($data->user_imgstatus) { 
-                    $uid=$data->user_uid;
-                    $imgSource='../staffprofileimgs/profileimg'.$uid.'.jpg'.'?rand=<?php echo rand();' ?>
-                    
+                <?php if ($data->user_imgstatus) {
+                    $uid = $data->user_uid;
+                    $imgSource = '../staffprofileimgs/profileimg' . $uid . '.jpg' . '?rand=<?php echo rand();' ?>
+
                     <img src=<?php echo $imgSource ?> alt="poflile pic" width='250px' height="250px">
                 <?php } else { ?>
                     <img src="../stylesheets/defaultprofileimg.jpg" alt="profile img" width='250px' height="250px">
                 <?php } ?>
-                
-                <!--add profile img-->
                 <p style="font-size: 25px;font-weight:bold;"><?php echo escape($data->user_first) . " " . escape($data->user_last); ?></p>
                 <p style="color: gray"><?php echo escape($data->user_uid); ?></p>
-                <p><?php echo escape($data->user_email);?></p>
-                <p>+94-<?php echo escape($data->user_mobile);?></p>
-            
+                <p><?php echo escape($data->user_email); ?></p>
+                <p>+94-<?php echo escape($data->user_mobile); ?></p>
+
 
 
             </div>
@@ -55,32 +54,66 @@ if (!$user->isLoggedIn()) {
             <div>
                 <button class="openbtn" onclick="openNav()">☰</button>
             </div>
-            <div class="container py-1 mt-3" style="width: 30%">
-                <div class="card p-3 text-center shadow-sm">
-                    <h3>Search Patient</h3>
-                    <hr>
+            <div class="container py-1 mt-3" style="width: 60%">
+                <div class="row">
+                    <div class="col-md-5 card p-3 text-center shadow-sm">
+                        <h3>Search Patient</h3>
+                        <hr>
+                        <?php if ($patientError) { ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?php echo ($patientError); ?>
+                            </div>
+                        <?php } ?>
 
-                    <form action="../functions/searchbar.php" method="post">
-                        <input type="text" id="search" placeholder="Enter Patient's NIC Number" name="search" class="form-control mr-sm-2" required>
-                        <br>
-                        <input type="submit" id="submit" name="submit" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Search ID">
-                    </form>
+                        <form action="../functions/searchbar.php" method="post">
+                            <input type="text" id="search" placeholder="Enter Patient's NIC Number" name="search" class="form-control mr-sm-2" required>
+                            <br>
+                            <input type="submit" id="submit" name="submit" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Search ID">
+                        </form>
+
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-5 card p-3 text-center shadow-sm ">
+                        <h3>Search Staff</h3>
+                        <hr>
+
+                        <form action="profile.php" method="post">
+                            <input type="text" id="searched_id" placeholder="Enter NIC of the Staff Member" name="searched_id" class="form-control mr-sm-2" required>
+                            <br>
+                            <input type="submit" id="submit" name="submit" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Search ID">
+                        </form>
+
+                    </div>
 
                 </div>
             </div>
 
-            <div class="container py-1 mt-3" style="width: 30%">
+
+            <div class="container py-1 mt-3" style="width:30%">
                 <div class="card p-3 text-center shadow-sm">
-                    <h3>Search Users</h3>
-                    <hr>
+                    <form action="../handlers/registerPatientSelCat.php" method="post">
+                        <h3>Register Patient</h3>
+                        <hr>
+                        <p>Select Category</p>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id='officer' name="type" value="forces">
+                            <label for="officer" id='white-text' class="form-check-label">Officer </label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id='soldier' name="type" value="forces">
+                            <label for="Soldier" id='white-text' class="form-check-label">Soldier </label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id='family' name="type" value="family">
+                            <label for="family" id='white-text' class="form-check-label">Family </label>
+                        </div>
+                        <div>
+                            <button class="form-control btn btn-outline-primary" type="submit" name="next" data-toggle="tooltip" data-placement="bottom" title="Next Page">Next</button><br>
+                        </div>
 
-                    <form action="profile.php" method="post">
-                        <input type="text" id="searched_id" placeholder="Enter UserID" name="searched_id" class="form-control mr-sm-2" required>
-                        <br>
-                        <input type="submit" id="submit" name="submit" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Search ID">
                     </form>
-
                 </div>
+
             </div>
 
         </main>

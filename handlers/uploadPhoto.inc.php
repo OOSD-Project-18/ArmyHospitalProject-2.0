@@ -1,6 +1,5 @@
 <?php
-include 'class-autoload.inc.php';
-session_start();
+require_once('../core/initfromhandlers.php');
 $nic = $_SESSION['nic'];
 $type = $_SESSION['patientType'];
 $patientObj = new PatientContr();
@@ -24,16 +23,16 @@ if (isset($_POST['submit'])){
           move_uploaded_file($tempLocation, $fileDestination);
           $actualDestination = "profilepics/".$newFileName;
           $patientObj->addProfilePic($nic, $type, $actualDestination);
-          Redirect::to('../patientProfile.php');
+          Redirect::to('../views/patientProfile.php');
 
       } else {
-        Redirect::to('../uploadPhoto.php?error=size');
+        Redirect::to('../views/uploadPhoto.php?error=size');
       }
     } else {
-      Redirect::to('../uploadPhoto.php?error=generic');
+      Redirect::to('../views/uploadPhoto.php?error=generic');
     }
   } else {
-    Redirect::to('../uploadPhoto.php?error=type');
+    Redirect::to('../views/uploadPhoto.php?error=type');
   }
 
 

@@ -1,16 +1,15 @@
 <?php
-//include_once "../includes/class-autoload.inc.php";
 require_once '../core/initfromviews.php';
-$user=new User();
-if(!$user->isLoggedIn()){
+$user = new User();
+if (!$user->isLoggedIn()) {
     Redirect::to('../index.php');
 }
 $nic = $_SESSION['nic'];
 $patientView = new PatientView();
 $results = $patientView->showPatientInfo($nic);
 $_SESSION['info'] = $results;
-if(empty($results[0]['NIC'])){
-  Redirect::to('patientNotFound.php');
+if (empty($results[0]['NIC'])) {
+    Redirect::towithdata('home.php', 'patientError=No such patient identity present');
 }
 $_SESSION['patientType'] = $results['type'];
 $patientType = $results['type'];
@@ -34,8 +33,8 @@ $_SESSION['photoLocation'] = $photoLocation;
 
 <body>
     <?php include('_header.php') ?>
-    <main  id=main>
-  <?php
+    <main id=main>
+        <?php
         include('_sideNav.php');
         ?>
 
@@ -56,7 +55,7 @@ $_SESSION['photoLocation'] = $photoLocation;
                     echo "<img src=profilePics/default.jpg alt='Profile pic width='250px' height='250px''><br>";
                 }
                 echo "</div>"; ?>
-                <a href="uploadPhoto.php">Upload profile picture</a>
+                <a href="../views/uploadPhoto.php">Upload profile picture</a>
                 <?php if (!empty($results[0])) {
                     if ($results['type'] == 'force') {
                         $force_id = $results[0]['force_id'];
@@ -181,19 +180,5 @@ $_SESSION['photoLocation'] = $photoLocation;
         }
         ?> </div>
         <br>
-        <!-- <div class="container py-1 text-center">
-            <a class="btn btn-outline-primary" href="addDetails.php" role="button">Add details to current visit</a>
-            <a class="btn btn-outline-primary" href="oldVisits.php" role="button">View visit History</a>
-            <a class="btn btn-outline-primary" href="medicalReportForm/medicalReportDisplay1.php" role="button">Medical Report</a>
-            <a class="btn btn-outline-primary" href="drugIssueRequest.php" role="button">Issue Prescription</a>
-            <a class="btn btn-outline-primary" href="viewPrescription.php" role="button">Prescriptions</a>
-            <a class="btn btn-outline-primary" href="dischargeForm.php" role="button">Discharge Form</a>
-            <a class="btn btn-outline-primary" href="changeDoctor.php" role="button">Change Doctor</a>
-            <a class="btn btn-outline-primary" href="labtests.php" role="button">Lab Tests</a>
-
-             Add links to prescription history, lab report history, issue drug request, discharge form     </div>
-        <br><br> -->
-    </main>
 </body>
-
 </html>

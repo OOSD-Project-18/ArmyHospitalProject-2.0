@@ -1,6 +1,5 @@
 <?php
-include_once "includes/class-autoload.inc.php";
-require_once('includes/initFromPatients.php');
+require_once('../core/initfromviews.php');
 
 $user = new User();
 if (!$user->isLoggedIn()) {
@@ -9,7 +8,6 @@ if (!$user->isLoggedIn()) {
 $nic = $_SESSION['nic'];
 $patientView = new PatientView();
 $reports = $patientView->showAllLabReports($nic);
-// print_r($reports);
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

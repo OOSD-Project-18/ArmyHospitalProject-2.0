@@ -1,6 +1,5 @@
     <?php
-        include_once 'class-autoload.inc.php';
-
+      require_once('../core/initfromhandlers.php');
       if (isset($_POST['submit'])) {
         $force_id = $_POST["force_id"];
         $force = $_POST["force"];
@@ -17,18 +16,18 @@
         $mobile = $_POST["mobile"];
 
         if (empty($force) || empty($first) || empty($relation) || empty($last) || empty($gender) || empty($nic) || empty($force_id) || empty($email) || empty($dob) || empty($height) || empty($weight) || empty($address) || empty($mobile)) {
-          header("Location: ../familypatientsignup.php?signup=empty");
+            Redirect::to('../views/familypatientsignup.php');
         } else {
           if(!preg_match("/^[a-zA-Z]*$/", $force) || !preg_match("/^[a-zA-Z]*$/", $relation) || !preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last)){
-            header("Location: ../familypatientsignup.php?signup=char");
+            header("Location: ../views/familypatientsignup.php?signup=char");//make changes using register handler for user 
           }else{
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-              header("Location: ../familypatientsignup.php?signup=invalidemail");
+              header("Location: ../views/familypatientsignup.php?signup=invalidemail");
             }else{
               $patientContrObject = new PatientContr();
               $patientContrObject->createFamilyPatient($force_id, $force, $relation, $first, $last, $nic, $gender, $email, $dob, $height, $weight, $address, $mobile);
 
-              header("Location: ../familypatientsignup.php?signup=success");
+              header("Location: ../views/familypatientsignup.php?signup=success");
             }
           }
         }

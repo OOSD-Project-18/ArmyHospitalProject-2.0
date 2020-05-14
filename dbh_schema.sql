@@ -1,3 +1,4 @@
+/* Do not install MSSQL EXTENSIONS it will show errors*/
 /*if you have foreign keys drop child first then parents*/
 
 

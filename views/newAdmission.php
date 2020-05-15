@@ -27,52 +27,66 @@ if (!$user->isLoggedIn()) {
         <div class="container py-4">
 
 
+            <?php
+            if (statusCheck::check("status") != false) {
+
+            }
+            ?>
+          
+
+
     <form action="../handlers/newAdmission.inc.php" method='POST' class="card p-3">
+
     <div class="text-center">
         <h2>Form for new admission</h2>
         </div>
         <hr>
 
     <div class="form-row">
+
       <div class="form-group col-md-6">
-        <label for="nic">NIC</label>
-        <input id='nic' type="text" name="nic" class="form-control">
+        <fieldset disabled>
+          <label for="nic">NIC</label>
+          <?php
+          $nic = $_SESSION['nic'];
+          echo '<input type="text" id="nic" class="form-control" placeholder="' . $nic . '">';
+          ?>
+        </fieldset>
+
       </div>
       <div class="form-group col-md-6">
         <label for="doa">Date of Admission</label>
-        <input id='doa' type="date" name='doa' class="form-control">
+        <input id='doa' type="date" name='doa' class="form-control" required>
       </div>
     </div>
 
     <p> Reason for admission </p>
-    <textarea rows = "5" cols = "50" name = "reason">
+    <textarea rows = "5" cols = "50" name = "reason" class="form-control" required>
     </textarea><br>
 
     <p> Medical History </p>
-    <textarea rows = "5" cols = "50" name = "history">
+    <textarea rows = "5" cols = "50" name = "history" class="form-control" required>
     </textarea><br>
 
     <p>  Any current medications? </p>
-    <textarea rows = "5" cols = "50" name = "cm">
+    <textarea rows = "5" cols = "50" name = "cm" class="form-control" required>
     </textarea><br>
 
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="doc">Doctor</label>
-        <input id='doc' type="text" name='doctor' class="form-control">
+        <input id='doc' type="text" name='doctor' class="form-control" required>
       </div>
       <div class="form-group col-md-6">
         <label for="Ward">Ward</label>
-        <input  type="text" name='ward' id='Ward' class="form-control"><br>
+        <input  type="text" name='ward' id='Ward' class="form-control" required><br>
       </div>
     </div>
     <div class="form-group text-right">
           <button type="submit" name="submit" class="btn btn-primary">Submit</button><br>
     </div>
     </form>
-    <?php
-    statusCheck::check("status");
-    ?>
+
 
   </div>
 

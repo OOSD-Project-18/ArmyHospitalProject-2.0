@@ -1,29 +1,35 @@
 <?php
 class statusCheck{
+
     public static function check($status){
+      $topsuccess = "<div class = 'text-center'>
+              <div class='alert alert-success ' role='alert'>";
+      $toperror = "<div class = 'text-center'>
+              <div class='alert alert-danger' role='alert'>";
+
+      $bottom = "</div></div>";
         if (!isset($_GET[$status])) {
-             // exit();
+             false;
         }else{
             $statusCheck = $_GET[$status];
             if ($statusCheck == "empty") {
-              echo "<p style = 'color: white;' class='error'>You did not fill in all information.</p>";
-              exit();
+              echo $toperror . "You did not fill in all information." . $bottom;
             }elseif($statusCheck == "char"){
-              echo "<p style = 'color: white;'style = 'color: white;' class='error'>You used invalid characters.</p>";
-              exit();
+              echo $toperror . "You used invalid characters." . $bottom;
             }elseif($statusCheck == "invalidemail"){
-              echo "<p style = 'color: white;' class='error'>You used invalid e-mail.</p>";
-              exit();
+              echo $toperror . "You used invalid e-mail." . $bottom;
             }elseif($statusCheck == "success"){
-              echo "<p class='success'>Successful!</p>";
+              echo $topsuccess ."Successful!" . $bottom;
             }elseif($statusCheck == "size"){
-              echo "<p style = 'color: white;' class='error'>File size is too big.</p>";
+              echo $toperror ."File size is too big." . $bottom;
             }elseif($statusCheck == "type"){
-              echo "<p style = 'color: white;' class='error'>Invalid file type.</p>";
+              echo $toperror ."Invalid file type." . $bottom;
             }elseif($statusCheck == "generic"){
-              echo "<p style = 'color: white;' class='error'>The file could not be uploaded.</p>";
+              echo $toperror ."The file could not be uploaded." . $bottom;
             }elseif($statusCheck == "error"){
-              echo "<p class='error'>The file could not be uploaded.</p>";
+              echo $toperror ."The file could not be uploaded." . $bottom;
+            }elseif($statusCheck == "dberror"){
+              echo $toperror ."Database Error" . $bottom;
             }
       }
     }

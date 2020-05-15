@@ -2,7 +2,7 @@
     include_once '../core/initfromhandlers.php';
 
     if (isset($_POST['submit'])) {
-        $nic= $_POST["nic"];
+        $nic= $_SESSION["nic"];
         $doa = $_POST["doa"];
         $reason = $_POST["reason"];
         $history = $_POST["history"];
@@ -19,7 +19,13 @@
         }else{
               $patientContrObject = new PatientContr();
               $patientContrObject-> createNewRecord($nic, $doa, $reason, $history, $cm, $doctor, $ward);
+              $patientView = new PatientView();
+              $results = $patientView->showCurrentVisit($nic);
+              if ($results[0]["doa"] == $doa){
               header("Location: ../views/newAdmission.php?status=success");
+            } else{
+              header("Location: ../views/newAdmission.php?status=dberror");
+              }
             }
         }
     }

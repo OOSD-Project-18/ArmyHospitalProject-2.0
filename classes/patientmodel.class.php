@@ -33,9 +33,9 @@ class PatientModel extends Dbh{
     //$stmt->execute([$tableName]);
     */
 
-    $sql = "INSERT INTO visits VALUES(?,?,?,?,?,?,?);";
+    $sql = "INSERT INTO visits(nic, doa, reason, history, cm, doctor, ward, Discharged) VALUES(?,?,?,?,?,?,?,?);";
     $stmt = $this->connect()->prepare($sql);
-    $stmt->execute([$nic, $doa, $reason, $history, $cm, $doctor, $ward]);
+    $stmt->execute([$nic, $doa, $reason, $history, $cm, $doctor, $ward, "No"]);
 
   }
 

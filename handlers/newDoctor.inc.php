@@ -6,4 +6,16 @@ $nic = $_SESSION['nic'];
 $patientController = new PatientContr();
 
 $patientController->changeDoctor($nic, $doctor, $doa);
-Redirect::to('../views/patientprofile.php');
+
+$patientView = new PatientView();
+$visitInfo = $patientView->showCurrentVisit($nic);
+
+if (!empty($visitInfo)) {$newdoctor = $visitInfo[0]['doctor'];}
+
+if ($newdoctor == $doctor){
+  Redirect::to('../views/patientprofile.php?status=success');
+}
+else{
+  Redirect::to('../views/patientprofile.php?status=dberror');
+
+}

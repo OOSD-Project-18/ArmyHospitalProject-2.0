@@ -8,7 +8,7 @@ $summary = $_POST['summary'];
 $patientObj = new PatientContr();
 $patientObj->addDischarge($nic, $doa, $dischargeDate, $summary);
 
-Redirect::to('../views/patientProfile.php');
+Redirect::to('../views/patientProfile.php?status=success');
 
 
  ?>

@@ -40,7 +40,7 @@ if (!$user->isLoggedIn()) {
           </div>
         </fieldset>
         <label for="dof">Date of Discharge</label>
-        <input id='dof' type="date" name="dischargeDate"><br><br>
+        <input id='dof' type="date" name="dischargeDate" class="form-control" required><br><br>
         <label for="summary">Summary upon discharge</label>
         <textarea id = 'summary' name="summary" rows="8" cols="80" class="form-control" required></textarea>
         <div class="form-group text-right">

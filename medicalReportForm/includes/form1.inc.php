@@ -1,6 +1,5 @@
 <?php
-    session_start();
-    include_once "../../includes/class-autoload.inc.php";
+    require_once '../../core/initfromMedicalReportInner.php';
     $force_id = $_POST['force_id'];
     $nic = $_POST['nic'];
     $date = $_POST['date'];

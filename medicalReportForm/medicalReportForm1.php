@@ -1,5 +1,5 @@
 <?php
-require_once '../core/initFromMedicalReport.php';
+require_once '../core/initfromMedicalReport.php';
 $user=new User();
 if(!$user->isLoggedIn()){
     Redirect::to('../index.php');

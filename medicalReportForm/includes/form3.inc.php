@@ -1,6 +1,5 @@
 <?php
-    session_start();
-    include_once "../../includes/class-autoload.inc.php";
+    require_once '../../core/initfromMedicalReportInner.php';
     $nic = $_SESSION['nic'];
     $nature = $_POST['nature'];
     $nameAndAddress = $_POST['nameAndAddress'];

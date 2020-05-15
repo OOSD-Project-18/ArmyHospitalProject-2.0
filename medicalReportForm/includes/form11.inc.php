@@ -1,6 +1,5 @@
 <?php
-  session_start();
-  include_once "../../includes/class-autoload.inc.php";
+  require_once '../../core/initfromMedicalReportInner.php';
 
   $sraroi = $_POST['sraroi'];
   $right = $_POST['right'];
@@ -16,4 +15,4 @@
 
   $_SESSION['serializedSpecialistReportObject'] = $serializedSpecialistReportObject;
 
-  header("Location: ../../includes/medicalReportFinal.inc.php");
+  header("Location: ../medicalReportFinal.inc.php");

@@ -1,6 +1,6 @@
 <?php
-include_once "../includes/class-autoload.inc.php";
-require_once '../includes/initFromPatients.php';
+require_once '../core/initfromMedicalReport.php';
+
 $user=new User();
 if(!$user->isLoggedIn()){
     Redirect::to('../index.php');
@@ -24,7 +24,7 @@ if(!$user->isLoggedIn()){
   <?php include('_header.med.php') ?>
     <main  id=main>
         <?php include('_sideNav.med.php') ?>
-    <div class="container py-4"> 
+    <div class="container py-4">
     <div class="medical-report">
       <h1>Medical Report</h1><br>
       <div class="section"><span>12</span>Specialist Reports amd Results of Investigations</div><br>
@@ -48,7 +48,7 @@ if(!$user->isLoggedIn()){
             <div class="section"><span>a</span><p><b>Initial PULHEEMS Assessment</b></p></div><br>
             <div style="overflow-x:scroll;">
             <table class='table'>
-            
+
               <tr>
                 <th>Y.O.B</th><th>P</th><th>U</th><th>L</th><th>H</th><th>E</th><th>E</th><th>M</th><th>S</th>
               </tr>
@@ -71,7 +71,7 @@ if(!$user->isLoggedIn()){
             <div class="section"><span>b</span><p><b>Service PULHEEMS Assessment</b></p></div><br>
             <div style="overflow-x:scroll;">
             <table class='table'>
-            
+
               <tr>
                 <th>Y.O.B</th><th>P</th><th>U</th><th>L</th><th>H</th><th>E</th><th>E</th><th>M</th><th>S</th>
               </tr>

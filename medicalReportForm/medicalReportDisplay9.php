@@ -2,8 +2,8 @@
   //session_start();
   include_once "classes/mentalCapacity.class.php";
   include_once "classes/upperlimbslocomotion.class.php";
-  include_once "../includes/class-autoload.inc.php";
-  require_once '../includes/initFromPatients.php';
+  require_once '../core/initfromMedicalReport.php';
+
   $user=new User();
   if(!$user->isLoggedIn()){
       Redirect::to('../index.php');
@@ -27,7 +27,7 @@
   <body>
   <?php include('_header.med.php') ?>
   <main  id=main>
-  
+
         <?php include('_sideNav.med.php') ?>
     <?php
       $results = $_SESSION['results'];

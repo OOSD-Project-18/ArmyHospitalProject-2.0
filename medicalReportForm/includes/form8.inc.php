@@ -1,6 +1,5 @@
 <?php
-  session_start();
-  include_once "../../includes/class-autoload.inc.php";
+  require_once '../../core/initfromMedicalReportInner.php';
 
   $eyesColor = $_POST['eyesColor'];
   $hairColor = $_POST['hairColor'];

@@ -1,9 +1,7 @@
 <?php
   // session_start();
-  include_once "../includes/class-autoload.inc.php";
   include_once "classes/personalHistory.class.php";
-  require_once '../includes/initFromPatients.php';
-  //session_start(); This is done by above file
+  require_once '../core/initfromMedicalReport.php';
   $user=new User();
   if(!$user->isLoggedIn()){
       Redirect::to('../index.php');
@@ -28,11 +26,14 @@
         <?php include('_sideNav.med.php') ?>
     <div class="container py-4">
     <?php
-      $nic = "982753195v"; // should get this from a session SplObjectStorage
+      $nic = $_SESSION['nic'];
 
       $patientViewObject = new PatientView();
       $results = $patientViewObject->showMedicalReport($nic);
-
+      if (empty($results)){
+      echo "<div class='alert alert-danger' role='alert'> No Medical Report Found </div>";
+      exit();
+      }
       $force_id = $results[0]['force_id'];
       $date = $results[0]['date'];
 
@@ -86,7 +87,7 @@
         <?php
 
           $data = $personalHistoryObject->getData();
-
+          // print_r($data);
           foreach ($data as $singleData) {
             switch ($singleData) {
               case 'ears':

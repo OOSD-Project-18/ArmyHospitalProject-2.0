@@ -1,6 +1,6 @@
 <?php
-include_once "class-autoload.inc.php";
-require_once 'initFromPatients.php';
+require_once '../core/initfromMedicalReport.php';
+
 $user=new User();
 if(!$user->isLoggedIn()){
     Redirect::to('../index.php');
@@ -19,18 +19,20 @@ if(!$user->isLoggedIn()){
 
   </head>
   <body id='main'>
-  <main>
+    <?php include('_header.med.php') ?>
+      <main>
+          <?php include('_sideNav.med.php') ?>
     <div class="container py-1 mt-3 pt-5 pb-5" style="width: 100%; height:100%;">
     <div class=" pt-5 pb-4"></div>
                 <div class=" card col-md-12 pt-5 pb-5">
                     <div style="text-align:center"class="m-5 pb-5" >
                         <h3 class="display-1 d-block">Successful!</h3>
-                        <a href="../patientProfile.php">Back to patient profile</a>
-                    </div> 
-                  </div>       
-      
+                        <a href="../views/patientProfile.php">Back to patient profile</a>
+                    </div>
+                  </div>
 
-      
+
+
 
     </div>
   </div>

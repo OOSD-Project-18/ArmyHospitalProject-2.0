@@ -1,6 +1,6 @@
 <?php
-include_once "../includes/class-autoload.inc.php";
-require_once '../includes/initFromPatients.php';
+require_once '../core/initfromMedicalReport.php';
+
 $user=new User();
 if(!$user->isLoggedIn()){
     Redirect::to('../index.php');
@@ -23,7 +23,7 @@ if(!$user->isLoggedIn()){
   <?php include('_header.med.php') ?>
     <main  id=main>
         <?php include('_sideNav.med.php') ?>
-    <div class="container py-4">  
+    <div class="container py-4">
     <div class="medical-report">
       <h1>Medical Report</h1><br><br>
       <div class="section"><span>4</span>Treatments at a Hospital</div>
@@ -55,18 +55,18 @@ if(!$user->isLoggedIn()){
 
                 echo '</table><br><br>
                 </div>
-                
+
                 <div class="button-section">
                   <button type="submit" name="next">Next</button>
                 </div>';
               }
             ?>
-            
+
           </div>
         </form>
       </div>
     </div>
   </div>
-  </main>  
+  </main>
   </body>
 </html>

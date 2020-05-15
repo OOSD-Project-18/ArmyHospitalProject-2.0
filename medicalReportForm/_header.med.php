@@ -23,21 +23,21 @@ if (!$user->isLoggedIn()) {
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <?php if ($data->user_imgstatus) {
                                 $uid = $data->user_uid;
-                                $imgSource = '../../staffprofileimgs/profileimg' . $uid . '.jpg'.'?rand=<?php echo rand();' ?>
+                                $imgSource = '../staffprofileimgs/profileimg' . $uid . '.jpg'.'?rand=<?php echo rand();' ?>
                                 <!--only allow jpg-->
                                 <!--profile pic-->
                                 <img src=<?php echo $imgSource ?> width="25" height="25" class="d-inline-block align-top rounded-circle" alt="profile pic">
                             <?php } else { ?>
-                                <img src="../../stylesheets/defaultprofileimg.jpg" width="25" height="25" class="d-inline-block align-top rounded-circle" alt="options">
+                                <img src="../stylesheets/defaultprofileimg.jpg" width="25" height="25" class="d-inline-block align-top rounded-circle" alt="options">
                             <?php } ?>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="../../views/home.php"><b>HOME</b></a>
-                            <a class="dropdown-item" href="../../views/update.php">Edit profile </a>
-                            <a class="dropdown-item" href="../../views/profile.php">View profile </a>
-                            <a class="dropdown-item" href="../../views/update.php">Change Password</a>
+                            <a class="dropdown-item" href="../views/home.php"><b>HOME</b></a>
+                            <a class="dropdown-item" href="../views/update.php">Edit profile </a>
+                            <a class="dropdown-item" href="../views/profile.php">View profile </a>
+                            <a class="dropdown-item" href="../views/update.php">Change Password</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="../../handlers/logout.php">Log out</a>
+                            <a class="dropdown-item" href="../handlers/logout.php">Log out</a>
                         </div>
                     </li>
                 </ul>

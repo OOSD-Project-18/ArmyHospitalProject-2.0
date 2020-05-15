@@ -9,7 +9,7 @@ $photoLocation = $photoLocation;
 ?>
 
 
-    <?php include('../css/sidebar.html') ?>
+    <?php include('../stylesheets/sidebarPatient.html')?>
 
 
     <div id="mySidebar1" class="sidebar1 text-left border-right border-primary">
@@ -35,7 +35,7 @@ $photoLocation = $photoLocation;
                 if ($photoLocation != "NULL") {
                     echo "<img src=" ."../" . $photoLocation . " alt='Profile pic' width='250px' height='250px'>";
                 } else {
-                    echo "<img src=profilePics/default.jpg alt='Profile pic width='250px' height='250px''><br>";
+                    echo "<img src=../profilePics/default.jpg alt='Profile pic width='250px' height='250px''><br>";
                 }
                 echo "<br><br></div>"; ?>
 

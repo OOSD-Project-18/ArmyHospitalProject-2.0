@@ -1,8 +1,8 @@
 <?php
   //session_start();
   include_once "classes/eyes.class.php";
-  include_once "../includes/class-autoload.inc.php";
-  require_once '../includes/initFromPatients.php';
+  require_once '../core/initfromMedicalReport.php';
+
   $user=new User();
   if(!$user->isLoggedIn()){
       Redirect::to('../index.php');

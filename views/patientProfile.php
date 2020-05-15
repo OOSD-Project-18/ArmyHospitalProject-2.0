@@ -53,9 +53,10 @@ $_SESSION['photoLocation'] = $photoLocation;
 
                 echo "<div class='text-center'>";
                 if ($photoLocation != "NULL") {
-                    echo "<img src=" . $photoLocation . " alt='Profile pic' width='250px' height='250px'>";
+                   // print_r($photoLocation);
+                    echo "<img src=" . "../".$photoLocation . " alt='Profile pic' width='250px' height='250px'>";
                 } else {
-                    echo "<img src=profilePics/default.jpg alt='Profile pic width='250px' height='250px''><br>";
+                    echo "<img src=../profilePics/default.jpg alt='Profile pic width='250px' height='250px''><br>";
                 }
                 echo "</div>"; ?>
                 <a href="../views/uploadPhoto.php">Upload profile picture</a>

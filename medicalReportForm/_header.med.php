@@ -2,19 +2,19 @@
 $user = new User();
 
 if (!$user->isLoggedIn()) {
-    Redirect::to('../../index.php');
+    Redirect::to('../index.php');
 } else {
 
     if (!$user->exists()) {
-        Redirect::to('../../includes/Errors/404.php');
+        Redirect::to('../includes/Errors/404.php');
     } else {
         $data = $user->data();
     }
 ?>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light shadow border-bottom border-primary ">
-            <a class="navbar-brand" href="../../views/home.php">
-                <img src="../../stylesheets/Army.png" width="45" height="35" class="d-inline-block align-top" alt="">
+            <a class="navbar-brand" href="../views/home.php">
+                <img src="../stylesheets/Army.png" width="45" height="35" class="d-inline-block align-top" alt="">
             </a>
             <p class="pt-1" style="letter-spacing:2;font-weight:bold;font-size:20px">SRI LANKA ARMY HOSPITAL</p>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">

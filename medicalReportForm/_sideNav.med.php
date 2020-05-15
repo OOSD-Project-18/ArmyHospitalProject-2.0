@@ -5,7 +5,7 @@ $nic = $_SESSION['nic'];
 $results = $_SESSION['info'];
 $patientType = $results['type'];
 $photoLocation = $_SESSION['photoLocation'];
-$photoLocation = "../" . $photoLocation;
+$photoLocation = $photoLocation;
 ?>
 
 
@@ -13,17 +13,17 @@ $photoLocation = "../" . $photoLocation;
 
 
     <div id="mySidebar1" class="sidebar1 text-left border-right border-primary">
-        <a href="../patientProfile.php">Profile</a>
-        <a href="../newAdmission.php">New Admission</a>
-        <a href="../addDetails.php">Edit Current Visit</a>
-        <a href="../oldVisits.php">View Visit History</a>
-        <a href="../medicalReportForm/medicalReportDisplay1.php">Medical Report</a>
-        <a href="../medicalReportForm/medicalReportForm1.php">New Medical Report</a>
-        <a href="../drugIssueRequest.php">Issue Prescription</a>
-        <a href="../viewPrescription.php">Prescriptions</a>
-        <a href="../dischargeForm.php">Discharge Form</a>
-        <a href="../changeDoctor.php">Change Doctor</a>
-        <a href="../labtests.php">Lab Tests</a>
+        <a href="../views/patientProfile.php">Profile</a>
+        <a href="../views/newAdmission.php">New Admission</a>
+        <a href="../views/addDetails.php">Edit Current Visit</a>
+        <a href="../views/oldVisits.php">View Visit History</a>
+        <a href="medicalReportDisplay1.php">Medical Report</a>
+        <a href="medicalReportForm1.php">New Medical Report</a>
+        <a href="../views/drugIssueRequest.php">Issue Prescription</a>
+        <a href="../views/viewPrescription.php">Prescriptions</a>
+        <a href="../views/dischargeForm.php">Discharge Form</a>
+        <a href="../views/changeDoctor.php">Change Doctor</a>
+        <a href="../views/labtests.php">Lab Tests</a>
     </div>
 
 
@@ -32,8 +32,8 @@ $photoLocation = "../" . $photoLocation;
                 <?php
 
                 echo "<div class='text-center'>";
-                if (!empty($photoLocation)) {
-                    echo "<img src=" . $photoLocation . " alt='Profile pic' width='250px' height='250px'>";
+                if ($photoLocation != "NULL") {
+                    echo "<img src=" ."../" . $photoLocation . " alt='Profile pic' width='250px' height='250px'>";
                 } else {
                     echo "<img src=profilePics/default.jpg alt='Profile pic width='250px' height='250px''><br>";
                 }

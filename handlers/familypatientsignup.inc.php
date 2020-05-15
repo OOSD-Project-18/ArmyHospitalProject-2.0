@@ -18,8 +18,8 @@
         if (empty($force) || empty($first) || empty($relation) || empty($last) || empty($gender) || empty($nic) || empty($force_id) || empty($email) || empty($dob) || empty($height) || empty($weight) || empty($address) || empty($mobile)) {
             Redirect::to('../views/familypatientsignup.php');
         } else {
-          if(!preg_match("/^[a-zA-Z]*$/", $force) || !preg_match("/^[a-zA-Z]*$/", $relation) || !preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last)){
-            header("Location: ../views/familypatientsignup.php?signup=char");//make changes using register handler for user 
+          if( !preg_match("/^[a-zA-Z]*$/", $relation) || !preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last)){
+            header("Location: ../views/familypatientsignup.php?signup=char");//make changes using register handler for user
           }else{
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
               header("Location: ../views/familypatientsignup.php?signup=invalidemail");

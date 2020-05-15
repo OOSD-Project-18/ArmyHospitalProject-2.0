@@ -39,8 +39,8 @@
       <form action="../includes/immunoassayRequest.inc.php" method="post">
         <div class="section"><span>1</span>Date and Lab No</div>
         <div class="inner-wrap">
-          <label>Date : </label><input type="date" name="dateOfRequest"><br><br>
-          <label>Lab No : </label><input type="number" name="labNo"><br><br>
+          <label>Date : </label><input type="date" name="dateOfRequest" required><br><br>
+          <label>Lab No : </label><input type="number" name="labNo" required><br><br>
         </div>
 
         <div class="section"><span>2</span>Personal Info</div>
@@ -50,7 +50,7 @@
             <br><br><label>Name : </label>".$patientInfo['first_name']." ".$patientInfo['last_name']."
             <br><br><label>Unit : </label>".$patientInfo['regiment']."<br><br>
 
-            <label>Age : </label><input type='number' name='age' placeholder='Ex: 30'><br><br>";
+            <label>Age : </label><input type='number' name='age' placeholder='Ex: 30' required><br><br>";
 
             if ($patientInfo['gender'] == 'male') {
               $gender  = 'Male';
@@ -62,7 +62,7 @@
 
             echo "<label>Gender : </label>".$gender."<br><br>
 
-            <label>Tel. No : </label><input type='number' name='contact' value='.$mobile.'><br><br>";
+            <label>Tel. No : </label><input type='number' name='contact' value='.$mobile.' required><br><br>";
           ?>
 
         </div>
@@ -77,34 +77,34 @@
                 <th>Date</th><th>Time</th>
               </tr>
               <tr>
-                <td><input type="date" name="dates[]"></td><td><input type="time" name="times[]"></td>
+                <td><input type="date" name="dates[]" required></td><td><input type="time" name="times[]" required></td>
               </tr>
               <tr>
-                <td><input type="date" name="dates[]"></td><td><input type="time" name="times[]"></td>
+                <td><input type="date" name="dates[]" required></td><td><input type="time" name="times[]" required></td>
               </tr>
             </table><br><br>
           </div>
 
-          <label>Ward : </label><input type="number" name="ward"><br><br>
+          <label>Ward : </label><input type="number" name="ward" required><br><br>
 
-          <label>Test Requested :</label><br>  <div class="section"><span>*</span></div> <textarea name="reqTests[]" rows="1" cols="50"></textarea><br>
-          <div class="section"><span>*</span></div> <textarea name="reqTests[]" rows="1" cols="50"></textarea><br>
-          <div class="section"><span>*</span></div> <textarea name="reqTests[]" rows="1" cols="50"></textarea><br><br><br>
+          <label>Test Requested :</label><br>  <div class="section"><span>*</span></div> <textarea name="reqTests[]" rows="1" cols="50" required></textarea><br>
+          <div class="section"><span>*</span></div> <textarea name="reqTests[]" rows="1" cols="50" required></textarea><br>
+          <div class="section"><span>*</span></div> <textarea name="reqTests[]" rows="1" cols="50" required></textarea><br><br><br>
 
-          <label>Relevent Clinic Notes : </label><textarea name="clinicNotes" rows="5" cols="50"></textarea><br><br>
-          <label>Diagnosis : </label><textarea name="diagnosis" rows="3" cols="50"></textarea><br><br>
-          <label>Current Treatment : </label><textarea name="currentTreatment" rows="3" cols="50"></textarea><br><br>
+          <label>Relevent Clinic Notes : </label><textarea name="clinicNotes" rows="5" cols="50" required></textarea><br><br>
+          <label>Diagnosis : </label><textarea name="diagnosis" rows="3" cols="50" required></textarea><br><br>
+          <label>Current Treatment : </label><textarea name="currentTreatment" rows="3" cols="50" required></textarea><br><br>
 
           <div class="table">
             <table>
               <tr>
-                <th>For Follow - up patients only</th><td><textarea name="tableData[]" rows="1" cols="50"></textarea></td>
+                <th>For Follow - up patients only</th><td><textarea name="tableData[]" rows="1" cols="50" required></textarea></td>
               </tr>
               <tr>
-                <th>Special Serial No. of patients</th><td><textarea name="tableData[]" rows="1" cols="50"></textarea></td>
+                <th>Special Serial No. of patients</th><td><textarea name="tableData[]" rows="1" cols="50" required></textarea></td>
               </tr>
               <tr>
-                <th>Previous test results</th><td><textarea name="tableData[]" rows="1" cols="50"></textarea></td>
+                <th>Previous test results</th><td><textarea name="tableData[]" rows="1" cols="50" required></textarea></td>
               </tr>
             </table>
 
@@ -113,10 +113,10 @@
                 <th>Test</th><th>Value</th><th>Date</th>
               </tr>
               <tr>
-                <td><textarea name="test[]" rows="1" cols="50"></textarea></td><td><textarea name="value[]" rows="1" cols="50"></textarea></td><td><input type='date' name='date[]'></td>
+                <td><textarea name="test[]" rows="1" cols="50" required></textarea></td><td><textarea name="value[]" rows="1" cols="50" required></textarea></td><td><input type='date' name='date[]' required></td>
               </tr>
               <tr>
-                <td><textarea name="test[]" rows="1" cols="50"></textarea></td><td><textarea name="value[]" rows="1" cols="50"></textarea></td><td><input type='date' name='date[]'></td>
+                <td><textarea name="test[]" rows="1" cols="50" required></textarea></td><td><textarea name="value[]" rows="1" cols="50" required></textarea></td><td><input type='date' name='date[]' required></td>
               </tr>
             </table><br><br>
           </div>

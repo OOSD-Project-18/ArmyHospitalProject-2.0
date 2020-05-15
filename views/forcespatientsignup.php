@@ -31,64 +31,64 @@ if (!$user->isLoggedIn()) {
                     </div>
                     <div class="form-row">
                         <div class="col">
-                            <input type="text" name="force" class="form-control" placeholder="Force"><br>
+                            <input type="text" name="force" class="form-control" placeholder="Force" required><br>
                         </div>
                         <div class="col">
-                            <input type="text" name="force_id" class="form-control" placeholder="Force ID"><br>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="col">
-                            <input type="text" name="first" class="form-control" placeholder="First Name"><br>
-                        </div>
-                        <div class="col">
-                            <input type="text" name="last" class="form-control" placeholder="Last Name"><br>
+                            <input type="text" name="force_id" class="form-control" placeholder="Force ID"  required><br>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="col">
-                            <input type="text" name="nic" class="form-control" placeholder="NIC"><br>
+                            <input type="text" name="first" class="form-control" placeholder="First Name" required><br>
                         </div>
                         <div class="col">
-                            <input type="date" name="dob" class="form-control" placeholder="Date of Birth"><br>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="col">
-                            <input type="text" name="regiment" class="form-control" placeholder="Regiment"><br>
-                        </div>
-                        <div class="col">
-                            <input type="text" name="rank" class="form-control" placeholder="Rank"><br>
+                            <input type="text" name="last" class="form-control" placeholder="Last Name" required><br>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="col">
-                            <input type="text" name="email" class="form-control" placeholder="E-mail"><br>
+                            <input type="text" name="nic" class="form-control" placeholder="NIC" required><br>
                         </div>
                         <div class="col">
-                            <input type="text" name="address" class="form-control" placeholder="Address"><br>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="col">
-                            <input type="text" name="height" class="form-control" placeholder="Height"><br>
-                        </div>
-                        <div class="col">
-                            <input type="text" name="weight" class="form-control" placeholder="Weight"><br>
+                            <input type="date" name="dob" class="form-control" placeholder="Date of Birth" required><br>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="col">
-                            <input type="text" name="mobile" class="form-control" placeholder="Mobile"><br>
+                            <input type="text" name="regiment" class="form-control" placeholder="Regiment" required><br>
                         </div>
                         <div class="col">
-                            <input type="text" name="gender" class="form-control" placeholder="Gender"><br>
+                            <input type="text" name="rank" class="form-control" placeholder="Rank" required><br>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="text" name="email" class="form-control" placeholder="E-mail" required><br>
+                        </div>
+                        <div class="col">
+                            <input type="text" name="address" class="form-control" placeholder="Address" required><br>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="text" name="height" class="form-control" placeholder="Height" required><br>
+                        </div>
+                        <div class="col">
+                            <input type="text" name="weight" class="form-control" placeholder="Weight" required><br>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="text" name="mobile" class="form-control" placeholder="Mobile" required><br>
+                        </div>
+                        <div class="col">
+                            <input type="text" name="gender" class="form-control" placeholder="Gender" required><br>
                         </div>
                     </div>
 

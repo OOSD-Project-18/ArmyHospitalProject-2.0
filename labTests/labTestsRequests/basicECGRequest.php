@@ -38,7 +38,7 @@
       <form action="../includes/basicECGRequest.inc.php" method="post">
         <div class="section"><span>1</span>Date</div>
         <div class="inner-wrap">
-          <input type="date" name="dateOfRequest">
+          <input type="date" name="dateOfRequest" required>
         </div>
         <br><br>
 
@@ -50,7 +50,7 @@
             <br><br><label>Unit : </label>".$patientInfo['regiment']."<br><br>";
           ?>
 
-          <br><label>Age : </label><input type="number" name="age" placeholder="Ex: 30"><br><br>
+          <br><label>Age : </label><input type="number" name="age" placeholder="Ex: 30" required><br><br>
 
           <?php
             if ($patientInfo['gender'] == 'male') {
@@ -65,7 +65,7 @@
 
         <div class="section"><span>3</span>Medical Info</div>
         <div class="inner-wrap">
-          <label>Ward No : </label><input type="number" name="ward_no"><br>
+          <label>Ward No : </label><input type="number" name="ward_no" required><br>
           <label>Ward : </label>OPD <input type="radio" name="ward" value="OPD"> ICU <input type="radio" name="ward" value="ICU"> PULHEEMS <input type="radio" name="ward" value="PULHEEMS">
           Clinic <input type="radio" name="ward" value="Clinic"> Theater <input type="radio" name="ward" value="Theater"> Dialysis <input type="radio" name="ward" value="Dialysis">
           ETU <input type="radio" name="ward" value="ETU"><br><br>
@@ -76,7 +76,7 @@
           <label>Standard Leads : </label><input type="checkbox" name="leads[]" value="Standard Leads"><br><br> <label> L II Rhythem strip : </label><input type="checkbox" name="leads[]" value="L II Rhythem strip"><br><br> <label> Deep inspiration : </label><input type="checkbox" name="leads[]" value="Deep inspiration"><br><br>
           <label> Other Leads : </label><input type="text" name="leads[]"><br><br><br>
 
-          <label>Short History of case : </label><textarea name="shortHistory" rows="4" cols="50"></textarea><br><br><br>
+          <label>Short History of case : </label><textarea name="shortHistory" rows="4" cols="50" required></textarea><br><br><br>
         </div><br><br>
 
         <div class="section"><span>4</span>Doctor's Info</div>

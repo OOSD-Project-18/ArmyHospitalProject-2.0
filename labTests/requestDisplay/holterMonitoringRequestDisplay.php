@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <title>Holter Monitoring Request</title>
     <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
-    <!--link rel="stylesheet" href="../../css/histopathologyRequestStyle.css"-->
+    <link rel="stylesheet" href="../../css/labTestRequests.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -26,7 +26,7 @@
       $results = $patientViewObject->showLabTestsRequests($nic);
 
       $serializedHolterMonitoringRequest = $results[0]['serializedHolterMonitoringRequest'];
-    
+
       if (empty($serializedHolterMonitoringRequest)) {
         $_SESSION['h1'] = "CARDIAC INVESTIGATION UNIT";
         $_SESSION['h2'] = "Holter Monitoring Request";
@@ -44,36 +44,60 @@
 
       $holterMonitoringRequestObject = unserialize($serializedHolterMonitoringRequest);
 
-      echo "<b>Date : </b>".$holterMonitoringRequestObject->getProperty('dateOfRequest')."<br><br>";
-
-      echo "<b>Service No : </b>".$holterMonitoringRequestObject->getProperty('force_id')."<br><b>NIC : </b>".$holterMonitoringRequestObject->getProperty('nic')."<br><b>Rank : </b>".$holterMonitoringRequestObject->getProperty('rank')."
-      <br><b>Name : </b>".$holterMonitoringRequestObject->getProperty('first_name')." ".$holterMonitoringRequestObject->getProperty('last_name')."
-      <br><b>Unit : </b>".$holterMonitoringRequestObject->getProperty('unit')."<br><br>";
-
-      echo "<b>Age : </b>".$holterMonitoringRequestObject->getProperty('age')."<br><br>";
-
-      echo "<b>Gender : </b>".$holterMonitoringRequestObject->getProperty('gender')."<br><br>";
-
-      echo "<b>Ward No : </b>".$holterMonitoringRequestObject->getProperty('ward_no')."<br><br>
-
-      <b>Blood Pressure : </b>".$holterMonitoringRequestObject->getProperty('bp')."<br><br>";
-
-      echo "<b>Date of Birth : </b>".$holterMonitoringRequestObject->getProperty('dob');
-
-
-      echo "<br><br><b>Height : </b>".$holterMonitoringRequestObject->getProperty('height')."
-      <br><br><b>Weight : </b>".$holterMonitoringRequestObject->getProperty('weight');
-
-      echo "<br><br><b>Contact No : </b>".$holterMonitoringRequestObject->getProperty('contact');
-
-       echo "<br><br><b>Appointed Date : </b>".$holterMonitoringRequestObject->getProperty('appointedDate')."
-       <br><br><b>Time : </b>".$holterMonitoringRequestObject->getProperty('time')."<br><br>
-
-       <b>Short History of case : </b>".$holterMonitoringRequestObject->getProperty('shortHistory')."<br><br><br>";
-
-      echo "<b>Name of Consultant/MO : </b>".$holterMonitoringRequestObject->getProperty('consMOName')."<br><b> NIC of Consultant/MO : </b>".$holterMonitoringRequestObject->getProperty('consMOID');
-
     ?>
+
+      <div class="section"><span>1</span>Date</div>
+      <div class="inner-wrap">
+        <?php echo $holterMonitoringRequestObject->getProperty('dateOfRequest'); ?>
+      </div><br><br>
+
+      <div class="section"><span>2</span>Personal Info</div>
+      <div class="inner-wrap">
+        <?php
+          echo "<label>Regt No : </label>".$holterMonitoringRequestObject->getProperty('force_id')."<br><br><label>NIC : </label>".$holterMonitoringRequestObject->getProperty('nic')."<br><br><label>Rank : </label>".$holterMonitoringRequestObject->getProperty('rank')."
+          <br><br><label>Name : </label>".$holterMonitoringRequestObject->getProperty('first_name')." ".$holterMonitoringRequestObject->getProperty('last_name')."
+          <br><br><label>Unit : </label>".$holterMonitoringRequestObject->getProperty('unit')."<br><br>";
+        ?>
+
+        <label>Age : </label><?php echo $holterMonitoringRequestObject->getProperty('age'); ?><br><br>
+
+        <?php
+
+          echo "<label>Gender : </label>".$holterMonitoringRequestObject->getProperty('gender')."<br><br>";
+
+        ?>
+
+        <?php
+          echo "<b>Date of Birth : </b>".$holterMonitoringRequestObject->getProperty('dob');
+        ?>
+
+        <br><br><label>Height : </label><?php echo $holterMonitoringRequestObject->getProperty('height'); ?>
+        <br><br><label>Weight : </label><?php echo $holterMonitoringRequestObject->getProperty('weight'); ?>
+
+        <?php
+          echo '<br><br><label>Contact No : </label>'.$holterMonitoringRequestObject->getProperty('contact');
+         ?>
+      </div>
+
+      <div class="section"><span>3</span>Medical Info</div>
+      <div class="inner-wrap">
+        <label>Ward No : </label><?php echo $holterMonitoringRequestObject->getProperty('ward_no'); ?><br><br>
+        <label>Blood Pressure : </label><?php echo $holterMonitoringRequestObject->getProperty('bp'); ?><br><br>
+        <label>Short History of case : </label><?php echo $holterMonitoringRequestObject->getProperty('shortHistory'); ?><br><br><br>
+      </div>
+
+      <div class="section"><span>4</span>Doctor's Info</div>
+      <div class="inner-wrap">
+        <?php
+
+          echo "<label>Name of Consultant/MO : </label>".$holterMonitoringRequestObject->getProperty('consMOName')."<br><br><label> NIC of Consultant/MO : </label>".$holterMonitoringRequestObject->getProperty('consMOID');
+
+        ?>
+      </div>
+
+       <br><br><label>Appointed Date : </label><?php echo $holterMonitoringRequestObject->getProperty('appointedDate'); ?>
+       <br><br><label>Time : </label><?php echo $holterMonitoringRequestObject->getProperty('time'); ?><br><br>
+
 </div>
 </div>
 </main>

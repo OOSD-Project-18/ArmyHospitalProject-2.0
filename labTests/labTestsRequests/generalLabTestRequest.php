@@ -36,8 +36,8 @@
       ?>
 
       <form action="../includes/generalLabTestRequest.inc.php" method="post">
-        <label>LABY. REPORT No. : </label><input type="text" name="labyReportNo"><br><br>
-        <label>SENDER'S No. : </label><input type="text" name="sendersNo"><br><br>
+        <label>LABY. REPORT No. : </label><input type="text" name="labyReportNo" required><br><br>
+        <label>SENDER'S No. : </label><input type="text" name="sendersNo" required><br><br>
 
         <div class="section"><span>1</span>Personal Info</div>
         <div class="inner-wrap">
@@ -47,7 +47,7 @@
             <br><br><label>Unit : </label>".$patientInfo['regiment']."<br><br>";
           ?>
 
-          <label>Age : </label><input type="number" name="age" placeholder="Ex: 30"><br><br>
+          <label>Age : </label><input type="number" name="age" placeholder="Ex: 30" required><br><br>
 
           <?php
             if ($patientInfo['gender'] == 'male') {
@@ -61,18 +61,18 @@
 
         <div class="section"><span>2</span>Medical Info</div>
         <div class="inner-wrap">
-          <label>Ward : </label><input type="number" name="ward"><br><br>
+          <label>Ward : </label><input type="number" name="ward" required><br><br>
 
-          <textarea name="at" rows="1" cols="60" placeholder="(at)"></textarea><br><label> To Officer i/c Laboratory.</label><br><br>
-          <label>Accompanying Specimen of : </label><textarea name="specimen" rows="1" cols="60"></textarea><br><br>
-          <label>Examination Required : </label><textarea name="exam" rows="1" cols="60"></textarea><br><br>
-          <label>Points Requiring Special Investigation : </label><textarea name="spPoints" rows="3" cols="60"></textarea><br><br>
+          <textarea name="at" rows="1" cols="60" placeholder="(at)" required></textarea><br><label> To Officer i/c Laboratory.</label><br><br>
+          <label>Accompanying Specimen of : </label><textarea name="specimen" rows="1" cols="60" required></textarea><br><br>
+          <label>Examination Required : </label><textarea name="exam" rows="1" cols="60" required></textarea><br><br>
+          <label>Points Requiring Special Investigation : </label><textarea name="spPoints" rows="3" cols="60" required></textarea><br><br>
         </div>
 
         <div class="section"><span>3</span>Diagnosis</div>
         <div class="inner-wrap">
           <label>Short statement of case, including treatement and progress and references to any previous laboratory reports</label><br><br>
-          <textarea name="diagnosis" rows="5" cols="60"></textarea><br><br>
+          <textarea name="diagnosis" rows="5" cols="60" required></textarea><br><br>
         </div>
 
         <div class="section"><span>4</span>Doctor's Info</div>
@@ -87,10 +87,10 @@
           ?>
         </div>
 
-        <label>Station : </label><textarea name="station" rows="1" cols="60"></textarea><br><br>
+        <label>Station : </label><textarea name="station" rows="1" cols="60" required></textarea><br><br>
 
-        <label>Date : </label><input type="date" name="dateOfRequest"><br><br>
-        <label>Time : </label><input type="time" name="time"><br><br>
+        <label>Date : </label><input type="date" name="dateOfRequest" required><br><br>
+        <label>Time : </label><input type="time" name="time" required><br><br>
 
         <?php
           $_SESSION['nic'] = $nic;

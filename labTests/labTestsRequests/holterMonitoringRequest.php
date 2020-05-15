@@ -40,7 +40,7 @@
     <form action="../includes/HolterMonitoringRequest.inc.php" method="post">
       <div class="section"><span>1</span>Date</div>
       <div class="inner-wrap">
-        <input type="date" name="dateOfRequest">
+        <input type="date" name="dateOfRequest" required>
       </div><br><br>
 
       <div class="section"><span>2</span>Personal Info</div>
@@ -51,7 +51,7 @@
           <br><br><label>Unit : </label>".$patientInfo['regiment']."<br><br>";
         ?>
 
-        <label>Age : </label><input type="number" name="age" placeholder="Ex: 30 Yrs"><br><br>
+        <label>Age : </label><input type="number" name="age" placeholder="Ex: 30 Yrs" required><br><br>
 
         <?php
 
@@ -69,21 +69,21 @@
           echo "<b>Date of Birth : </b>".$dob;
         ?>
 
-        <br><br><label>Height : </label><input type="text" name="height">
-        <br><br><label>Weight : </label><input type="text" name="weight">
+        <br><br><label>Height : </label><input type="text" name="height" required>
+        <br><br><label>Weight : </label><input type="text" name="weight" required>
 
         <?php
           $mobile = $patientInfo['mobile'];
 
-          echo '<br><br><label>Contact No : </label><input type="number" name="contact" value='.$mobile.'>';
+          echo '<br><br><label>Contact No : </label><input type="number" name="contact" value='.$mobile.' required>';
          ?>
       </div>
 
       <div class="section"><span>3</span>Medical Info</div>
       <div class="inner-wrap">
-        <label>Ward No : </label><input type="number" name="ward_no"><br><br>
-        <label>Blood Pressure : </label><input type="number" name="bp"><br><br>
-        <label>Short History of case : </label><textarea name="shortHistory" rows="4" cols="50"></textarea><br><br><br>
+        <label>Ward No : </label><input type="number" name="ward_no" required><br><br>
+        <label>Blood Pressure : </label><input type="number" name="bp" required><br><br>
+        <label>Short History of case : </label><textarea name="shortHistory" rows="4" cols="50" required></textarea><br><br><br>
       </div>
 
       <div class="section"><span>4</span>Doctor's Info</div>
@@ -97,8 +97,8 @@
         ?>
       </div>
 
-       <br><br><label>Appointed Date : </label><input type="date" name="appointedDate">
-       <br><br><label>Time : </label><input type="time" name="time"><br><br>
+       <br><br><label>Appointed Date : </label><input type="date" name="appointedDate" required>
+       <br><br><label>Time : </label><input type="time" name="time" required><br><br>
 
 
 

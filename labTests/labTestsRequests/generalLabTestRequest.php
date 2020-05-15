@@ -27,7 +27,7 @@
       <h1>ARMY HOSPITAL</h1>
       <h2>Request for Laboratory Examination</h2>
       <?php
-        $nic = '982753295V';  // this should be given by a session object
+        $nic = $_SESSION['nic'];  // this should be given by a session object
         $patientViewObject = new PatientView();
 
         $results = $patientViewObject->showPatientInfo($nic);

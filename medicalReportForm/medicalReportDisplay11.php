@@ -107,7 +107,8 @@
              <label>Date : </label><?php echo $servicePulheems[9]; ?><br><br>
 
              <div class="button-section">
-               <button type="submit" name="finish">Finish</button>
+               <a href="../views/patientProfile.php"><button type="button" name="finish">Finish</button></a>
+
              </div>
          </form>
        </div>

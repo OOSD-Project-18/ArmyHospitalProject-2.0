@@ -1,6 +1,6 @@
 <?php
   require_once '../../core/initfromLabTestsInner.php';
-  
+
   $user=new User();
   if(!$user->isLoggedIn()){
       Redirect::to('../../index.php');
@@ -28,7 +28,7 @@
       <h1>Army Hospital</h1>
       <h2>X Ray Request</h2>
       <?php
-        $nic = '982753295V';  // this should be given by a session object
+        $nic = $_SESSION['nic'];  // this should be given by a session object
         $patientViewObject = new PatientView();
 
         $results = $patientViewObject->showPatientInfo($nic);

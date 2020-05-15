@@ -30,7 +30,7 @@ if (!$user->isLoggedIn()) {
                 <h1>CARDIAC INVESTIGATION UNIT</h1>
                 <h2>ABP Monitoring Request</h2>
                 <?php
-                $nic = '982753295V';  // this should be given by a session object
+                $nic = $_SESSION['nic'];  // this should be given by a session object
                 $patientViewObject = new PatientView();
 
                 $results = $patientViewObject->showPatientInfo($nic);

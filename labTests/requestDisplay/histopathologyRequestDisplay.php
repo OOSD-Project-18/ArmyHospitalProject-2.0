@@ -20,19 +20,19 @@
 
   </head>
   <body>
-  
+
     <?php
-        $nic = '982753295V';  // this should be given by a session object
+        $nic = $_SESSION['nic'];  // this should be given by a session object
         $patientViewObject = new PatientView();
 
         $results = $patientViewObject->showLabTestsRequests($nic);
 
         $serializedHistopathologyRequest = $results[0]['serializedHistopathologyRequest'];
-    
+
         if (empty($serializedHistopathologyRequest)) {
           $_SESSION['h1'] = "DEPARTMENT OF HISTOPATHOLOGY";
           $_SESSION['h2'] = "Request Form for Histopathology / FNAC";
-          header("Location: ../noRecords.php");
+          header("Location: noRecords.php");
         }
 
         $histopathologyRequestObject = unserialize($serializedHistopathologyRequest);
@@ -40,7 +40,7 @@
         $details = $histopathologyRequestObject->getProperty('details');
 
       ?>
-    
+
   <?php include('../_header.lab.php') ?>
     <main  id=main>
         <?php include('../_sideNav.lab.php') ?>

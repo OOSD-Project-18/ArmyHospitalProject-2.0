@@ -20,17 +20,17 @@
   </head>
   <body>
     <?php
-        $nic = '982753295V';  // this should be given by a session object
+        $nic = $_SESSION['nic'];  // this should be given by a session object
         $patientViewObject = new PatientView();
 
         $results = $patientViewObject->showLabTestsRequests($nic);
 
         $serializedXRayRequest = $results[0]['serializedXRayRequest'];
-    
+
         if (empty($serializedXRayRequest)) {
           $_SESSION['h1'] = "Army Hospital";
           $_SESSION['h2'] = "X Ray Request";
-          header("Location: ../noRecords.php");
+          header("Location: noRecords.php");
         }
 
         $xRayRequestObject = unserialize($serializedXRayRequest);

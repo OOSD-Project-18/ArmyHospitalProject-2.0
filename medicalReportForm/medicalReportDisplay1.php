@@ -87,7 +87,7 @@
         <?php
 
           $data = $personalHistoryObject->getData();
-          // print_r($data);
+          if (!empty($data)){
           foreach ($data as $singleData) {
             switch ($singleData) {
               case 'ears':
@@ -108,6 +108,7 @@
                 break;
             }
           }
+        }
 
           $_SESSION['results'] = $results;
        ?>

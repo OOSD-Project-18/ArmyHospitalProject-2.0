@@ -50,19 +50,20 @@ if (!$user->isLoggedIn()) {
                     <a class='card-link' href="../labTests/requestDisplay/xRayRequestDisplay.php">X-Ray</a>
                 </div>
                 <div class="card p-3 text-center">
+
                     <h4 class='card-title'>Upload Lab Test Report</h4>
                     <hr>
                     <form action="../handlers/uploadLabReport.inc.php" method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <input class="form-control" type="date" name="day">
+                            <input class="form-control" type="date" name="day" required>
                         </div>
 
                         <div class="custom-file">
-                            <input type="file" name="image" class="custom-file-input" id="customFile">
+                            <input type="file" name="image" class="custom-file-input" id="customFile" required>
                             <label class="custom-file-label text-left" for="customFile">Choose file</label>
                         </div>
                         <br><br>
-                        <select class="custom-select" name="testType">
+                        <select class="custom-select" name="testType" >
                             <option selected>Select Lab Test</option>
                             <option value="ABP">ABP Monitoring</option>
                             <option value="ECG">Basic ECG</option>
@@ -76,10 +77,10 @@ if (!$user->isLoggedIn()) {
                         <button class="btn btn-primary" type="submit" name="upload">Upload</button>
                     </form>
                     <br>
-
                     <?php
                     statusCheck::check("status");
                     ?>
+
                 </div>
 
 

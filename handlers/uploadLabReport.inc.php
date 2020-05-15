@@ -26,9 +26,12 @@ if (isset($_POST['upload'])){
           $patient->uploadReport($nic, $day, $testType, $image_base64);
           Redirect::to("../views/labtests.php?status=success");
         }
-
+        Redirect::to("../views/labtests.php?status=size");
       }
-}
+      Redirect::to("../views/labtests.php?status=type");
+    }
+    Redirect::to("../views/labtests.php?status=empty");
+
 }
 }
 Redirect::to("../views/labtests.php?status=error");

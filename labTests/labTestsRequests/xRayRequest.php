@@ -39,7 +39,7 @@
       <form action="../includes/xRayRequest.inc.php" method="post">
         <div class="section"><span>1</span>Date</div>
         <div class="inner-wrap">
-          <input type="date" name="dateOfRequest"><br><br>
+          <input type="date" name="dateOfRequest" required><br><br>
         </div>
 
         <div class="section"><span>2</span>Personal Info</div>
@@ -50,13 +50,13 @@
             <br><br><label>Unit / Ship / A.F.Stn. : </label>".$patientInfo['regiment']."<br><br>";
           ?>
 
-          <label>Age : </label><input type="number" name="age" placeholder="Ex: 30"><br><br>
+          <label>Age : </label><input type="number" name="age" placeholder="Ex: 30" required><br><br>
         </div>
 
         <div class="section"><span>3</span>Medical Info</div>
         <div class="inner-wrap">
-          <label>Part to be X-Rayed : </label><textarea name="xRayPart" rows="1" cols="60"></textarea><br><br>
-          <label>Short History of Case (To be completed by M.O.I. / c case) : </label><textarea name="shortHistory" rows="5" cols="60"></textarea><br><br>
+          <label>Part to be X-Rayed : </label><textarea name="xRayPart" rows="1" cols="60" required></textarea><br><br>
+          <label>Short History of Case (To be completed by M.O.I. / c case) : </label><textarea name="shortHistory" rows="5" cols="60" required></textarea><br><br>
         </div>
 
         <div class="section"><span>4</span>Doctor's Info</div>

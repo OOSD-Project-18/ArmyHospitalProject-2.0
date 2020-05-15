@@ -39,7 +39,7 @@
       <form action="../includes/immunoassayRequest.inc.php" method="post">
         <div class="section"><span>1</span>Date and Lab No</div>
         <div class="inner-wrap">
-          <label>Date : </label><input type="date" name="date"><br><br>
+          <label>Date : </label><input type="date" name="dateOfRequest"><br><br>
           <label>Lab No : </label><input type="number" name="labNo"><br><br>
         </div>
 
@@ -57,6 +57,9 @@
             }else {
               $gender = 'Female';
             }
+
+            $mobile = $patientInfo['mobile'];
+
             echo "<label>Gender : </label>".$gender."<br><br>
 
             <label>Tel. No : </label><input type='number' name='contact' value='.$mobile.'><br><br>";

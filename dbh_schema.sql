@@ -14,6 +14,13 @@ DROP TABLE IF EXISTS family_patients;
 
 DROP TABLE IF EXISTS visits;
 
+DROP TABLE IF EXISTS lab_reports;
+
+DROP TABLE IF EXISTS lab_tests_requests;
+
+DROP TABLE IF EXISTS medical_report_info;
+
+DROP TABLE IF EXISTS prescriptions;
 
 
 
@@ -69,7 +76,7 @@ FOREIGN KEY (user_id) REFERENCES users(user_uid)
 #table to hold the details of patients who are military personnel
  CREATE TABLE forces_patients (
     force_id VARCHAR(32) NOT NULL,
-	`force` VARCHAR(32) NOT NULL,
+    `force` VARCHAR(32) NOT NULL,
     first_name VARCHAR(32) NOT NULL,
     last_name VARCHAR(32) NOT NULL,
     NIC VARCHAR(20) NOT NULL,
@@ -90,7 +97,7 @@ FOREIGN KEY (user_id) REFERENCES users(user_uid)
 #table to hold the details of patients who are family members of a military personnel
 CREATE TABLE family_patients (
     force_id VARCHAR(20) NOT NULL,
-	 `force` VARCHAR(32) NOT NULL,
+    `force` VARCHAR(32) NOT NULL,
     relation VARCHAR(32) NOT NULL,
     first_name VARCHAR(32) NOT NULL,
     last_name VARCHAR(32) NOT NULL,
@@ -109,11 +116,11 @@ CREATE TABLE family_patients (
 
 #table to hold visit details of patients for each visit
 CREATE TABLE visits (
-	  id INT(255) AUTO_INCREMENT PRIMARY KEY,
+    id INT(255) AUTO_INCREMENT PRIMARY KEY,
     nic VARCHAR(16) NOT NULL ,
     doa DATE NOT NULL,
     reason MEDIUMTEXT DEFAULT NULL,
-	  history MEDIUMTEXT DEFAULT NULL,
+    history MEDIUMTEXT DEFAULT NULL,
     cm MEDIUMTEXT DEFAULT NULL,
     doctor VARCHAR(255) DEFAULT NULL,
     ward VARCHAR(255) DEFAULT NULL,
@@ -124,3 +131,57 @@ CREATE TABLE visits (
     discharge_date DATE DEFAULT NULL,
     discharge_summary MEDIUMTEXT DEFAULT NULL
  );
+ 
+ 
+ #table to hold details of lab reports
+ CREATE TABLE lab_reports (
+    id INT(255) AUTO_INCREMENT PRIMARY KEY,
+    nic VARCHAR(20) NOT NULL,
+    day DATE NOT NULL,
+    testType VARCHAR(32) NOT NULL,
+    image longblob NOT NULL
+ );
+ 
+ 
+ #table to hold details of lab test requests
+ CREATE TABLE lab_tests_requests(
+	nic VARCHAR(16) PRIMARY KEY,
+    serializedGeneralLabTestRequest TEXT DEFAULT NULL,
+    serializedBasicECGRequest TEXT DEFAULT NULL,
+	serializedABPMonitoringRequest TEXT DEFAULT NULL,
+    serializedHolterMonitoringRequest TEXT DEFAULT NULL,
+    serializedHistopathologyRequest TEXT DEFAULT NULL,
+    serializedImmunoassayRequest TEXT DEFAULT NULL,
+    serializedXRayRequest TEXT DEFAULT NULL
+);
+
+
+#table to hold details of the medical report
+CREATE TABLE medical_report_info(
+	force_id VARCHAR(32) NOT NULL PRIMARY KEY,
+    nic VARCHAR(32) NOT NULL,
+    date DATE NOT NULL,
+    serializedPersonalHistory TEXT NOT NULL,
+    serializedHospitalTreatments TEXT NOT NULL,
+    serializedOtherMedicalTreatments TEXT NOT NULL,
+    otherInfo TEXT NOT NULL,
+    summary TEXT NOT NULL,
+    serializedEyes TEXT NOT NULL,
+    serializedEarsNoseThroat TEXT NOT NULL,
+    serializedUpperLimbsLocomotion TEXT NOT NULL,
+    serializedPhysicalCapacityObject TEXT NOT NULL,
+    serializedMentalCapacity TEXT NOT NULL,
+    serializedForm10 TEXT NOT NULL,
+    serializedSpecialistReportObject TEXT NOT NULL
+    );
+ 
+ 
+ #table to hold prescriptions
+ CREATE TABLE prescriptions(
+	id INT(255) AUTO_INCREMENT PRIMARY KEY,
+	Prescription VARCHAR(255) NOT NULL,
+    nic VARCHAR(15) NOT NULL,
+    doa DATE NOT NULL,
+    prescription_issued VARCHAR(15) NOT NULL
+);
+ 

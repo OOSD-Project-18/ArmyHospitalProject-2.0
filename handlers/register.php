@@ -86,7 +86,7 @@ if (Input::exists()) {
                 echo($errors);
             }
             
-            Redirect::towithdata('../views/register.php','error_msg='.$errors.'&user_first='.Input::post('user_first').'&user_last='.Input::post('user_last').'&user_uid='.Input::post('user_uid'));
+            Redirect::towithdata('../views/register.php','error_msg='.$errors.'&user_first='.Input::post('user_first').'&user_last='.Input::post('user_last').'&user_uid='.Input::post('user_uid').'&user_email='.Input::post('user_email').'&user_mobile='.Input::post('user_mobile'));
         }
     }
 }else{

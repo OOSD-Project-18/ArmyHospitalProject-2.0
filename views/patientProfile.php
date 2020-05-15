@@ -39,6 +39,9 @@ $_SESSION['photoLocation'] = $photoLocation;
         ?>
 
         <div class="container py-4">
+          <?php
+          statusCheck::check("status");
+          ?>
             <div class="card p-3">
                 <div class="text-center">
                     <h2 class="text-cnter">

@@ -95,6 +95,7 @@ class PatientModel extends Dbh{
   }
 
   protected function setPrescription($nic, $doa, $prescription){
+    echo "1";
     $sql = "INSERT INTO prescriptions VALUES (?,?,?, 'Not issued');";
     $stmt = $this->connect()->prepare($sql);
     $stmt->execute([ $prescription,$nic, $doa]);

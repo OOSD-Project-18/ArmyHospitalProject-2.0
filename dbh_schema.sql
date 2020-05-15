@@ -8,6 +8,12 @@ DROP TABLE IF EXISTS users;
 
 DROP TABLE IF EXISTS grps;
 
+DROP TABLE IF EXISTS forces_patients;
+
+DROP TABLE IF EXISTS family_patients;
+
+DROP TABLE IF EXISTS visits;
+
 
 
 
@@ -58,3 +64,63 @@ hash VARCHAR(50) NOT NULL,
 PRIMARY KEY (id),
 FOREIGN KEY (user_id) REFERENCES users(user_uid)
 );
+
+
+#table to hold the details of patients who are military personnel
+ CREATE TABLE forces_patients (
+    force_id VARCHAR(32) NOT NULL,
+	`force` VARCHAR(32) NOT NULL,
+    first_name VARCHAR(32) NOT NULL,
+    last_name VARCHAR(32) NOT NULL,
+    NIC VARCHAR(20) NOT NULL,
+    gender VARCHAR(15) NOT NULL,
+    regiment VARCHAR(32) NOT NULL,
+    `rank` VARCHAR(32) NOT NULL,
+    email VARCHAR(64) NOT NULL,
+    date_of_birth VARCHAR(20) NOT NULL,
+    height double NOT NULL,
+    weight double NOT NULL,
+    address VARCHAR(256) NOT NULL,
+    mobile INT(11) NOT NULL,
+    photo VARCHAR(255) DEFAULT NULL,
+    PRIMARY KEY (NIC)
+ ) ;
+
+
+#table to hold the details of patients who are family members of a military personnel
+CREATE TABLE family_patients (
+    force_id VARCHAR(20) NOT NULL,
+	 `force` VARCHAR(32) NOT NULL,
+    relation VARCHAR(32) NOT NULL,
+    first_name VARCHAR(32) NOT NULL,
+    last_name VARCHAR(32) NOT NULL,
+    NIC VARCHAR(20) NOT NULL,
+    gender VARCHAR(15) NOT NULL,
+    email VARCHAR(32) NOT NULL,
+    date_of_birth VARCHAR(20) NOT NULL,
+    height float NOT NULL,
+    weight float NOT NULL,
+    address VARCHAR(100) NOT NULL,
+    mobile INT(15) NOT NULL,
+    photo VARCHAR(255) DEFAULT NULL,
+    PRIMARY KEY (NIC)
+ ); 
+
+
+#table to hold visit details of patients for each visit
+CREATE TABLE visits (
+	  id INT(255) AUTO_INCREMENT PRIMARY KEY,
+    nic VARCHAR(16) NOT NULL ,
+    doa DATE NOT NULL,
+    reason MEDIUMTEXT DEFAULT NULL,
+	  history MEDIUMTEXT DEFAULT NULL,
+    cm MEDIUMTEXT DEFAULT NULL,
+    doctor VARCHAR(255) DEFAULT NULL,
+    ward VARCHAR(255) DEFAULT NULL,
+    details MEDIUMTEXT DEFAULT NULL,
+    Prescription TEXT DEFAULT NULL,
+    prescription_issued VARCHAR(255) DEFAULT NULL,
+    Discharged VARCHAR(50) DEFAULT NULL,
+    discharge_date DATE DEFAULT NULL,
+    discharge_summary MEDIUMTEXT DEFAULT NULL
+ );

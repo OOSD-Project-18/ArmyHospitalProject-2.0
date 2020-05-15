@@ -133,8 +133,10 @@ $_SESSION['photoLocation'] = $photoLocation;
             $doctor = $visitInfo[0]['doctor'];
             $ward = $visitInfo[0]['ward'];
             $discharged = $visitInfo[0]['Discharged'];
+            if ($visitInfo[0]['details'] != NULL){
             $detailsObj = unserialize($visitInfo[0]['details']);
-            $details = $detailsObj->getDetails(); ?>
+            $details = $detailsObj->getDetails(); }
+            else{$details = "N/A";}?>
             <div class="container py-1">
                 <div class="card p-3 text-center">
                     <h2>Latest Visit</h2>

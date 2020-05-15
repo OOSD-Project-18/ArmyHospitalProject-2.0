@@ -14,7 +14,7 @@ if (!$user->isLoggedIn()) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  
+
   </head>
 
   <body>
@@ -22,8 +22,10 @@ if (!$user->isLoggedIn()) {
     <main  id="main">
         <?php include_once('_sideNav.php') ?>
         <div class="container py-4">
+          <?php
+          statusCheck::check("status");
+          ?>
 
-     
           <form action="../handlers/addDetails.inc.php" method="post" class="card p-3">
             <div class="text-center">
               <h2>Add new details Form</h2>
@@ -44,7 +46,7 @@ if (!$user->isLoggedIn()) {
             <textarea id = 'details' name="details" rows="8" cols="80" class="form-control" required></textarea>
             <div class="form-group text-right">
                         <button type="submit" name="button" class="btn btn-primary">Add</button>
-            </div>          
+            </div>
 
           </form>
 

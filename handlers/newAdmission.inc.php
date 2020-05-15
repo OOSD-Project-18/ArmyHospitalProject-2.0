@@ -17,6 +17,7 @@
                 header("Location: ../views/newAdmission.php?status=char");
 
         }else{
+
               $patientContrObject = new PatientContr();
               $patientContrObject-> createNewRecord($nic, $doa, $reason, $history, $cm, $doctor, $ward);
               $patientView = new PatientView();

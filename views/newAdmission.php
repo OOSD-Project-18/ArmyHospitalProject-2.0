@@ -25,15 +25,9 @@ if (!$user->isLoggedIn()) {
     <main  id="main">
         <?php include_once('_sideNav.php') ?>
         <div class="container py-4">
-
-
             <?php
-            if (statusCheck::check("status") != false) {
-
-            }
+            statusCheck::check("status");
             ?>
-          
-
 
     <form action="../handlers/newAdmission.inc.php" method='POST' class="card p-3">
 

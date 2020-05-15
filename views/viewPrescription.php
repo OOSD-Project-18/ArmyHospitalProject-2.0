@@ -59,7 +59,7 @@ $allPrescriptions = $patientObj->showAllPrescriptions($nic);
                             $_SESSION['prescription-' . $x] = $result['Prescription'];
                             $prescription = $prescriptionObj->getPrescription();
                             $date = $result['doa'];
-                            echo "<tr><td>$date</td><td>$prescription</td><td><button type='submit' name='button-" . $x . "'>Issue</button></td></tr>";
+                            echo "<tr><td>$date</td><td>$prescription</td><td><button type='submit' class='btn btn-primary' style='width:50%' name='button-" . $x . "'>Issue</button></td></tr>";
                             $x++;
                         }
                         $_SESSION['x'] = $x;

@@ -17,8 +17,11 @@ $photoLocation = $photoLocation;
         <a href="../views/newAdmission.php">New Admission</a>
         <a href="../views/addDetails.php">Edit Current Visit</a>
         <a href="../views/oldVisits.php">View Visit History</a>
-        <a href="medicalReportDisplay1.php">Medical Report</a>
-        <a href="medicalReportForm1.php">New Medical Report</a>
+        <?php
+         if ($patientType == "force") { echo'
+        <a href="../medicalReportForm/medicalReportDisplay1.php">Medical Report</a>
+        <a href="../medicalReportForm/medicalReportForm1.php">New Medical Report</a>';
+      } ?>
         <a href="../views/drugIssueRequest.php">Issue Prescription</a>
         <a href="../views/viewPrescription.php">Prescriptions</a>
         <a href="../views/dischargeForm.php">Discharge Form</a>

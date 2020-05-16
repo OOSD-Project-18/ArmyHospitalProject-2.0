@@ -13,12 +13,16 @@ $photoLocation = $_SESSION['photoLocation'];//to get out from views added ../
 
 
     <div id="mySidebar1" class="sidebar1 text-left border-right border-primary">
+
         <a href="patientProfile.php">Profile</a>
         <a href="newAdmission.php">New Admission</a>
         <a href="addDetails.php">Edit Current Visit</a>
         <a href="oldVisits.php">View Visit History</a>
+        <?php
+         if ($patientType == "force") { echo'
         <a href="../medicalReportForm/medicalReportDisplay1.php">Medical Report</a>
-        <a href="../medicalReportForm/medicalReportForm1.php">New Medical Report</a>
+        <a href="../medicalReportForm/medicalReportForm1.php">New Medical Report</a>';
+      } ?>
         <a href="drugIssueRequest.php">Issue Prescription</a>
         <a href="viewPrescription.php">Prescriptions</a>
         <a href="dischargeForm.php">Discharge Form</a>

@@ -13,10 +13,7 @@
         if (empty($nic) || empty($doa) || empty($reason) ||  empty($history) || empty($doctor) || empty($ward)) {
           header("Location: ../views/newAdmission.php?status=empty");
         } else {
-            if(!preg_match("/^[a-zA-Z\.]*$/", $doctor)){
-                header("Location: ../views/newAdmission.php?status=char");
 
-        }else{
 
               $patientContrObject = new PatientContr();
               $patientContrObject-> createNewRecord($nic, $doa, $reason, $history, $cm, $doctor, $ward);
@@ -29,4 +26,4 @@
               }
             }
         }
-    }
+    

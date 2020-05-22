@@ -2,7 +2,10 @@
 require_once '../core/initfromviews.php';
 $patientError = Input::get('patientError');
 $user = new SuperUser();
-
+if (!$user->hasPermission('admin')){
+    Redirect::to('../includes/Errors/404.php');
+}
+else{
 if (!$user->isLoggedIn()) {
     Redirect::to('../index.php');
 } else {
@@ -203,4 +206,5 @@ if (!$user->isLoggedIn()) {
 
 <?php
 
+}
 }

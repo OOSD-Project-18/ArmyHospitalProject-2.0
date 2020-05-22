@@ -48,8 +48,24 @@ VALUES ('Admission Officer','-');
 INSERT INTO grps(name, permissions) 
 VALUES('Administrator', '{"admin":1}');
 
-#table to hold users
+#table to hold admitted users
 CREATE TABLE users (                     
+id INT(255) AUTO_INCREMENT,     
+user_first VARCHAR(50) NOT NULL,
+user_last VARCHAR(50) NOT NULL,
+user_uid VARCHAR(50) UNIQUE NOT NULL,
+user_pwd VARCHAR(255) NOT NULL,
+user_joined DATETIME NOT NULL,
+user_group INT(10) NOT NULL, 
+user_imgstatus int(2) NOT NULL, 
+user_email VARCHAR(50) NOT NULL,
+user_mobile INT(20) NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (user_group) REFERENCES grps(id)
+);
+
+#table to hold unadmitted users
+CREATE TABLE unadmitted_users (                     
 id INT(255) AUTO_INCREMENT,     
 user_first VARCHAR(50) NOT NULL,
 user_last VARCHAR(50) NOT NULL,

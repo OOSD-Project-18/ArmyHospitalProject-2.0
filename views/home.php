@@ -3,6 +3,10 @@ require_once '../core/initfromviews.php';
 $patientError = Input::get('patientError');
 $user = new User();
 
+if ($user->hasPermission('admin')){
+  Redirect::to('homeSuperuser.php');
+}
+
 if (!$user->isLoggedIn()) {
     Redirect::to('../index.php');
 } else {
@@ -14,9 +18,6 @@ if (!$user->isLoggedIn()) {
 
     }
 
-if ($user->hasPermission('admin')){
-  Redirect::to('homeSuperuser.php');
-}
 
 //
 // if ($data->user_uid == 'admin'){

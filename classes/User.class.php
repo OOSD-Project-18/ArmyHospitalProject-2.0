@@ -33,11 +33,13 @@ class User{
 
     }
     public function create($fields=array()){
-        if(!$this->_db->insert('users',$fields)){
-            
+        if(!$this->_db->insert('unverified_users',$fields)){
+
             throw new Exception('There was a problem creating an account');
         }
     }
+
+
     public function find($user=null){
         if($user){
             $field=(is_numeric($user))? 'id':'user_uid';
@@ -46,13 +48,13 @@ class User{
                 $this->_data=$data->first();
                 return true;
             }
-        
+
         }
         return false;
 
     }
     public function login($user_uid=null,$user_pwd=null,$remember=false){
-        
+
         if(!$user_uid && !$user_pwd && $this->exists()){
             Session::put($this->_sessionName,$this->data()->id);
 
@@ -63,9 +65,9 @@ class User{
                     Session:: put($this->_sessionName,$this->data()->id);
                     if($remember){
                         $hash=Hash::unique();
-                        
+
                         $hashCheck=$this->_db->get('users_session',array('user_id','=',$this->data()->id));
-                        
+
                         if(!$hashCheck->count()){
                             $this->_db->insert('users_session',array(
                                 'user_id'=>$this->data()->id,
@@ -86,7 +88,7 @@ class User{
     }
     public function hasPermission($key){
         $group=$this->_db->get('grps',array('id','=',$this->data()->user_group));
-        
+
         if($group->count()){
             $permissions=json_decode($group->first()->permissions,true);
             if(isset($permissions) && $permissions[$key]==true){
@@ -116,5 +118,16 @@ class User{
     public function isLoggedIn(){
         return $this->_isLoggedIn;
     }
-    
+
+    public function verify($user_uid){
+        $sql = "INSERT INTO users(user_first,user_last,user_uid,user_pwd,user_joined,user_group,user_imgstatus,user_email,user_mobile) SELECT user_first,user_last,user_uid,user_pwd,user_joined,user_group,user_imgstatus,user_email,user_mobile FROM unverified_users WHERE user_uid='$user_uid';";
+        $pdo = $this->_db->getPDO();
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $this->_db->get('users', array('user_uid', '=', $user_uid));
+        if($this->_db->count()){
+          $this->_db->delete('unverified_users', array('user_uid', '=', $user_uid));
+        }
+
+    }
 }

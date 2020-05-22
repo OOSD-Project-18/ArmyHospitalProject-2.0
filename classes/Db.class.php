@@ -14,8 +14,8 @@ class Db{
             $this->_count=0;
             $dsn='mysql:host='.Config::get('mysql/host').';dbname='.Config::get('mysql/dbName');
             $this->_pdo=new PDO($dsn,Config::get('mysql/username'),Config::get('mysql/password'));
-            
-            
+
+
 
         }catch(PDOException $e){
             die($e->getMessage());
@@ -24,14 +24,14 @@ class Db{
     public static function getInstance(){//to connect to database only once
         if(!isset(self::$_instance)){
             self::$_instance=new Db();
-            
+
         }
         return self::$_instance;
 
     }
 
     public function query($sql,$params=array()){
-        
+
         $this->_error=false;
         if($this->_query=$this->_pdo->prepare($sql)){
             $x=1;
@@ -43,14 +43,14 @@ class Db{
             }
 
         }
-        
+
         if($this->_query->execute()){
             $this->_results=$this->_query->fetchAll(PDO::FETCH_OBJ);
             $this->_count=$this->_query->rowCount();
         }else{
             $this->_error=true;
         }
-        
+
         return $this;
 
     }
@@ -59,7 +59,7 @@ class Db{
     }
 
     public function action($action,$table,$where){
-        
+
         if(count($where)===3){
             $operators=array('=','.','<','>=','<=');
             $field=$where[0];
@@ -73,7 +73,7 @@ class Db{
             }
 
         }
-        
+
         return false;
 
     }
@@ -92,10 +92,10 @@ class Db{
         return $this->_results;
     }
     public function first(){
-        return $this->results()[0]; 
+        return $this->results()[0];
     }
     public function insert($table,$fields=array()){
-        
+
         $keys=array_keys($fields);
         $values=null;
         $x=1;
@@ -106,7 +106,7 @@ class Db{
             }
             $x++;
         }
-        
+
         $sql="INSERT INTO {$table}(`".implode('`,`',$keys)."`) VALUES ({$values})";
         if(!$this->query($sql,$fields)->error()){
             return true;
@@ -118,7 +118,7 @@ class Db{
     public function update($table,$id,$fields=array()){
         $set='';
         $x=1;
-        
+
         foreach($fields as $name=>$value){
             $set.="{$name}=?";
             if($x<count($fields)){
@@ -134,6 +134,8 @@ class Db{
         return false;
 
     }
-
+    public function getPDO(){
+      return $this->_pdo;
+    }
 
 }

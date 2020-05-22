@@ -1,9 +1,11 @@
 <?php
 require_once '../core/initfromhandlers.php';
-
 if (Input::exists()) {
+  print_r((Input::post('token')));
+  print_r('-----');
+  print(Session::get(Config::get('session/token_name')));
     if (Token::check(Input::post('token'))) {
-
+      echo "3";
         $validate = new Validate();
         $validation = $validate->check($_POST, array(
             'user_first' => array(
@@ -85,7 +87,7 @@ if (Input::exists()) {
                 $errors .= $error.'<br>';
                 echo($errors);
             }
-            
+
             Redirect::towithdata('../views/register.php','error_msg='.$errors.'&user_first='.Input::post('user_first').'&user_last='.Input::post('user_last').'&user_uid='.Input::post('user_uid').'&user_email='.Input::post('user_email').'&user_mobile='.Input::post('user_mobile'));
         }
     }

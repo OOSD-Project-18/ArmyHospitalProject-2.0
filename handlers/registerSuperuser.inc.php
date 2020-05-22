@@ -9,7 +9,7 @@ if ($superUser->find('admin')){
 else {
 
     try {
-        $superUser->create(array(
+        $superUser->createSuperUser(array(
             'user_first' => 'No record found',
             'user_last' => 'No record found',
             'user_pwd' => Hash::make('admin123'),

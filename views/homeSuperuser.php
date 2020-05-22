@@ -1,7 +1,7 @@
 <?php
 require_once '../core/initfromviews.php';
 $patientError = Input::get('patientError');
-$user = new User();
+$user = new SuperUser();
 
 if (!$user->isLoggedIn()) {
     Redirect::to('../index.php');
@@ -11,12 +11,7 @@ if (!$user->isLoggedIn()) {
         Redirect::to('../includes/Errors/404.php');
     } else {
         $data = $user->data();
-
     }
-
-if ($data->user_uid == 'admin'){
-  Redirect::to('homeSuperuser.php');
-}
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -59,9 +54,67 @@ if ($data->user_uid == 'admin'){
             <div>
                 <button class="openbtn" onclick="openNav()">☰</button>
             </div>
-            <div class="container py-1 mt-3" style="width: 60%">
-                <div class="row">
-                    <div class="col-md-5 card p-3 text-center shadow-sm">
+
+            <div class="container py-4" >
+              <div class="card-deck">
+                <div class="card p-3">
+                  <div class="text-center">
+                      <h4>New Users waiting for verification</h4>
+                  </div>
+                  <hr>
+                  <?php
+                  $superUser = new SuperUser();
+                  $allRecords = $superUser->getAllRecords();
+                  if (empty($allRecords)){
+                    echo '<div class="text-center"><div class="alert alert-primary" role="alert">
+                          No unverified users
+                          </div></div>';
+                  } else {
+
+
+                   ?>
+                    <table class="table table-striped">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th scope="col">NIC</th><th scope="col">Full Name</th><th scope="col">E-mail</th><th scope="col">Mobile</th><th scope="col">Date and Time of registration</th><th>Verify</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                        <?php
+
+                            foreach($allRecords as $record){
+                                $user_uid = $record->user_uid;
+                                $firstName = $record->user_first;
+                                $lastName = $record->user_last;
+                                $name = $firstName. " " . $lastName;
+                                $email = $record->user_email;
+                                $mobile = $record->user_mobile;
+                                $userjoined = $record->user_joined;
+
+                              echo "<tr><td>$user_uid</td><td>$name</td><td>$email</td><td>$mobile</td><td>$userjoined</td>
+                                    <td><form action='../handlers/verifyUser.inc.php' method=post><button type='submit' class='btn btn-success' name='verify-button'>Verify</button><input type='hidden' name='user_uid' value=$user_uid></form></td></tr>";
+
+
+                            }
+                          }
+
+                         ?>
+
+                       </tbody>
+                    </table>
+
+                  </div>
+              </div>
+              <br><br>
+
+
+
+
+
+
+                <div class="card-deck">
+                    <div class="card p-3 text-center shadow-sm">
                         <h3>Search Patient</h3>
                         <hr>
                         <?php if ($patientError) { ?>
@@ -77,8 +130,8 @@ if ($data->user_uid == 'admin'){
                         </form>
 
                     </div>
-                    <div class="col-md-2"></div>
-                    <div class="col-md-5 card p-3 text-center shadow-sm ">
+
+                    <div class="card p-3 text-center shadow-sm ">
                         <h3>Search Staff</h3>
                         <hr>
 
@@ -89,35 +142,35 @@ if ($data->user_uid == 'admin'){
                         </form>
 
                     </div>
+                    <div class="card p-3 text-center shadow-sm">
+                        <form action="../handlers/registerPatientSelCat.php" method="post">
+                            <h3>Register Patient</h3>
+                            <hr>
+                            <p>Select Category</p>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id='officer' name="type" value="forces">
+                                <label for="officer" id='white-text' class="form-check-label">Officer </label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id='soldier' name="type" value="forces">
+                                <label for="Soldier" id='white-text' class="form-check-label">Soldier </label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id='family' name="type" value="family">
+                                <label for="family" id='white-text' class="form-check-label">Family </label>
+                            </div>
+                            <div>
+                                <button class="form-control btn btn-outline-primary" type="submit" name="next" data-toggle="tooltip" data-placement="bottom" title="Next Page">Next</button><br>
+                            </div>
+
+                        </form>
+                    </div>
 
                 </div>
             </div>
 
 
             <div class="container py-1 mt-3" style="width:30%">
-                <div class="card p-3 text-center shadow-sm">
-                    <form action="../handlers/registerPatientSelCat.php" method="post">
-                        <h3>Register Patient</h3>
-                        <hr>
-                        <p>Select Category</p>
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id='officer' name="type" value="forces">
-                            <label for="officer" id='white-text' class="form-check-label">Officer </label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id='soldier' name="type" value="forces">
-                            <label for="Soldier" id='white-text' class="form-check-label">Soldier </label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id='family' name="type" value="family">
-                            <label for="family" id='white-text' class="form-check-label">Family </label>
-                        </div>
-                        <div>
-                            <button class="form-control btn btn-outline-primary" type="submit" name="next" data-toggle="tooltip" data-placement="bottom" title="Next Page">Next</button><br>
-                        </div>
-
-                    </form>
-                </div>
 
             </div>
 

@@ -45,6 +45,8 @@ INSERT INTO grps (name,permissions)
 VALUES ('Lab Staff','-');
 INSERT INTO grps (name,permissions)
 VALUES ('Admission Officer','-');
+INSERT INTO grps(name, permissions) 
+VALUES('Administrator', '{"admin":1}');
 
 #table to hold users
 CREATE TABLE users (                     

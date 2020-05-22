@@ -48,7 +48,7 @@ VALUES ('Admission Officer','-');
 INSERT INTO grps(name, permissions) 
 VALUES('Administrator', '{"admin":1}');
 
-#table to hold admitted users
+#table to hold verified users
 CREATE TABLE users (                     
 id INT(255) AUTO_INCREMENT,     
 user_first VARCHAR(50) NOT NULL,
@@ -64,8 +64,8 @@ PRIMARY KEY (id),
 FOREIGN KEY (user_group) REFERENCES grps(id)
 );
 
-#table to hold unadmitted users
-CREATE TABLE unadmitted_users (                     
+#table to hold unverified users
+CREATE TABLE unverified_users (                     
 id INT(255) AUTO_INCREMENT,     
 user_first VARCHAR(50) NOT NULL,
 user_last VARCHAR(50) NOT NULL,

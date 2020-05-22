@@ -40,7 +40,7 @@ if (!$user->isLoggedIn()) {
                             <a class="dropdown-item" href="../views/home.php"><b>HOME</b></a>
                             <a class="dropdown-item" href="../views/update.php">Edit profile </a>
                             <a class="dropdown-item" href="../views/profile.php">View profile </a>
-                            <a class="dropdown-item" href="../views/update.php">Change Password</a>
+                            <a class="dropdown-item" href="../views/update.php#changePassword">Change Password</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="../handlers/logout.php">Log out</a>
                         </div>

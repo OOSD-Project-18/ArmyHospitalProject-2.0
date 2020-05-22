@@ -73,6 +73,7 @@ if (!$user->isLoggedIn()) {
                 readURL(this);
             });
         </script>
+        <a name='updateInfo'></a>
         <div class='container py-4 mt-3'>
 
             <form action="../handlers/update.php" method="post" class="card p-3 border border-primary">
@@ -105,6 +106,7 @@ if (!$user->isLoggedIn()) {
             </form>
         </div>
 
+        <a name='changePassword'></a>
         <div class='container py-4 mt-3'>
 
             <form action="../handlers/updatepassword.php" method="POST" class="card p-3 border border-primary">

@@ -18,7 +18,7 @@ else {
             'user_group' => $id,
             'user_imgstatus'=>0,
             'user_email' => 'No record found',
-            'user_mobile' => 0000000000,
+            'user_mobile' => 0,
 
         ));
         Redirect::to('../index.php');

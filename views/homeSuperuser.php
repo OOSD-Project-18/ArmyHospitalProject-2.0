@@ -54,6 +54,24 @@ if (!$user->isLoggedIn()) {
             <div>
                 <button class="openbtn" onclick="openNav()">☰</button>
             </div>
+            <div class="container py-4 text-center">
+              <?php
+              if(Hash::verify('admin123', $data->user_pwd)) { echo '
+
+            <div class="alert alert-danger" role="alert">
+              Password has not been changed from default. <a href="update.php#changePassword" class="alert-link">Click here</a> to enter a new password.
+            </div>';
+          } if ($data->user_first == 'No record found' || $data->user_last == 'No record found' || $data->user_email == 'No record found') { echo '
+
+            <div class="alert alert-warning" role="alert">
+              User information has not been entered. <a href="update.php#updateInfo" class="alert-link">Click here</a> to enter information.
+            </div>';
+          }
+
+
+          ?>
+          </div>
+
 
             <div class="container py-4" >
               <div class="card-deck">

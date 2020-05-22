@@ -14,9 +14,14 @@ if (!$user->isLoggedIn()) {
 
     }
 
-if ($data->user_uid == 'admin'){
+if ($user->hasPermission('admin')){
   Redirect::to('homeSuperuser.php');
 }
+
+//
+// if ($data->user_uid == 'admin'){
+//   Redirect::to('homeSuperuser.php');
+// }
 ?>
     <!DOCTYPE html>
     <html lang="en">
